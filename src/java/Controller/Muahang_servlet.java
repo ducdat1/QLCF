@@ -60,12 +60,7 @@ public class Muahang_servlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 //        processRequest(request, response);
-        HttpSession session = request.getSession();
-        String cartempty = request.getParameter("cartempty").trim();
-        if(cartempty != null){
-            session.invalidate();
-            response.getWriter().print(0);
-        }
+       
     }
 
     /**

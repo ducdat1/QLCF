@@ -16,16 +16,16 @@ $(document).ready(function() {
                 }
         });
     });
-    $('#Cart_empty').click(function() {
-        console.log("-----------------");
+    $('.Cart_empty').click(function() {
         $.ajax({
-                url : 'Muahang_servlet',
-                data : {
-                    cartempty : "delete"
-                },
-                success : function(responseText) {
-                    $('#Cart_quantity').text(responseText);
-                }
+            type : "POST",
+            url : '/QLCF/cart_servlet',
+            data : {
+                cartempty : "delete"
+            },
+            success : function(responseText) {
+                $('#Cart_quantity').text(responseText);
+            }
         });
     });    
 });

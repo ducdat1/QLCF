@@ -189,40 +189,56 @@ public class ThucUong_Model {
         return null;
     }
     
-//    public ThucUong_DTO select_by_id(String result)
-//    {
-//        //ArrayList<ThucUong_DTO> list = new ArrayList<ThucUong_DTO>();
-//        ThucUong_DTO tu = null;
-//        try
-//        {
-//            String sql = "SELECT * FROM db_nhatuien WHERE id_thucuong = '"+result+"'";
-//            db.connect();
-//            stm = db.getConn().createStatement();
-//            ResultSet rs = stm.executeQuery(sql);
-//            if(rs==null)
-//                return null;
-//            else
-//            {
-//                while(rs.next())
-//                {
-//          
-//                    int id_thucuong = rs.getInt("id_thucuong");
-//                    String ten_thucuong = rs.getString("ten_thucuong");
-//                    int giaban = rs.getInt("giaban");
-//                    
-//                    tu = new ThucUong_DTO(id_thucuong,ten_thucuong,giaban);;
-//                    
-//                }
-//                
-//            }
-//        }catch(Exception e){ System.out.print(e);}
-//        return tu;
-//    }
+    public ArrayList<ThucUong_DTO> get_to_cart(String result)
+    {
+        ArrayList<ThucUong_DTO> list = new ArrayList<ThucUong_DTO>();
+        try
+        {
+            String sql = "SELECT * FROM db_thucuong WHERE id_thucuong like  '%"+result+"%' or ten_thucuong like '%"+result+"%'";
+            db.connect();
+            stm = db.getConn().createStatement();
+            ResultSet rs = stm.executeQuery(sql);
+            if(rs==null)
+                return null;
+            else
+            {
+                while(rs.next())
+                {
+                    int id_thucuong     = rs.getInt("id_thucuong");
+                    String ten_thucuong = rs.getString("ten_thucuong");
+                    int giaban          = rs.getInt("giaban");
+                    int rank            = rs.getInt("rank");;
+                    String url_image    = rs.getString("url_image");;
+                    String note         = rs.getString("note");;
+                    int discount        = rs.getInt("discount");;
+                    String size         = rs.getString("size");;
+                    String extra1       = rs.getString("extra1");;
+                    String extra2       = rs.getString("extra2");;
+                    if(discount == 1)
+                    {
+                       int gia_discount = (int)(giaban - (giaban*0.15));
+                       gia_discount = (gia_discount/1000)*1000;
+                       ThucUong_DTO tu = new ThucUong_DTO(id_thucuong,ten_thucuong,giaban,rank,url_image,note,discount,size,extra1,extra2,gia_discount);
+                       list.add(tu);
+                    }
+                    else 
+                    {
+                       int gia_discount = (int)(giaban*0.9);
+                       gia_discount = (gia_discount/1000)*1000;
+                       ThucUong_DTO tu = new ThucUong_DTO(id_thucuong,ten_thucuong,giaban,rank,url_image,note,discount,size,extra1,extra2,gia_discount);
+                       list.add(tu);
+                    }
+                }
+                return list;
+            }
+        }catch(Exception e){ System.out.print(e);}
+        return null;
+    }
     
     public boolean insert(ThucUong_DTO tu)
     {
         String sql = "insert into db_thucuong(ten_thucuong,giaban)\n" +
-"values ('"+tu.getTen_thucuong()+"','"+tu.getGiaban()+"');";
+                     "values ('"+tu.getTen_thucuong()+"','"+tu.getGiaban()+"');";
         try {
             db.connect();
             stm = db.getConn().createStatement();

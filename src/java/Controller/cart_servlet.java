@@ -88,7 +88,7 @@ public class cart_servlet extends HttpServlet {
 //                while(list_id){
 //                    
 //                }
-                list = tc_model.get_by_id(id_thucuong);
+                list = tc_model.get_to_cart(id_thucuong);
                 session.setAttribute("list_cart",list);
                 sum_cart = sum_cart + 1;
                 session.setAttribute("sum_cart",sum_cart);
@@ -112,7 +112,14 @@ public class cart_servlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+//        processRequest(request, response);
+        HttpSession session = request.getSession();
+        String cartempty = request.getParameter("cartempty").trim();
+        if(cartempty != null){
+            session.invalidate();
+            response.setContentType("text/plain");
+            response.getWriter().print(0);
+        }
     }
 
     /**
