@@ -18,7 +18,7 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author TiT_TM
+ * @author ducdat
  */
 public class Ban_servlet extends HttpServlet {
 

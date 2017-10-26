@@ -9,7 +9,7 @@ import java.sql.Date;
 
 /**
  *
- * @author TiT_TM
+ * @author ducdat
  */
 public class NhanVien_DTO {
 

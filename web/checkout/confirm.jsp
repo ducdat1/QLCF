@@ -1,8 +1,9 @@
 <%-- 
-    Document   : cart
-    Created on : Oct 24, 2017, 4:48:40 PM
-    Author     : DatND4
+    Document   : confirm
+    Created on : Oct 26, 2017, 10:52:34 AM
+    Author     : ducdat
 --%>
+
 <%@page import="Model.*"%>
 <%@page import="DTO.*"%>
 <%@page import="java.util.ArrayList"%>
@@ -14,7 +15,7 @@
         <%@include file="../Template/header.jsp" %>
 	<!--breadcrums-->
         <jsp:include page='../Template/breadcrums.jsp'>
-            <jsp:param name="from" value="Cart"/>
+            <jsp:param name="from" value="Cart Confirm"/>
         </jsp:include>
         <!--//breadcrums-->
         <div class="new">
@@ -22,14 +23,13 @@
                 <div class="title-info wow fadeInUp animated" data-wow-delay=".5s">
                         <h3 class="title">Cart <span> Information</span></h3>
                 </div>
-                <%if(session.getAttribute("list_cart") != null){%>
                 <div class="widget-shadow">
                     <div class="user-top wow fadeInUp animated" data-wow-delay=".7s">
                             <h4>Thông tin sản phẩm có trong giỏ hàng</h4>
                     </div>
                     <div class="user-body wow fadeInUp animated" data-wow-delay=".7s">
                         <table>
-                            <thead>
+                            <head>
                                 <tr>
                                     <th class="col center tbno">No.</th>
                                     <th class="col center tbdate">Ngày mua</th>
@@ -37,8 +37,8 @@
                                     <th class="col center tbprice">Giá sản phẩm</th>
                                     <th class="col center tbtype">Phương thức thanh toán</th>
                                 </tr>
-                            </thead>
-                            <tbody>
+                            </head>
+                            <body
                             <%
                                 ArrayList<ThucUong_DTO> list_tc = (ArrayList<ThucUong_DTO>)session.getAttribute("list_cart");
                                 for (ThucUong_DTO items : list_tc) {
@@ -60,28 +60,16 @@
                                     </td>
                                 </tr>
                             <%}%>
-                            </tbody>
+                            </body>
                         </table>
                     </div>
                 </div>
                 <div class="user-info">
                     <!--<h5> - OR -</h5>-->
-                    <div class="social-btn"><a href="confirm.jsp"><i>Purchase</i></a></div>
-                    <div class="social-btn sb-two"><a href="#"><i>Remove Cart</i></a></div>
-                    <div class="social-btn sb-two"><a href="/QLCF/product/menu.jsp"><i>Continue Purchase</i></a></div>
+                    <div class="social-btn"><a href="#"><i>Mua hàng</i></a></div>
+                    <div class="social-btn sb-two"><a href="#"><i>Xoá giỏ hàng</i></a></div>
+                    <div class="social-btn sb-two"><a href="#"><i>Go to product page</i></a></div>
                 </div>
-                <%} else {%>
-                <div class="widget-shadow">
-                    <div class="cart-top wow fadeInUp animated" data-wow-delay=".7s">
-                        <h4>Giỏ hàng của bạn đang trống</h4>
-                    </div>
-                </div>
-                <div class="user-info">
-                    <!--<h5> - OR -</h5>-->
-                    <div class="social-btn"><a href="/QLCF/index.jsp"><i>Go to Homepage</i></a></div>
-                    <div class="social-btn sb-two"><a href="/QLCF/product/menu.jsp"><i>Go to product page</i></a></div>
-                </div>
-                <%}%>
             </div>
         </div>
         <%@include file="../Template/footer.jsp" %>
@@ -108,3 +96,4 @@
         <script src="/QLCF/assets/js/bootstrap.js"></script>
     </body>
 </html>
+

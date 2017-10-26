@@ -733,6 +733,101 @@ h3.title span {
     margin-bottom: 0em;
 }
 /*--//gallery--*/
+/*--detail--*/
+.detail-text {
+    text-align: center;
+}
+.detail-img a img {
+	-webkit-transform: scale(1);
+	-moz-transform: scale(1);
+	-o-transform: scale(1);
+	-ms-transform: scale(1);
+        transform: scale(1);
+	transition: 0.5s all;
+	-webkit-transition: 0.5s all;
+	-moz-transition: 0.5s all;
+	-o-transition: 0.5s all;
+	-ms-transition: 0.5s all;
+	margin: 0 auto;
+}
+.detail-img:hover img {
+	-webkit-transform: scale(1.2);
+	-moz-transform: scale(1.2);
+	-o-transform: scale(1.2);
+	-ms-transform: scale(1.2);
+        transform: scale(1.2);
+	margin-top: 3em;
+}
+.detail-text h5 {
+    font-size: 2em;
+    margin: 1em 0 .3em;
+/*	transition: 0.5s all;
+	-webkit-transition: 0.5s all;
+	-moz-transition: 0.5s all;
+	-o-transition: 0.5s all;
+	-ms-transition: 0.5s all;*/
+}
+.detail-text h5 a{
+    color: #000;
+}
+.detail-text p {
+    font-size: 1.3em;
+    color: #ff590f;
+    font-weight: 700;
+	margin-bottom: 1em;
+}
+.detail-text h4.sizes {
+    font-size: 1.4em;
+    color: #000;
+    margin: 0.3em 0 0.8em;
+}
+.detail-text h4.sizes a{
+    color: #000;
+	/*transition: 0.5s all;*/
+/*	-webkit-transition: 0.5s all;
+	-moz-transition: 0.5s all;
+	-o-transition: 0.5s all;
+	-ms-transition: 0.5s all;*/
+	/*text-transform: uppercase;*/
+    font-size: .7em;
+}
+.detail-text h4.sizes a:hover{
+    color: #ff590f;
+}
+.detail-text ul li {
+    display: inline-block;
+    width: 20%;
+    text-align: center;
+}
+.detail-text ul li a span.glyphicon {
+    font-size: 1.2em;
+    color: #33414E;
+/*	-webkit-transition:.5s all;
+	transition:.5s all;
+	-moz-transition:.5s all;*/
+}
+.detail-text ul li a span.glyphicon:hover{
+    color: #ff590f;
+}
+/*.detail-text:hover {
+    height: initial;
+    margin-top: -3em;
+	transition: 0.5s all;
+	-webkit-transition: 0.5s all;
+	-moz-transition: 0.5s all;
+	-o-transition: 0.5s all;
+	-ms-transition: 0.5s all;
+}*/
+.detail-text:hover h5 {
+    /*margin: .5em 0 .3em;*/
+}
+.detail-text:hover h5 a{
+    color: #00a6d6;
+}
+.detail-text:hover p {
+    /*margin-bottom: 0em;*/
+}
+/*--//detail--*/
 /*--trend--*/
 .trend {
 	padding: 5em 0;
@@ -944,6 +1039,18 @@ h3.title span {
     display: none;
 }
 /*--//user info--*/
+/*--cart info--*/
+.cart-top {
+    padding: 1.5em;
+    text-align: center;
+}
+.cart-top h4 {
+    font-size: 1.5em;
+    color: #555;
+    line-height: 1.8em;
+    letter-spacing: 1px;
+}
+/*--//cart info--*/
 /*--new--*/
 .new{
     padding: 5em 0 0;

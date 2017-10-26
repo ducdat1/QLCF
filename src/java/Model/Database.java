@@ -12,7 +12,7 @@ import java.sql.Statement;
 
 /**
  *
- * @author TiT_TM
+ * @author ducdat
  */
 public class Database {
     private Connection conn;

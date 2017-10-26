@@ -3,6 +3,7 @@
     Created on : Oct 21, 2017, 1:30:02 PM
     Author     : ducdat
 --%>
+
 <%@page import="Model.*"%>
 <%@page import="DTO.*"%>
 <%@page import="java.util.ArrayList"%>
@@ -49,7 +50,7 @@
                                         </div>
                                 </div>
                                 <div class="new-top">
-                                    <a href="#" class="btn btn-info btn-lg" id="purchase">
+                                    <a href="javascript:;" class="btn btn-info btn-lg purchase">
                                         <input type="hidden" id="cart_order" value="<%=items.getId_thucuong()%>"/>
                                         <span class="glyphicon glyphicon-shopping-cart" ></span> Purchase online
                                     </a>
@@ -83,9 +84,11 @@
 						<p><span class="item_price"><%=items.getGiaban()%></span></p>
 						<h4 class="sizes">Sizes: <a href="#"> s</a> - <a href="#">M</a> </h4>
 						<ul>
-							<li><a href="#"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span></a></li>
-							<li><a class="item_add" href="#" id="purchase"><input type="hidden" id="cart_order" value="<%=items.getId_thucuong()%>"/><span class="glyphicon glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a></li>
-                                                        <li><a href="#"><span class="glyphicon glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a></li>
+                                                    <li><a class="item_add purchase" href="javascript:;">
+                                                            <input type="hidden" id="cart_order" value="<%=items.getId_thucuong()%>"/>
+                                                            <span class="glyphicon glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+                                                    </a></li>
+                                                    <li><a href="#"><span class="glyphicon glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a></li>
 						</ul>
 					</div>
 				</div>

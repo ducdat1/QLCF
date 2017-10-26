@@ -158,9 +158,9 @@ public class ThucUong_Model {
             {
                 while(rs.next())
                 {
-                    int id_thucuong = rs.getInt("id_thucuong");
+                    int id_thucuong     = rs.getInt("id_thucuong");
                     String ten_thucuong = rs.getString("ten_thucuong");
-                    int giaban = rs.getInt("giaban");
+                    int giaban          = rs.getInt("giaban");
                     int rank            = rs.getInt("rank");;
                     String url_image    = rs.getString("url_image");;
                     String note         = rs.getString("note");;
@@ -168,10 +168,20 @@ public class ThucUong_Model {
                     String size         = rs.getString("size");;
                     String extra1       = rs.getString("extra1");;
                     String extra2       = rs.getString("extra2");;
-                    
-                    ThucUong_DTO tu = new ThucUong_DTO(id_thucuong,ten_thucuong,giaban,rank,url_image,note,discount,size,extra1,extra2);
-                    
-                    list.add(tu);
+                    if(discount == 1)
+                    {
+                       int gia_discount = (int)(giaban - (giaban*0.15));
+                       gia_discount = (gia_discount/1000)*1000;
+                       ThucUong_DTO tu = new ThucUong_DTO(id_thucuong,ten_thucuong,giaban,rank,url_image,note,discount,size,extra1,extra2,gia_discount);
+                       list.add(tu);
+                    }
+                    else 
+                    {
+                       int gia_discount = (int)(giaban*0.9);
+                       gia_discount = (gia_discount/1000)*1000;
+                       ThucUong_DTO tu = new ThucUong_DTO(id_thucuong,ten_thucuong,giaban,rank,url_image,note,discount,size,extra1,extra2,gia_discount);
+                       list.add(tu);
+                    }
                 }
                 return list;
             }

@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author TiT_TM
+ * @author ducdat
  */
 public class ChiTietBan_Model {
 

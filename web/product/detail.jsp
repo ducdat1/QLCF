@@ -14,7 +14,9 @@
     <body>
         <%@include file="../Template/header.jsp" %>
 	<!--breadcrums-->
-        <%--<%@include file="../Template/breadcrums.jsp" %>--%>
+        <jsp:include page='../Template/breadcrums.jsp'>
+            <jsp:param name="from" value="Detail"/>
+        </jsp:include>
         <!--//breadcrums-->
         <div class="container">
             <div class="gallery">	
@@ -38,11 +40,20 @@
                             out.println(items.getextra2());
                         
                     %>
-                        
-                    <a href="detail.jsp?id=<%=items.getId_thucuong()%>"><img src="../images/thucuong/<%=items.geturl_image()%>" class="img-responsive wow flipInY animated" alt=""data-wow-delay="1.1s" /></a>
-                    <div class="gallery-text simpleCart_shelfItem">
+                    <div class=" col-md-5 detail-img">    
+                        <a href="detail.jsp?id=<%=items.getId_thucuong()%>"><img src="../images/thucuong/<%=items.geturl_image()%>" class="img-responsive wow flipInY animated" alt=""data-wow-delay="1.1s" /></a>
+                    </div>
+                    <div class=" col-md-7 detail-text">
                             <h5><a class="name" href="single.html"><%=items.getTen_thucuong()%></a></h5>
-                            <p><span class="item_price"><%=items.getGiaban()%></span></p>
+                            <% if("1".equals(items.getdiscount())){%>
+                            <div class="ofr">
+                                <p class="pric1"><del><%=items.getGiaban()%></del></p>
+                            </div>
+                            
+                            <p>-> <span class="item_price"><%=items.getgia_discount()%></span> đồng.</p>
+                            <%}else{%>
+                                <p><span class="item_price"><%=items.getGiaban()%></span> đồng.</p>
+                            <%}%>
                             <h4 class="sizes">Sizes: <a href="#"> S</a> - <a href="#">M</a> </h4>
                             <ul>
                                     <li><a href="#"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span></a></li>

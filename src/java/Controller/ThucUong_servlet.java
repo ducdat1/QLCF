@@ -19,7 +19,7 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author TiT_TM
+ * @author ducdat
  */
 public class ThucUong_servlet extends HttpServlet {
 

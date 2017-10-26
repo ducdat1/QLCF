@@ -24,7 +24,7 @@ import jxl.write.biff.RowsExceededException;
 
 /**
  *
- * @author TiT_TM
+ * @author ducdat
  */
 public class NhanVien_Model {
     Database db = new Database();

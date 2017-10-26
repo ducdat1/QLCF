@@ -14,7 +14,7 @@ import DTO.*;
 
 /**
  *
- * @author TiT_TM
+ * @author ducdat
  */
 public class Ban_Model {
     Database db = new Database();

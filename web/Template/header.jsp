@@ -50,7 +50,12 @@
                                                 <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
                                                 <span class="Cart_total"> $0.00 </span> 
                                                 (<span id="Cart_quantity" class="Cart_quantity">
-                                                    <%=session.getAttribute("sum_cart")%>                    
+                                                    <%if(session.getAttribute("sum_cart") != null){
+                                                        out.println(session.getAttribute("sum_cart"));
+                                                    }else{
+                                                        out.println("0");
+                                                    }
+                                                    %>                    
                                                 </span>) 
                                         </a></h4>
                                         <div class="cart-box">

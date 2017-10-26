@@ -5,9 +5,9 @@
  */
 
 $(document).ready(function() {
-    $('#purchase').click(function() {
+    $('.purchase').click(function() {
         $.ajax({
-                url : 'cart_servlet',
+                url : '/QLCF/cart_servlet',
                 data : {
                     idthucuong : $('#cart_order').val()
                 },
