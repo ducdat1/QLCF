@@ -1,0 +1,209 @@
+body{
+    background-image: url(../images/main-body-bg.jpg);
+    background-attachment: scroll;
+    background-origin: padding-box;
+    background-clip: border-box;
+    background-size: auto;
+    background-position: top center;
+    background-repeat: repeat repeat;
+	width: 100%;
+	margin: 0;
+}
+#banner img{
+	height: 400px;
+}
+.main{
+	width: 50%;
+	height: 350px;
+	margin: auto;
+	display: block;
+	text-align: center;
+	padding: 50px 0 0 0;
+}
+.DN{
+	width: 100%;
+	background-color: #300D0D;
+	height: 40px;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 30px;
+	color: white;
+	border-radius: 10px 10px 0 0;
+	border: thin black solid;
+}
+.main h3{
+	width: 100%;
+	background-color: #300D0D;
+	height: 40px;
+	font-size: 25px;
+	color: white;
+	border-radius: 10px 10px 0 0;
+	border: thin black solid;
+	margin: -20px 0 0 0;
+	padding: 10 0 0 0;
+}
+.contentDN{
+	margin: 0;
+	float: left;
+	width: 100%;
+	height: auto;
+	background-color: white;
+	border-radius: 0 0 10px 10px;
+	border: thin black solid;
+}
+.button1{
+	margin: -50px 0 10px -40px;
+	text-align: center;
+}
+.button1 input{
+	width: 80px;
+	height: 30px;
+	margin: 0 0 0 50px;
+}
+.cil{
+	cursor:pointer;
+	border:outset 1px #ccc;
+	border-radius: 8px;
+	background:#300D0D;
+	color:white;
+	font-weight:bold;
+}
+
+/*menu xổ ngang*/
+.menu{
+	width: 100%;
+	height: 55px;
+	background: #300D0D;
+	margin-top: -16px;
+}
+.menu ul{
+	width: 100%;
+}
+.menu ul li{
+	position: relative;
+	display: inline-block;
+	float: left;
+	width: 18.7%;
+	height: 55px;
+}
+.menu ul li a{
+	display: inline-block;
+	float: left;
+	font-size: 15pt;
+	font-weight: bold;
+	color: white;
+	width: 100%;
+	height: 70%;
+	text-align: center;
+	text-decoration: none;
+	padding: 15px 0px 0px 0px;
+}
+.menu ul li a:hover{
+	background-color: rgb(183,71,215);
+	color: cyan;
+	text-shadow: 2px 2px 2px silver;
+	width: 100%;
+	border-bottom: 5px solid cyan;
+}
+.menu ul li a:active{
+	background: lavender;
+	color: black;
+	text-shadow: none;
+}
+
+.bt{
+	margin-bottom: 10px;
+}
+.bt input{
+	width: 80px;
+	height: 30px;
+}
+/*frm_QLNV*/
+.NV{
+	width: 70%;
+	height: auto;
+	margin: auto;
+}
+.NV h2{
+	width: 100%;
+	background-color: #300D0D;
+	height: 40px;
+	font-size: 25px;
+	color: white;
+	padding: 10 0 0 0;
+	text-align: center;
+}
+.NV h4{
+	color: black;
+	padding: 0 0 0 50px;
+	font-weight: normal;
+	font-size: 14pt;
+	font-weight: bold;
+	font-style: italic;
+}
+.nv_content{
+	width: 80%;
+	height: auto;
+	margin: auto;
+}
+.out{
+	width: 100%;
+	height: 20%;
+	margin: -15px 0 0 0;
+}
+.nv_top{
+	height: auto;
+	width: auto;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+	margin: -22px 0 0 0;
+	background-color: white;
+	color: black;
+	font-size: 14pt;
+}
+.nv_bottom{
+	height: 400px;
+	width: auto;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+	background-color: white;
+	color: black;	
+}
+.contentNV{
+	float: left;
+	width: 100%;
+	height: auto;
+	background-color: white;
+	border-radius: 0 0 10px 10px;
+	border: thin black solid;
+}
+#ov{
+	text-align: center;
+}
+.P{
+	margin-left:-75px;
+}
+.nv_left{
+	width: 40%; 
+	height: auto;
+	float: left;
+	padding: 0 0 0 60px;
+}
+.nv_right{
+	width: 50%;
+	height: auto;
+	float: left;
+	margin: 0 0 0 -55px;
+}
+.row{
+	text-align: center;
+	font-size: 14pt;
+}
+.row a{
+	padding: 0 2px 0 2px;
+}
+.row p{
+	text-decoration: underline;
+	color: blue;
+	padding: 0 5px 0 5px;
+}
