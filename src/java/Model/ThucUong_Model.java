@@ -25,12 +25,12 @@ public class ThucUong_Model {
 
     
     
-    public ArrayList<ThucUong_DTO> get_all()
+    public ArrayList<ThucUong_DTO> get_all(int id)
     {
         ArrayList<ThucUong_DTO> list = new ArrayList<ThucUong_DTO>();
         try
         {
-            String sql = "SELECT * FROM db_thucuong";
+            String sql = "SELECT * FROM db_thucuong where extra2 ="+id+" limit 8";
             db.connect();
             stm = db.getConn().createStatement();
             ResultSet rs = stm.executeQuery(sql);
@@ -194,7 +194,7 @@ public class ThucUong_Model {
         ArrayList<ThucUong_DTO> list = new ArrayList<ThucUong_DTO>();
         try
         {
-            String sql = "SELECT * FROM db_thucuong WHERE id_thucuong like  '%"+result+"%' or ten_thucuong like '%"+result+"%'";
+            String sql = "SELECT * FROM db_thucuong WHERE id_thucuong = '"+result+"'";
             db.connect();
             stm = db.getConn().createStatement();
             ResultSet rs = stm.executeQuery(sql);

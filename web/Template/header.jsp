@@ -271,7 +271,7 @@
                                                                 </div>
                                                         </ul>
                                                 </li>
-                                                <li><a href="codes.html">Special Offers</a></li>
+                                                <li><a href="/QLCF/product/menu.jsp">All menu</a></li>
                                         </ul> 
                                         <div class="clearfix"> </div>
                                         <!--//navbar-collapse-->

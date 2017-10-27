@@ -22,7 +22,7 @@
                 </div>
                 <div class="gallery-info">
                     <%
-                    ArrayList<ThucUong_DTO> list_tc = new ThucUong_Model().get_all();
+                    ArrayList<ThucUong_DTO> list_tc = new ThucUong_Model().get_all(1);
                     for (ThucUong_DTO items : list_tc) {
                     %>
                         <div class="col-md-3 gallery-grid wow flipInY animated" data-wow-delay="1.1s">
@@ -51,7 +51,7 @@
                 </div>
                 <div class="gallery-info">
                     <%
-                    ArrayList<ThucUong_DTO> list_ts = new ThucUong_Model().get_all();
+                    ArrayList<ThucUong_DTO> list_ts = new ThucUong_Model().get_all(2);
                     for (ThucUong_DTO items : list_ts) {
                     %>
                         <div class="col-md-3 gallery-grid wow flipInY animated" data-wow-delay="1.1s">
@@ -80,7 +80,7 @@
                 </div>
                 <div class="gallery-info">
                     <%
-                    ArrayList<ThucUong_DTO> list_to = new ThucUong_Model().get_all();
+                    ArrayList<ThucUong_DTO> list_to = new ThucUong_Model().get_all(4);
                     for (ThucUong_DTO items : list_to) {
                     %>
                         <div class="col-md-3 gallery-grid wow flipInY animated" data-wow-delay="1.1s">

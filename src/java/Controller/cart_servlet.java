@@ -74,8 +74,8 @@ public class cart_servlet extends HttpServlet {
                 sum_cart = 0;
             }
             String id_thucuong = request.getParameter("idthucuong").trim();
-            if( ( id_thucuong == null || "".equals(id_thucuong) ) && sum_cart == 0 ){
-               session.setAttribute("sum_cart","0");
+            if( ( id_thucuong == null || "".equals(id_thucuong) ) ){
+               session.setAttribute("sum_cart",sum_cart);
                response.setContentType("text/plain");
                response.getWriter().print(sum_cart);
             }
@@ -83,12 +83,10 @@ public class cart_servlet extends HttpServlet {
             {
                 ArrayList list_id = new ArrayList();
                 list_id.add(id_thucuong);
+                
                 ThucUong_Model tc_model = new ThucUong_Model();
                 ArrayList<ThucUong_DTO> list = new ArrayList<ThucUong_DTO>();
-//                while(list_id){
-//                    
-//                }
-                list = tc_model.get_to_cart(id_thucuong);
+                list = tc_model.get_to_cart((String)list_id.get(0));
                 session.setAttribute("list_cart",list);
                 sum_cart = sum_cart + 1;
                 session.setAttribute("sum_cart",sum_cart);

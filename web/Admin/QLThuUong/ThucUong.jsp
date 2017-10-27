@@ -83,7 +83,7 @@
                             </tr>
                         </thead>
                         <%
-                            ArrayList<ThucUong_DTO> list_nv = new ThucUong_Model().get_all();
+                            ArrayList<ThucUong_DTO> list_nv = new ThucUong_Model().get_all(1);
                             for (ThucUong_DTO items : list_nv) {
                         %>
                         <tbody>
