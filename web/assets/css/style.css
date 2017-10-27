@@ -97,6 +97,8 @@ body a:hover{
 	-o-transform:rotateY(360deg);
 	-ms-transform:rotateY(360deg);
 }
+.row.content {height: 550px}
+/*--//admin--*/
 /*--header-two--*/
 .header-two-left {
     margin-top: 3.6em;

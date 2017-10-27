@@ -4,9 +4,7 @@
     Author     : ducdat
 --%>
 
-
-<%@page import="DTO.NhanVien_DTO"%>
-<%@ page contentType="text/html; charset=UTF-8" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -17,16 +15,6 @@
             </button>
             <a class="navbar-brand" href="/QLCF/Admin/index.jsp">Trang QLGV</a>
         </div>
-        <%
-                  
-                    NhanVien_DTO nv = new NhanVien_DTO();
-                    if (session.getAttribute("loged") != null) {
-                        nv = (NhanVien_DTO) session.getAttribute("loged");
-                        if (nv.getCapdo() == 2) {
-                            response.sendRedirect("/QLCF/User/index.jsp");
-                            return;
-                        }}
-                %>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="/QLCF/Admin/index.jsp">Trang Chủ</a></li>

@@ -2,13 +2,13 @@
 <%@page import="Model.*"%>
 <%@page import="DTO.*"%>
 <%@page import="java.util.ArrayList"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
     <%@include file="/Template/head_admin.jsp" %>
 
     <body>
         <%@include file="/Template/menu_admin.jsp"%>
-        <%@ page contentType="text/html; charset=UTF-8" %>
         <nav class="navbar navbar-inverse visible-xs">
             <div class="container-fluid">
                 <div class="navbar-header">

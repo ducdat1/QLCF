@@ -1,38 +1,23 @@
+<%-- 
+    Document   : ThucUong.jsp
+    Created on : Oct 27, 2017, 10:23:42 PM
+    Author     : ducdat
+--%>
 
 <%@page import="Model.*"%>
 <%@page import="DTO.*"%>
 <%@page import="java.util.ArrayList"%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
-    <%@include file="/Template/head_admin.jsp" %>
-
+    <%@include file="/Template/head_admin.jsp"%>
     <body>
         <%@include file="/Template/menu_admin.jsp"%>
-        <%@ page contentType="text/html; charset=UTF-8" %>
-        <nav class="navbar navbar-inverse visible-xs">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>                        
-                    </button>
-                    <a class="navbar-brand" href="#">Danh Mục Quản lý</a>
-                </div>
-                <div class="collapse navbar-collapse" id="myNavbar">
-                    <ul class="nav navbar-nav">
-                        <li><a href="/QLCF/Admin/QLBan/Ban.jsp"">Quản lý bàn</a></li>
-                        <li><a href="/QLCF/Admin/QLThucUong/ThucUong.jsp">Quản lý thức uống</a></li>
-                        <li><a href="/QLCF/Admin/QLNhanVien/NhanVien.jsp">Quản lý nhân viên</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
         <div class="container-fluid">
             <div class="row content">
-                <div class="col-sm-3 sidenav hidden-xs">
-                    <h2>Danh Mục Quản lý</h2>
+                <div class="col-sm-2 sidenav hidden-xs">
+                    <h2>Danh Mục</h2>
                     <ul class="nav nav-pills nav-stacked">
                         <li><a href="/QLCF/Admin/QLBan/Ban.jsp"">Quản lý bàn</a></li>
                         <li><a href="/QLCF/Admin/QLThucUong/ThucUong.jsp">Quản lý thức uống</a></li>
@@ -40,38 +25,33 @@
                     </ul><br>
                 </div>
                 <br>
-                <div class="col-sm-9">
+                <div class="col-sm-10">
+                    <div class="col-sm-6 addproduct">
+                        <form action="/QLCF/ThucUong_servlet" method="POST" role="form">
+                            <legend>Thêm nhân thức uống mới</legend>
+                            <div class="form-group">
+                                <label for="">Tên thức uống</label>
+                                <input type="text" class="form-control" name="tentu" placeholder="Thức uống">
+                                <label for="">Giá bán</label>
+                                <input type="text" class="form-control" name="giaban" placeholder="Giá bán">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Thêm mới</button>
+                        </form>
+                    </div>
+                    <div class="col-sm-6">
+                        <form action="/QLCF/ThucUong_servlet" method="POST" role="form">
+                            <legend>Tìm thức uống</legend>
 
-                    <form action="/QLCF/ThucUong_servlet" method="POST" role="form">
-                        <legend>Thêm nhân thức uống mới</legend>
-
-                        <div class="form-group">
-
-                            <label for="">Tên thức uống</label>
-                            <input type="text" class="form-control" name="tentu" placeholder="Thức uống">
-                            <label for="">Giá bán</label>
-                            <input type="text" class="form-control" name="giaban" placeholder="Giá bán">
-                            
-
-                        </div>
+                            <div class="form-group">
+                                <label for="">Nhập tên hoặc mã thức uống</label>
+                                <input type="text" class="form-control" name="search" placeholder="Input field">
+                            </div>
 
 
 
-                        <button type="submit" class="btn btn-primary">Thêm mới</button>
-                    </form>
-
-                    <form action="/QLCF/ThucUong_servlet" method="POST" role="form">
-                        <legend>Tìm thức uống</legend>
-
-                        <div class="form-group">
-                            <label for="">Nhập tên hoặc mã thức uống</label>
-                            <input type="text" class="form-control" name="search" placeholder="Input field">
-                        </div>
-
-                        
-
-                        <button type="submit" class="btn btn-primary">Tìm</button>
-                    </form>
+                            <button type="submit" class="btn btn-primary">Tìm</button>
+                        </form>
+                    </div>
                     <table class="table table-hover">
                         <thead>
                             <tr>

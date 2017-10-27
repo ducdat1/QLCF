@@ -1,3 +1,8 @@
+<%-- 
+    Document   : KetQua.jsp
+    Created on : Oct 27, 2017, 10:23:42 PM
+    Author     : ducdat
+--%>
 
 <%@page import="DTO.NhanVien_DTO"%>
 <%@page import="Model.*"%>
