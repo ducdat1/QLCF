@@ -13,3 +13,9 @@
 .addproduct{
     border-right: 1px solid gray;
 }
+.display{
+   margin-top: 15px;
+}
+img{
+   height: 50px !important;
+}

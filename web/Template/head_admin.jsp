@@ -12,6 +12,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/QLCF/assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="/QLCF/assets/css/file.css">
+  
+  <script src="/QLCF/assets/js/jquery-1.11.1.min.js"></script>
 
   <style>
     /* On small screens, set height to 'auto' for the grid */

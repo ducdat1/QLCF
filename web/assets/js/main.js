@@ -31,18 +31,32 @@ jQuery(document).ready(function($){
 		closeNav();
 	});
 
-	
-	
-	
-
-
-	
-
 	//submenu items - go back link
 	$('.go-back').on('click', function(){
 		$(this).parent('ul').addClass('is-hidden').parent('.has-children').parent('ul').removeClass('moves-out');
 	});
 
+        //page admin
+        $('html').on('load', function(){
+            $('.coffee').addClass('active');
+        });
+        $('.coffee').click(function(){
+            console.log("----------------");
+            $(this).addClass('active');
+        });
+        $('.tea').click(function(){
+             console.log("----------------");
+            $(this).addClass('active');
+        });
+        $('.snack').click(function(){
+             console.log("----------------");
+            $(this).addClass('active');
+        });
+        $('.others').click(function(){
+             console.log("----------------");
+            $(this).addClass('active');
+        });
+        //end page admin
 	function closeNav() {
 		$('.cd-nav-trigger').removeClass('nav-is-visible');
 		$('.cd-main-header').removeClass('nav-is-visible');

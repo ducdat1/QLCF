@@ -6,6 +6,7 @@
 package Model;
 
 import DTO.*;
+import java.io.File;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -22,15 +23,17 @@ public class ThucUong_Model {
     Statement stm;
     
     
-
-    
-    
     public ArrayList<ThucUong_DTO> get_all(int id)
     {
         ArrayList<ThucUong_DTO> list = new ArrayList<ThucUong_DTO>();
         try
         {
-            String sql = "SELECT * FROM db_thucuong where extra2 ="+id+" limit 8";
+            String sql;
+            if(id == 0){
+               sql = "SELECT * FROM db_thucuong";
+            }else{
+               sql = "SELECT * FROM db_thucuong where extra2 ="+id+" limit 8";
+            }
             db.connect();
             stm = db.getConn().createStatement();
             ResultSet rs = stm.executeQuery(sql);
@@ -43,14 +46,16 @@ public class ThucUong_Model {
                     int id_thucuong = rs.getInt("id_thucuong");
                     String ten_thucuong = rs.getString("ten_thucuong");
                     int giaban = rs.getInt("giaban");
-                    int rank            = rs.getInt("rank");;
-                    String url_image    = rs.getString("url_image");;
-                    String note         = rs.getString("note");;
-                    int discount        = rs.getInt("discount");;
-                    String size         = rs.getString("size");;
-                    String extra1       = rs.getString("extra1");;
-                    String extra2       = rs.getString("extra2");;
-                    
+                    int rank            = rs.getInt("rank");
+                    String url_image    = rs.getString("url_image");
+                    String note         = rs.getString("note");
+                    int discount        = rs.getInt("discount");
+                    String size         = rs.getString("size");
+                    String extra1       = rs.getString("extra1");
+                    String extra2       = rs.getString("extra2");
+                    if(url_image == null){
+                        url_image = "noimg.png";
+                    }
                     ThucUong_DTO tu = new ThucUong_DTO(id_thucuong,ten_thucuong,giaban,rank,url_image,note,discount,size,extra1,extra2);
                     
                     list.add(tu);
@@ -230,6 +235,39 @@ public class ThucUong_Model {
                     }
                 }
                 return list;
+            }
+        }catch(Exception e){ System.out.print(e);}
+        return null;
+    }
+    
+    public ThucUong_DTO select_by_id(String result)
+    {
+        try
+        {
+            String sql = "SELECT * FROM db_thucuong WHERE id_thucuong = '"+result+"'";
+            db.connect();
+            stm = db.getConn().createStatement();
+            ResultSet rs = stm.executeQuery(sql);
+            if(rs==null)
+                return null;
+            else
+            {
+                while(rs.next())
+                {
+                    int id_thucuong     = rs.getInt("id_thucuong");
+                    String ten_thucuong = rs.getString("ten_thucuong");
+                    int giaban          = rs.getInt("giaban");
+                    int rank            = rs.getInt("rank");;
+                    String url_image    = rs.getString("url_image");;
+                    String note         = rs.getString("note");;
+                    int discount        = rs.getInt("discount");;
+                    String size         = rs.getString("size");;
+                    String extra1       = rs.getString("extra1");;
+                    String extra2       = rs.getString("extra2");;
+                    ThucUong_DTO tu = new ThucUong_DTO(id_thucuong,ten_thucuong,giaban,rank,url_image,note,discount,size,extra1,extra2);
+                    return tu;
+                }
+                
             }
         }catch(Exception e){ System.out.print(e);}
         return null;
