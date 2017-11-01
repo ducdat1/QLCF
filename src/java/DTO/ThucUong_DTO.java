@@ -171,6 +171,9 @@ public class ThucUong_DTO {
      * @return the extra1
      */
     public String getextra1() {
+        if("null".equals(extra1) || null == extra1){
+            return "";
+        }
         return extra1;
     }
 

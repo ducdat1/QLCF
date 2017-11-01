@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="/QLCF/assets/css/file.css">
   
   <script src="/QLCF/assets/js/jquery-1.11.1.min.js"></script>
-
+  <script src="/QLCF/assets/js/admin.js"></script>
   <style>
     /* On small screens, set height to 'auto' for the grid */
     @media screen and (max-width: 767px) {

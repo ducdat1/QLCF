@@ -9,85 +9,58 @@
 
     <body>
         <%@include file="/Template/menu_admin.jsp"%>
-        <nav class="navbar navbar-inverse visible-xs">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>                        
-                    </button>
-                    <a class="navbar-brand" href="#">Danh Mục Quản lý</a>
-                </div>
-                <div class="collapse navbar-collapse" id="myNavbar">
-                    <ul class="nav navbar-nav">
-                        <li><a href="/QLCF/Admin/QLBan/Ban.jsp"">Quản lý bàn</a></li>
-                        <li><a href="/QLCF/Admin/QLThuUong/ThucUong.jsp">Quản lý thức uống</a></li>
-                        <li><a href="/QLCF/Admin/QLNhanVien/NhanVien.jsp">Quản lý nhân viên</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-        <div class="container-fluid">
+         <div class="container-fluid">
             <div class="row content">
-                <div class="col-sm-3 sidenav hidden-xs">
-                    <h2>Danh Mục Quản lý</h2>
-                    <ul class="nav nav-pills nav-stacked">
-                        <li><a href="/QLCF/Admin/QLBan/Ban.jsp"">Quản lý bàn</a></li>
-                        <li><a href="/QLCF/Admin/QLThuUong/ThucUong.jsp">Quản lý thức uống</a></li>
-                        <li><a href="/QLCF/Admin/QLNhanVien/NhanVien.jsp">Quản lý nhân viên</a></li>
-                    </ul><br>
-                </div>
-                <br>
-                <div class="col-sm-9">
+                <div class="col-sm-10 col-sm-offset-1">
+                    <legend>Thêm nhân viên mới</legend>
 
-                    <form action="/QLCF/NhanVien_servlet" method="POST" role="form">
-                        <legend>Thêm nhân viên mới</legend>
+                    <div class="btn-new-nv">
+                        <button type="submit" class="btn btn-primary btn-new-nv">Thêm mới nhân viên</button>
+                    </div>
+                    
+                    <div id="addnew">
+                        <form action="/QLCF/NhanVien_servlet" method="POST" role="form">
+                            <div class="form-group">
+                                <label for="">Tên nhân viên</label>
+                                <input type="text" class="form-control" name="tennv" placeholder="Tên nhân viên">
+                                <label for="">Ngày sinh</label>
+                                <input type="date" class="form-control" name="ngaysinh" placeholder="Tên nhân viên">
+                                <label for="">Số điện thoại</label>
+                                <input type="text" class="form-control" name="sdt" placeholder="Số điện thoại">
+                                <label for="">Địa chỉ</label>
+                                <input type="text" class="form-control" name="diachi" placeholder="Địa chỉ">
+                                <label for="">Lương</label>
+                                <input type="number" class="form-control" name="luong" placeholder="Lương">
+                                <label for="">Giờ làm</label>
+                                <input type="number" class="form-control" name="giolam" placeholder="Giờ làm">
+                                <label for="">Cấp độ</label>
+                                <select name="capdo" class="form-control">
+                                    <option value="1">Admin</option>
+                                    <option value="2">User</option>
+                                </select>
+                                <label for="">Tên tài khoản</label>
+                                <input type="text" class="form-control" name="taikhoan" placeholder="Tên tài khoản">
+                                <label for="">Mật khẩu</label>
+                                <input type="text" class="form-control" name="matkhau" placeholder="Mật khẩu">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Thêm mới</button>
+                        </form>
+                    </div>
+                    <legend>Tìm nhân viên</legend>
 
-                        <div class="form-group">
-
-                            <label for="">Tên nhân viên</label>
-                            <input type="text" class="form-control" name="tennv" placeholder="Tên nhân viên">
-                            <label for="">Ngày sinh</label>
-                            <input type="date" class="form-control" name="ngaysinh" placeholder="Tên nhân viên">
-                            <label for="">Số điện thoại</label>
-                            <input type="text" class="form-control" name="sdt" placeholder="Số điện thoại">
-                            <label for="">Địa chỉ</label>
-                            <input type="text" class="form-control" name="diachi" placeholder="Địa chỉ">
-                            <label for="">Lương</label>
-                            <input type="number" class="form-control" name="luong" placeholder="Lương">
-                            <label for="">Giờ làm</label>
-                            <input type="number" class="form-control" name="giolam" placeholder="Giờ làm">
-                            <label for="">Cấp độ</label>
-                            <select name="capdo" class="form-control">
-                                <option value="1">Admin</option>
-                                <option value="2">User</option>
-                            </select>
-                            <label for="">Tên tài khoản</label>
-                            <input type="text" class="form-control" name="taikhoan" placeholder="Tên tài khoản">
-                            <label for="">Mật khẩu</label>
-                            <input type="text" class="form-control" name="matkhau" placeholder="Mật khẩu">
-
-                        </div>
-
-
-
-                        <button type="submit" class="btn btn-primary">Thêm mới</button>
-                    </form>
-
-                    <form action="/QLCF/NhanVien_servlet" method="POST" role="form">
-                        <legend>Tìm nhân viên</legend>
-
-                        <div class="form-group">
-                            <label for="">Nhập tên hoặc mã nhân viên</label>
-                            <input type="text" class="form-control" name="search" placeholder="Input field">
-                        </div>
-
-                        
-
-                        <button type="submit" class="btn btn-primary">Tìm</button>
-                    </form>
+                    <div class="btn-new-nv">
+                        <button type="submit" class="btn btn-primary btn-search-nv">Tìm kiếm nhân viên</button>
+                    </div>
+                    <div id="search-nv">
+                        <form action="/QLCF/NhanVien_servlet" method="POST" role="form">
+                            <div class="form-group">
+                                <label for="">Nhập tên hoặc mã nhân viên</label>
+                                <input type="text" class="form-control" name="search" placeholder="Input field">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Tìm</button>
+                        </form>
+                    </div>
+                    <legend>Danh sách nhân viên</legend>
                     <table class="table table-hover">
                         <thead>
                             <tr>

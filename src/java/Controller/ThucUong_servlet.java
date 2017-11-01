@@ -12,6 +12,9 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.ServletException;
@@ -28,6 +31,7 @@ import javax.servlet.http.Part;
         maxFileSize = 1024 * 1024 * 10,
         maxRequestSize = 1024 * 1024 * 50)
 public class ThucUong_servlet extends HttpServlet {
+    private static final String  UPLOAD_DIR = "images/thucuong";
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -89,68 +93,78 @@ public class ThucUong_servlet extends HttpServlet {
             throws ServletException, IOException {
         //process only if its multipart content
         //processRequest(request, response);
-//        try{
-//            String result = request.getParameter("search");
-//            HttpSession session = request.getSession();
-//            ThucUong_Model tu_model = new ThucUong_Model();
-//            ArrayList<ThucUong_DTO> list = new ArrayList<ThucUong_DTO>();
-//            
-//            if(result!=null)
-//            {
-//                list = tu_model.get_by_id(result);
-//                session.setAttribute("result", list);
-//                response.sendRedirect("/QLCF/Admin/QLThucUong/KetQua.jsp");   
-//                return;
-//            }
-//            ThucUong_DTO gv = new ThucUong_DTO();      
-//            
-//        //thêm vào csdl
-//            gv.setTen_thucuong(request.getParameter("tentu"));
-//            gv.setGiaban(Integer.parseInt(request.getParameter("giaban")));
+        try{
+            String result = request.getParameter("search");
+            HttpSession session = request.getSession();
+            ThucUong_Model tu_model = new ThucUong_Model();
+            ArrayList<ThucUong_DTO> list = new ArrayList<ThucUong_DTO>();
+            
+            if(result!=null)
+            {
+                list = tu_model.get_by_id(result);
+                session.setAttribute("result", list);
+                response.sendRedirect("/QLCF/Admin/QLThucUong/KetQua.jsp");   
+                return;
+            }
+//            ThucUong_DTO gv = new ThucUong_DTO();
 
 
-//            if(request.getParameter("idtu")!=null){
-//            gv.setId_thucuong(Integer.parseInt(request.getParameter("idtu")));
-//                if(tu_model.Update(gv))
-//                {
-//                    session.setAttribute("Thongbao", "Sửa thành công");
-//                    response.sendRedirect("/QLCF/Admin/QLThucUong/ThucUong.jsp");
-//                    return;
-//                }
-//                else
-//                {
-//                    session.setAttribute("Thongbao", null);
-//                    response.sendRedirect("/QLCF/Admin/QLThucUong/ThucUong.jsp");
-//                }
-                Part part = request.getPart("file");
-                String name = part.getSubmittedFileName();
-               
-//                String name = extractFilename(part);
-                String savepath = "C:\\code\\QLCF\\web\\images\\thucuong\\"+ name;
- 
-                File filesaveDir = new File(savepath);
-                part.write(savepath);
-                response.sendRedirect("/QLCF/index.jsp");
-                response.getWriter().println("hello");
-                response.getWriter().print(filesaveDir);
-//            }
-//            else{
-//                System.out.print("failed");
-//            }
-//            if(tu_model.insert(gv))
-//            {
-//                session.setAttribute("Thongbao", "Thêm thành công");
-//                response.sendRedirect("/QLCF/Admin/QLThucUong/ThucUong.jsp");   
-//                return;
-//            }else
-//            {
-//                session.setAttribute("Thongbao", null);
-//                response.sendRedirect("/QLCF/Admin/QLThucUong/ThucUong.jsp");
-//            }
-//        }catch(Exception e)
-//        {
-//            response.sendRedirect("/QLCF/Admin/QLThucUong/ThucUong.jsp");
-//        } 
+            //thêm vào csdl
+            if(request.getParameter("update") == "confirm")
+            {
+                Part filePart = request.getPart("file");
+                String fileName = (String) getFileName(filePart);
+                ThucUong_DTO gv = new ThucUong_DTO(Integer.parseInt(request.getParameter("thucuong_id")),
+                                                   request.getParameter("tentu"),
+                                                   Integer.parseInt(request.getParameter("giaban")),
+                                                   1,
+                                                   fileName,
+    //                                               request.getPart("file"),
+                                                   request.getParameter("note"),
+                                                   Integer.parseInt(request.getParameter("discount")),
+                                                   request.getParameter("size"),
+                                                   request.getParameter("bonus1"),
+                                                   request.getParameter("bonus2")
+                                                   );
+
+                if(request.getParameter("idtu")!=null){
+                    if(tu_model.Update(gv))
+                    {
+                        request.setAttribute("fileName", uploadFile(request));
+                        session.setAttribute("Thongbao", "Sửa thành công");
+                        response.sendRedirect("/QLCF/Admin/QLThucUong/ThucUong.jsp");
+                        return;
+                    }
+                    else
+                    {
+                        session.setAttribute("Thongbao", null);
+                        response.sendRedirect("/QLCF/Admin/QLThucUong/ThucUong.jsp");
+                    }               
+                }
+                else{
+                    System.out.print("failed");
+                }
+            }
+            //fix lại 
+            ThucUong_DTO gv = new ThucUong_DTO();      
+             gv.setTen_thucuong(request.getParameter("tentu"));
+                gv.setGiaban(Integer.parseInt(request.getParameter("giaban")));
+                 gv.setId_thucuong(Integer.parseInt(request.getParameter("idtu")));
+                 ///
+            if(tu_model.insert(gv))
+            {
+                session.setAttribute("Thongbao", "Thêm thành công");
+                response.sendRedirect("/QLCF/Admin/QLThucUong/ThucUong.jsp");   
+                return;
+            }else
+            {
+                session.setAttribute("Thongbao", null);
+                response.sendRedirect("/QLCF/Admin/QLThucUong/ThucUong.jsp");
+            }
+        }catch(Exception e)
+        {
+            response.sendRedirect("/QLCF/Admin/QLThucUong/ThucUong.jsp");
+        } 
     }
 
     /**
@@ -162,17 +176,52 @@ public class ThucUong_servlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
-    private String extractFilename(Part part) {
-        String contDisp = part.getHeader("content-disposition");
-        String[] items = contDisp.split(";");
-        for(String s:items)
-        {
-            if(s.trim().startsWith("fileName")){
-                return s.substring(s.indexOf("-") + 2, s.length() - 1);
+    private String uploadFile(HttpServletRequest request) throws IOException, ServletException{
+        String fileName="";
+        try{
+            String tentu = request.getParameter("tentu");
+            Part filePart = request.getPart("file");
+            fileName = (String) getFileName(filePart);
+            String applicationPath = request.getServletContext().getRealPath("");
+            String basePath = applicationPath + File.separator + UPLOAD_DIR + File.separator;
+            InputStream inputStream = null;
+            OutputStream outputStream = null;
+            try {
+                File outputFilePath = new  File(basePath + fileName);
+                inputStream = filePart.getInputStream();
+                outputStream = new FileOutputStream(outputFilePath);
+                int read = 0;
+                final byte[] bytes =  new  byte[1024];
+                while((read = inputStream.read(bytes)) != -1){
+                    outputStream.write(bytes, 0, read);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                fileName = "";
+            }finally{
+                if(inputStream != null){
+                    inputStream.close();
+                }
+                if(outputStream != null){
+                    outputStream.close();
+                }
+            }
+            
+        }catch(Exception e){
+            fileName = "";
+        }
+        return fileName;
+    }
+    private String  getFileName(Part part){
+        final String  partHeader = part.getHeader("content-disposition");
+        System.out.println("*****partHeader :"+ partHeader);
+        for(String content : part.getHeader("content-disposition").split(";")){
+            if(content.trim().startsWith("filename")){
+                return content.substring(content.indexOf('=')+1).trim().replace("\"", "" );
             }
         }
-        return "";
+        
+        return null;
     }
 
 }

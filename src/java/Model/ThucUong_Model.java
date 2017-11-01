@@ -267,7 +267,6 @@ public class ThucUong_Model {
                     ThucUong_DTO tu = new ThucUong_DTO(id_thucuong,ten_thucuong,giaban,rank,url_image,note,discount,size,extra1,extra2);
                     return tu;
                 }
-                
             }
         }catch(Exception e){ System.out.print(e);}
         return null;

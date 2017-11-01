@@ -13,18 +13,16 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>                        
             </button>
-            <a class="navbar-brand" href="/QLCF/Admin/index.jsp">Trang QLGV</a>
+            <a class="navbar-brand" href="/QLCF/Admin/index.jsp">Trang Admin</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="/QLCF/Admin/index.jsp">Trang Chủ</a></li>
-                <li><a href="#">Giới thiệu</a></li>
-                <li><a href="#">Tin tức</a></li>
-                <li><a href="#">Liên hệ</a></li>
+                <li><a href="/QLCF/Admin/QLBan/Ban.jsp">Quản lý bán hàng</a></li>
+                <li><a href="/QLCF/Admin/QLThucUong/ThucUong.jsp">Quản lý thức uống</a></li>
+                <li><a href="/QLCF/Admin/QLNhanVien/NhanVien.jsp">Quản lý nhân viên</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              
-                <li><a href="/QLCF/NhanVien_servlet?logout=true"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
             </ul>
         </div>
     </div>

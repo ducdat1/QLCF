@@ -1,3 +1,8 @@
+<%-- 
+    Document   : index.jsp - admin
+    Created on : Oct 27, 2017, 10:23:42 PM
+    Author     : ducdat
+--%>
 
 <%@page import="Model.Ban_Model"%>
 <%@page import="DTO.Ban_DTO"%>
@@ -8,32 +13,11 @@
     <%@include file="/Template/head_admin.jsp" %>
 
     <body>
-        <%@include file="/Template/menu_admin.jsp"%>
         <div class="container-fluid">
+            <%@include file="/Template/menu_admin.jsp"%>
             <div class="row content">
-                <div class="col-sm-3 sidenav hidden-xs">
-                    <h2>Danh Mục Quản lý</h2>
-                    <ul class="nav nav-pills nav-stacked">
-                        <li><a href="/QLCF/Admin/QLBan/Ban.jsp"">Quản lý bàn</a></li>
-                        <li><a href="/QLCF/Admin/QLThuUong/ThucUong.jsp">Quản lý thức uống</a></li>
-                        <li><a href="/QLCF/Admin/QLNhanVien/NhanVien.jsp">Quản lý nhân viên</a></li>
-                    </ul><br>
-                </div>
-                <br>
-                <div class="col-sm-9">
-
-                    <form action="/QLCF/Ban_servlet" method="POST" role="form">
-                        <legend>Thêm bàn mới</legend>
-
-                        <div class="form-group">
-                           
-                            <input type="hidden" class="form-control" id="" name = "insert" values="insert">
-                        </div>
-
-
-
-                        <button type="submit" class="btn btn-primary">Thêm</button>
-                    </form>
+                <div class="col-sm-10 col-sm-offset-1">
+                    <legend>Chi tiết bán</legend>
                     <table class="table table-hover">
                         <thead>
                             <tr>
@@ -55,8 +39,8 @@
                     </table>
                 </div>
             </div>
-        </div>
         <%@include file="/Template/footer_admin.jsp" %>
+        </div> 
     </body>
 </html>
 

@@ -14,56 +14,31 @@
 
     <body>
         <%@include file="/Template/menu_admin.jsp"%>
-        <nav class="navbar navbar-inverse visible-xs">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>                        
-                    </button>
-                    <a class="navbar-brand" href="#">Danh Mục Quản lý</a>
-                </div>
-                <div class="collapse navbar-collapse" id="myNavbar">
-                    <ul class="nav navbar-nav">
-                        <li><a href="/QLCF/Admin/QLBan/Ban.jsp"">Quản lý bàn</a></li>
-                        <li><a href="/QLCF/Admin/QLThucUong/ThucUong.jsp">Quản lý thức uống</a></li>
-                        <li><a href="/QLCF/Admin/QLNhanVien/NhanVien.jsp">Quản lý nhân viên</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
+       
         <div class="container-fluid">
             <div class="row content">
-                <div class="col-sm-3 sidenav hidden-xs">
-                    <h2>Danh Mục Quản lý</h2>
-                    <ul class="nav nav-pills nav-stacked">
-                        <li><a href="/QLCF/Admin/QLBan/Ban.jsp"">Quản lý bàn</a></li>
-                        <li><a href="/QLCF/Admin/QLThuUong/ThucUong.jsp">Quản lý thức uống</a></li>
-                        <li><a href="/QLCF/Admin/QLNhanVien/NhanVien.jsp">Quản lý nhân viên</a></li>
-                    </ul><br>
+                <%
+                    ThucUong_DTO tu = new ThucUong_Model().select_by_id(request.getParameter("idtu"));
+
+                %>
+                <div class="col-sm-4 col-sm-offset-1">
+                    <img src="/QLCF/images/thucuong/<%=tu.geturl_image()%>" class="img-responsive" alt=""/>
                 </div>
-                <br>
-                <div class="col-sm-7 col-sm-offset-1">
+                <div class="col-sm-6">
 
-<!--                    <form action="/QLCF/ThucUong_servlet" method="POST" role="form" enctype = "multipart/form-data">
+                    <form action="/QLCF/ThucUong_servlet" method="POST" role="form" enctype = "multipart/form-data">
+                        <input type="hidden" name="thucuong_id" value="<%=request.getParameter("idtu")%>">
+                        <input type="hidden" name="update" value="confirm">
                         <legend>Sửa thức uống</legend>
-                        <%
-                            ThucUong_DTO tu = new ThucUong_Model().select_by_id(request.getParameter("idtu"));
-                            
-                        %>
                         <div class="form-group">
-
                             <label for="">Tên thức uống</label>
                             <input type="text" class="form-control" name="tentu" value="<%=tu.getTen_thucuong()%>" placeholder="Thức uống">
                             <label for="">Giá bán</label>
                             <input type="text" class="form-control" name="giaban" value="<%=tu.getGiaban()%>"placeholder="Giá bán">
                             <label for="">Ảnh hiển thị</label>
-                            <img src="/QLCF/images/thucuong/<%=tu.geturl_image()%>" class="img-thumbnail" alt=""/> <input type = "file" name = "file" size = "50" />
-                            <label for="">Mã giảm giá</label>
-                            getdiscount
-                            <select name="">
+                            <input type = "file" name = "file" size = "50" />
+                            <label for="">Mã giảm giá</label>   
+                            <select name="discount" class="form-control">
                                 <option value="1">Sản phẩm mới</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -74,38 +49,22 @@
                                 <option value="8">8</option>
                             </select>
                             <label for="">Ghi chú</label>
-                            <textarea name="" id="input" class="form-control" rows="3" required="required" value="<%=tu.getnote()%>" placeholder="Giá bán"></textarea>
+                            <textarea name="note" id="input" class="form-control" rows="2" required="required" placeholder="Ghi chú..."><%=tu.getnote()%></textarea>
                             <label for="">Size mặc định</label>
-                            <input type="text" class="form-control" name="giaban" value="<%=tu.getsize()%>"placeholder="Giá bán">
+                            <input type="text" class="form-control" name="size" value="<%=tu.getsize()%>"placeholder="Size mặc định">
                             <label for="">Phụ thêm</label>
-                            <input type="text" class="form-control" name="giaban" value="<%=tu.getextra1()%>"placeholder="Giá bán">
+                            <input type="text" class="form-control" name="bonus1" value="<%=tu.getextra1()%>"placeholder="Phụ thêm">
                             <label for="">Phân loại</label>
-                             <select name="">
+                             <select name="bonus2" class="form-control">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
                                 <option value="4">4</option>
                             </select>
-                            <input type="text" class="form-control" name="giaban" value="<%=tu.getextra2()%>"placeholder="Giá bán">
-
-
                         </div>
-
-
-
                         <button type="submit" class="btn btn-primary">Lưu</button>
                         <button type="reset" class="btn btn-primary">Cancel</button>
-                    </form>-->
-
-                        <form action="/QLCF/ThucUong_servlet" method="POST" role="form" enctype = "multipart/form-data">
-                            <img src="/QLCF/images/thucuong/<%=tu.geturl_image()%>" class="img-thumbnail" alt=""/>
-                            <input type = "file" name = "file" size = "50" />
-                            <button type="submit" class="btn btn-primary">Lưu</button>
-                        </form>
-
-
-
-                    
+                    </form>
                 </div>
             </div>
         </div>

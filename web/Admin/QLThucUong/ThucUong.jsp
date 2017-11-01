@@ -16,16 +16,7 @@
         <%@include file="/Template/menu_admin.jsp"%>
         <div class="container-fluid">
             <div class="row content">
-                <div class="col-sm-2 sidenav hidden-xs">
-                    <h2>Danh Mục</h2>
-                    <ul class="nav nav-pills nav-stacked">
-                        <li><a href="/QLCF/Admin/QLBan/Ban.jsp"">Quản lý bàn</a></li>
-                        <li><a href="/QLCF/Admin/QLThucUong/ThucUong.jsp">Quản lý thức uống</a></li>
-                        <li><a href="/QLCF/Admin/QLNhanVien/NhanVien.jsp">Quản lý nhân viên</a></li>
-                    </ul><br>
-                </div>
-                <br>
-                <div class="col-sm-10 main-detail">
+                <div class="col-sm-10 main-detail col-sm-offset-1">
                     <div class="col-sm-6 addproduct">
                         <form action="/QLCF/ThucUong_servlet" method="POST" role="form">
                             <legend>Thêm nhân thức uống mới</legend>
