@@ -47,7 +47,7 @@
                 <br>
                 <div class="col-sm-7 col-sm-offset-1">
 
-                    <form action="/QLCF/ThucUong_servlet" method="POST" role="form">
+<!--                    <form action="/QLCF/ThucUong_servlet" method="POST" role="form" enctype = "multipart/form-data">
                         <legend>Sửa thức uống</legend>
                         <%
                             ThucUong_DTO tu = new ThucUong_Model().select_by_id(request.getParameter("idtu"));
@@ -60,11 +60,11 @@
                             <label for="">Giá bán</label>
                             <input type="text" class="form-control" name="giaban" value="<%=tu.getGiaban()%>"placeholder="Giá bán">
                             <label for="">Ảnh hiển thị</label>
-                            <img src="/QLCF/images/thucuong/<%=tu.geturl_image()%>" class="img-thumbnail" alt=""/><input type="file" name="link">
+                            <img src="/QLCF/images/thucuong/<%=tu.geturl_image()%>" class="img-thumbnail" alt=""/> <input type = "file" name = "file" size = "50" />
                             <label for="">Mã giảm giá</label>
-                            <!--getdiscount-->
+                            getdiscount
                             <select name="">
-                                <option value="1">1</option>
+                                <option value="1">Sản phẩm mới</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
                                 <option value="4">4</option>
@@ -95,9 +95,13 @@
 
                         <button type="submit" class="btn btn-primary">Lưu</button>
                         <button type="reset" class="btn btn-primary">Cancel</button>
-                    </form>
+                    </form>-->
 
-
+                        <form action="/QLCF/ThucUong_servlet" method="POST" role="form" enctype = "multipart/form-data">
+                            <img src="/QLCF/images/thucuong/<%=tu.geturl_image()%>" class="img-thumbnail" alt=""/>
+                            <input type = "file" name = "file" size = "50" />
+                            <button type="submit" class="btn btn-primary">Lưu</button>
+                        </form>
 
 
 

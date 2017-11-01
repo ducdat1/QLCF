@@ -88,7 +88,7 @@
                                     <td><%=items.getsize()%></td>
                                     <td><%=items.getextra1()%></td>
                                     <td><%=items.getextra2()%></td>
-                                    <td><a href="/QLCF/Admin/QLThuUong/Sua.jsp?idtu=<%=items.getId_thucuong()%>">Sửa</a>
+                                    <td><a href="/QLCF/Admin/QLThucUong/Sua.jsp?idtu=<%=items.getId_thucuong()%>">Sửa</a>
 
                                         <a href="/QLCF/ThucUong_servlet?idtu=<%=items.getId_thucuong()%>">Xóa</a></td>
                                 </tr>
