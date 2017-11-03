@@ -8,17 +8,12 @@
 <!DOCTYPE html>
 <head>
   <title>Trang quản lý</title>
-  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="/QLCF/assets/css/bootstrap.min.css">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  
+  <link rel="stylesheet" href="/QLCF/assets/css/bootstrap.css">
   <link rel="stylesheet" href="/QLCF/assets/css/file.css">
   
   <script src="/QLCF/assets/js/jquery-1.11.1.min.js"></script>
   <script src="/QLCF/assets/js/admin.js"></script>
-  <style>
-    /* On small screens, set height to 'auto' for the grid */
-    @media screen and (max-width: 767px) {
-      .row.content {height: auto;} 
-    }
-  </style>
 </head>

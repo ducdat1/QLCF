@@ -3,9 +3,10 @@
     Created on : Oct 27, 2017, 10:23:42 PM
     Author     : ducdat
 --*/
-*{
+body{
     margin:0;
     font-family: 'Raleway', sans-serif;
+    background: #fff;
 }
 /*--admin--*/
 .sidenav {
@@ -24,10 +25,25 @@
 table td img{
    height: 50px !important;
 }
-/*footer{
-    position:absolute;
+.footer {
+    position: fixed;
+    left: 0;
     bottom: 0;
-}*/
+    width: 100%;
+    background-color: black;
+    text-align: center;
+    background: #222;
+    border-top: 5px solid #333;
+    color: #ccc;
+    font-weight: bold;
+    height: 40px;
+    line-height: 30px;
+}
+.row{
+    margin-top: 80px;
+    margin-bottom: 120px;
+}
+/*--admin--*/
 /*--qlnhanvien--*/
 .addnew{
     display: none;
@@ -40,4 +56,106 @@ table td img{
 .btn-close-nv{
    display: none; 
 }
+.col{
+    border: 1px solid #DED9D9;
+    padding: 1em 2em;
+}
+.col1{
+    border: 1px solid #DED9D9;
+}
+.center{
+    text-align: center;
+}
 /*--//qlnhanvien--*/
+/*--login--*/
+.login-page{
+    padding: 5em 0;
+}
+.login-page {
+    width: 35%;
+    margin: 0 auto;
+}
+.login-page h3.title1 {
+    text-align: center;
+    margin-bottom: 1em;
+}
+.login-page input[type="text"], .login-page input[type="password"] {
+    font-size: 1em;
+    padding: 0.9em 1em;
+    width: 100%;
+    color: #999;
+    outline: none;
+    border: 1px solid #E2DCDC;
+    background: #FFFFFF;
+    margin: 0em 0em 1em 0em;
+}
+/*--placeholder--*/
+.login-page ::-webkit-input-placeholder{
+	color:#999 !important;
+}
+.login-page ::-webkit-input-placeholder {
+   color:#999 !important;
+}
+.login-page :-moz-placeholder { /* Firefox 18- */
+   color:#999 !important;
+}
+.login-page ::-moz-placeholder {  /* Firefox 19+ */
+  color:#999 !important;  
+}
+.login-page :-ms-input-placeholder {  
+   color:#999 !important;  
+}
+.login-page input[type="submit"] {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: #fff;
+    background: #52CFF3;
+    width: 100%;
+    padding: .8em 1em;
+    font-size: 1em;
+    margin: 0.5em 0 0;
+	transition: .5s all;
+}
+.login-page input[type="submit"]:hover{
+    background: #FF590F;
+}
+.login-page-bottom {
+    text-align: center;
+}
+.login-page-bottom h5 {
+    font-size: 1.5em;
+    color: #353F49;
+    font-weight: 800;
+    margin: 1em 0;
+    font-family: 'Raleway', sans-serif;
+}
+.widget-shadow {
+    background-color: #fff;
+    box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.31),0 1px 2px rgba(0, 0, 0, 0.31);
+    -webkit-box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.31),0 1px 2px rgba(0, 0, 0, 0.31);
+    -moz-box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.31),0 1px 2px rgba(0, 0, 0, 0.31);
+}
+.login-top {
+    padding: 1.5em;
+    border-bottom: 1px solid #DED9D9;
+    text-align: center;
+}
+.login-body {
+	padding: 2em;
+}
+.login-top h4 {
+    font-size: 1.5em;
+    color: #555;
+    line-height: 1.8em;
+    letter-spacing: 1px;
+}
+.login-top h4 a {
+    color: #FF590F;
+    font-weight: 700;
+    margin-left: 5px;
+}
+.login-top  h4  a:hover{
+    color: #353f49;
+}
+/*--//login--*/

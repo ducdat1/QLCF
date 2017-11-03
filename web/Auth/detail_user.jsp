@@ -20,48 +20,47 @@
         <!--detail-->
         <div class="new" id="personal">
                 <div class="container">
-                        <div class="title-info wow fadeInUp animated" data-wow-delay=".5s">
-                                <h3 class="title">Information's <span> Customer</span></h3>
-                        </div>
-                        <ul class="nav nav-tabs" data-wow-delay=".6s">
-                          <li class="active"><a href="#">Personal</a></li>
-                          <li class="tb_history"><a href="#">History</a></li>
-                        </ul>
-                        <div class="widget-shadow">
-                                <div class="user-top wow fadeInUp animated" data-wow-delay=".7s">
-                                        <h4>Thông tin cá nhân của khách hàng</h4>
+                    <div class="title-info wow fadeInUp animated" data-wow-delay=".5s">
+                            <h3 class="title">Information's <span> Customer</span></h3>
+                    </div>
+                    <ul class="nav nav-tabs" data-wow-delay=".6s">
+                      <li class="active"><a href="#">Personal</a></li>
+                      <li class="tb_history"><a href="#">History</a></li>
+                    </ul>
+                    <div class="widget-shadow">
+                            <div class="user-top wow fadeInUp animated" data-wow-delay=".7s">
+                                    <h4>Thông tin cá nhân của khách hàng</h4>
+                            </div>
+                            <div class="user-body wow fadeInUp animated" data-wow-delay=".7s">
+                                <div class="info_left">
+                                        <label for="Firstname" class="info_label">Firstname</label>
+                                        <label for="Lastname" class="info_label">Lastname</label>
+                                        <label for="Account" class="info_label">Account</label>
+                                        <label for="Password" class="info_label">Password</label>
+                                        <label for="Email" class="info_label">Email</label>
+                                        <label for="Telephone" class="info_label">Telephone</label>
+                                        <label for="Address" class="info_label">Address</label>
+                                        <label for="Plus" class="info_label">Plus</label>
+                                        <label for="Point" class="info_label">Point</label>    
                                 </div>
-                                <div class="user-body wow fadeInUp animated" data-wow-delay=".7s">
-                                    <div class="info_left">
-                                            <label for="Firstname" class="info_label">Firstname</label>
-                                            <label for="Lastname" class="info_label">Lastname</label>
-                                            <label for="Account" class="info_label">Account</label>
-                                            <label for="Password" class="info_label">Password</label>
-                                            <label for="Email" class="info_label">Email</label>
-                                            <label for="Telephone" class="info_label">Telephone</label>
-                                            <label for="Address" class="info_label">Address</label>
-                                            <label for="Plus" class="info_label">Plus</label>
-                                            <label for="Point" class="info_label">Point</label>    
-                                    </div>
-                                    <div class="info_right">
-                                            <label for="Firstname" class="info_label">Firstname</label>
-                                            <label for="Lastname" class="info_label">Lastname</label>
-                                            <label for="Account" class="info_label">Account</label>
-                                            <label for="Password" class="info_label">Password</label>
-                                            <label for="Email" class="info_label">Email</label>
-                                            <label for="Telephone" class="info_label">Telephone</label>
-                                            <label for="Address" class="info_label">Address</label>
-                                            <label for="Plus" class="info_label">Plus</label>
-                                            <label for="Point" class="info_label">Point</label>   
-                                    </div>
+                                <div class="info_right">
+                                        <label for="Firstname" class="info_label">Firstname</label>
+                                        <label for="Lastname" class="info_label">Lastname</label>
+                                        <label for="Account" class="info_label">Account</label>
+                                        <label for="Password" class="info_label">Password</label>
+                                        <label for="Email" class="info_label">Email</label>
+                                        <label for="Telephone" class="info_label">Telephone</label>
+                                        <label for="Address" class="info_label">Address</label>
+                                        <label for="Plus" class="info_label">Plus</label>
+                                        <label for="Point" class="info_label">Point</label>   
                                 </div>
-                        </div>
-                        <div class="user-info">
-                                <!--<h5> - OR -</h5>-->
-                                <div class="social-btn"><a href="#"><i>Update</i></a></div>
-                                <div class="social-btn sb-two"><a href="#"><i>Back to main page</i></a></div>
-                        </div>
-
+                            </div>
+                    </div>
+                    <div class="user-info">
+                            <!--<h5> - OR -</h5>-->
+                            <div class="social-btn"><a href="#"><i>Update</i></a></div>
+                            <div class="social-btn sb-two"><a href="#"><i>Back to main page</i></a></div>
+                    </div>
                 </div>
         </div>
         <div class="new" id="history">

@@ -13,16 +13,21 @@
     <%@include file="/Template/head_admin.jsp" %>
 
     <body>
+        <%@include file="/Template/menu_admin.jsp"%>
         <div class="container-fluid">
-            <%@include file="/Template/menu_admin.jsp"%>
             <div class="row content">
                 <div class="col-sm-10 col-sm-offset-1">
                     <legend>Chi tiết bán</legend>
-                    <table class="table table-hover">
+                    <table>
                         <thead>
                             <tr>
-                                <th>Bàn số</th>
-                                <th>Tùy chọn</th>
+                                <th class="col center">Số hóa đơn</th>
+                                <th class="col center">Tên khách hàng</th>
+                                <th class="col center">Tình trạng</th>
+                                <th class="col center">Tổng tiền</th>
+                                <th class="col center">Hình thức thanh toán</th>
+                                <th class="col center">Ngày thanh toán</th>
+                                <th class="col center">Tùy chọn</th>
                             </tr>
                         </thead>
                         <%
@@ -31,10 +36,15 @@
                         %>
                         <tbody>
                             <tr>
-                                <td><%=items.getId_ban()%></td>
-                                <td><a href="/QLCF/Ban_servlet?idban=<%=items.getId_ban()%>">Xóa</a></td>
+                                <td class="col1 center"><%=items.getId_ban()%></td>
+                                <td class="col1 center"><%=items.getId_customer()%></td>
+                                <td class="col1 center"><%=items.getTrangthai()%></td>
+                                <td class="col1 center"><%=items.getTongtien()%></td>
+                                <td class="col1 center"><%=items.getPayment()%></td>
+                                <td class="col1 center"><%=items.getCreatedate()%></td>
+                                <td class="col1 center"><a href="/QLCF/Admin/QLBan/detail.jsp?id=<%=items.getId_ban()%>">Xem chi tiết</a></td>
                             </tr>
-                            <% }%>
+                        <% }%>
                         </tbody>
                     </table>
                 </div>

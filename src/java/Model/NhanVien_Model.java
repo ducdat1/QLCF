@@ -35,30 +35,33 @@ public class NhanVien_Model {
     public NhanVien_DTO login(String username, String password)
     {
         //ArrayList<NhanVien_DTO> list = new ArrayList<NhanVien_DTO>();
-        NhanVien_DTO nv = null;
+        NhanVien_DTO nv = new NhanVien_DTO();
         try
         {
-            String sql = "SELECT * FROM db_nhanvien WHERE taikhoan = '"+username+"' and matkhau = '"+password+"'";
+            String sql = "SELECT id_nv, tennv, giolam, capdo FROM db_nhanvien WHERE taikhoan = '"+username+"' and matkhau = '"+password+"'";
             db.connect();
             stm = db.getConn().createStatement();
             ResultSet rs = stm.executeQuery(sql);
             if(rs==null)
+            {
                 return null;
-            while(rs.next())
-                {
-                    int manv = rs.getInt("id_nv");
-                    String tennv = rs.getString("tennv");
-                    int giolam = rs.getInt("giolam");
-                    Date ngaysinh = rs.getDate("ngaysinh");
-                    String sdt = rs.getString("sdt");
-                    String diachi = rs.getString("diachi");
-                    float luong = rs.getFloat("luong");
-                    int capdo = rs.getInt("capdo");
-                    String taikhoan = rs.getString("taikhoan");
-                    String matkhau = rs.getString("matkhau");
-                    nv = new NhanVien_DTO(manv,tennv,giolam,ngaysinh,sdt,diachi,luong,capdo,taikhoan,matkhau);
-                }
-            
+            }
+//            else if(rs.getFetchSize() > 1){
+//                return null;
+//            }
+            else{
+                while(rs.next())
+                    {
+                        int manv = rs.getInt("id_nv");
+                        String tennv = rs.getString("tennv");
+                        int giolam = rs.getInt("giolam");
+                        int capdo = rs.getInt("capdo");
+                        nv.setId_nhanvien(manv);
+                        nv.setTennv(tennv);
+                        nv.setGiolam(giolam);
+                        nv.setCapdo(capdo);
+                    }   
+            }
         }catch(Exception e){ System.out.print(e);}
         return nv;
     }

@@ -18,5 +18,5 @@
     <li><a href = "/QLCF/Auth/Login.jsp">Đăng nhập</a></li>
 
     <li><a href = "/QLCF/Auth/register.jsp">Đăng ký</a></li>
-    <% response.sendRedirect("/QLCF/index.jsp");}%>
+    <%}%>
 </ul>

@@ -4,10 +4,8 @@
     Author     : ducdat
 --%>
 
-<footer>
-    <div class="footer-main">
-        <div class="container text-center">
-            Coppyright: &copy; UIT
-        </div>
+<footer class="footer">
+    <div class="container text-center">
+        Coppyright: 2017 &copy; by Dat-11520054 & Bao-11520020
     </div>
 </footer>

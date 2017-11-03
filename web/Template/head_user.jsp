@@ -2,7 +2,6 @@
     Document   : header.jsp
     Created on : 21-10-2017
     Author     : 11520054
-    Description: header of site
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

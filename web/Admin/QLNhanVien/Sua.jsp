@@ -42,7 +42,7 @@
                             <input type="text" class="form-control" name="matkhau" value="<%=nv1.getMatkhau()%>" placeholder="Mật khẩu">
                             <input type="hidden" name="idnv" value="<%=nv1.getId_nhanvien()%>"/>
                         </div>
-                        <button type="submit" class="btn btn-primary">Lưu</button>
+                        <button type="submit" class="btn btn-primary">Cập nhật thông tin</button>
                     </form>
                 </div>
             </div>

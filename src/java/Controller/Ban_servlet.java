@@ -87,13 +87,13 @@ public class Ban_servlet extends HttpServlet {
             session.setAttribute("ThongBao", "ThanhCong");
             Ban_Model ban_model = new Ban_Model();
             ArrayList<Ban_DTO> list = new ArrayList<Ban_DTO>();
-            if(result!=null)
-            {
-                list = ban_model.get_by_id(result);
-                session.setAttribute("result", list);
-                response.sendRedirect("/QLCF/Admin/QLBan/KetQua.jsp");   
-                return;
-            }
+//            if(result!=null)
+//            {
+//                list = ban_model.get_by_id(result);
+//                session.setAttribute("result", list);
+//                response.sendRedirect("/QLCF/Admin/QLBan/KetQua.jsp");   
+//                return;
+//            }
         //thêm vào csdl
                 Ban_DTO ban = new Ban_DTO();
                 ban.setTrangthai(0);
