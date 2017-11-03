@@ -7,7 +7,14 @@
 jQuery(document).ready(function($){
 //QL nhan vien
     //button add new
-    $('.btn-new-nv').on('click', function(event){
-        $('#addnew').fadeIn();
+    $('.btn-nv').on('click', function(){
+        $(this).hide(1000);
+        $(this).parent().find('.addnew').show(1000);
+        $(this).parent().find('.btn-close-nv').show(1000);
+    });
+    $('.btn-close-nv').on('click', function(){
+        $(this).hide(1000);
+        $(this).parent().find('.addnew').hide(1000);
+        $(this).parent().find('.btn-nv').show(1000);
     });
 });

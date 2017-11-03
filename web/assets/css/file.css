@@ -24,18 +24,20 @@
 table td img{
    height: 50px !important;
 }
-footer{
+/*footer{
     position:absolute;
     bottom: 0;
-}
+}*/
 /*--qlnhanvien--*/
-#addnew{
+.addnew{
     display: none;
+    margin-bottom: 10px;
 }
-#search-nv{
-    display: none;
+
+.new-nv{
+    margin-bottom: 7px;
 }
-.btn-new-nv{
-    
+.btn-close-nv{
+   display: none; 
 }
 /*--//qlnhanvien--*/
