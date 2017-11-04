@@ -16,7 +16,8 @@ public class Ban_DTO {
     private float tongtien;
     private int payment;
     private String createdate;
-    
+    private String dc_nhan;
+    private String name_payment;
     public Ban_DTO(){}
     public Ban_DTO(int id_ban_,
                    int id_customer_,
@@ -26,14 +27,32 @@ public class Ban_DTO {
                    String createdate_
                   )
     {
-     id_ban=id_ban_;
-     id_customer=id_customer_;
-     trangthai=trangthai_;
-     tongtien=tongtien_ ;   
-     payment=payment_;
-     createdate=createdate_;
+        id_ban=id_ban_;
+        id_customer=id_customer_;
+        trangthai=trangthai_;
+        tongtien=tongtien_ ;   
+        setPayment(payment_);
+        name_payment= getPayment();
+        createdate=createdate_;
     }
-
+    public Ban_DTO(int id_ban_,
+                   int id_customer_,
+                   int trangthai_,
+                   float tongtien_,
+                   String dc_nhan_,
+                   int payment_,
+                   String createdate_
+                  )
+    {
+        id_ban      = id_ban_;
+        id_customer = id_customer_;
+        trangthai   = trangthai_;
+        tongtien    = tongtien_ ;   
+        dc_nhan     = dc_nhan_;
+        setPayment(payment_);
+        name_payment= getPayment();    
+        createdate  = createdate_;
+    }
     /**
      * @return the id_ban
      */
@@ -94,15 +113,31 @@ public class Ban_DTO {
     /**
      * @return the payment
      */
-    public int getPayment() {
-        return payment;
+    public final String getPayment() {
+        return name_payment;
     }
 
     /**
      * @param payment the payment to set
      */
-    public void setPayment(int payment) {
-        this.payment = payment;
+    public final void setPayment(int payment) {
+        switch(payment){
+            case 1:
+                name_payment = "Point bonus";
+                break;
+            case 2:
+                name_payment = "Point";
+                break;
+            case 3:
+                name_payment = "Cash";
+                break;
+            case 4:
+                name_payment = "ATM";
+                break;
+            default:
+                name_payment = "Visa/Master card"; 
+                break;
+        }
     }
     
     /**
@@ -117,5 +152,19 @@ public class Ban_DTO {
      */
     public void setCreatedate(String createdate) {
         this.createdate = createdate;
+    }
+    
+    /**
+     * @return the dc_nhan
+     */
+    public String getDc_nhan() {
+        return dc_nhan;
+    }
+
+    /**
+     * @param dc_nhan the dc_nhan to set
+     */
+    public void setDc_nhan(String dc_nhan) {
+        this.dc_nhan = dc_nhan;
     }
 }

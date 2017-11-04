@@ -25,16 +25,17 @@
                 <li><a href="/QLCF/Admin/QLBan/Ban.jsp">Quản lý bán hàng</a></li>
                 <li><a href="/QLCF/Admin/QLThucUong/ThucUong.jsp">Quản lý thức uống</a></li>
                 <li><a href="/QLCF/Admin/QLNhanVien/NhanVien.jsp">Quản lý nhân viên</a></li>
+                <li><a href="/QLCF/Admin/QLNhanVien/chitietcatruc.jsp">Quản lý ca làm việc</a></li>
             </ul>
                     <%}else{%>
             <ul class="nav navbar-nav">
-                <li><a href="/QLCF/Admin/QLNhanvien/banglamviec.jsp">Chi tiết ca trực</a></li>
+                <li><a href="/QLCF/Admin/QLNhanVien/banglamviec.jsp">Chi tiết ca trực</a></li>
             </ul>
 
                     <%}%>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/QLCF/Admin/QLNhanVien/Sua.jsp?idnv=<%=nv.getId_nhanvien()%>">Xin chào, <%=nv.getTennv()%></a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                <li><a href="/QLCF/NhanVien_servlet?logout=true"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
             </ul>
                 <%}%>
         </div>

@@ -19,6 +19,7 @@
                 <div class="col-sm-10 main-detail col-sm-offset-1">
                     <div class="col-sm-6 addproduct">
                         <form action="/QLCF/ThucUong_servlet" method="POST" role="form">
+                            <input type="hidden" name="form" value="insert">
                             <legend>Thêm nhân thức uống mới</legend>
                             <div class="form-group">
                                 <label for="">Tên thức uống</label>
@@ -32,14 +33,10 @@
                     <div class="col-sm-6">
                         <form action="/QLCF/ThucUong_servlet" method="POST" role="form">
                             <legend>Tìm thức uống</legend>
-
                             <div class="form-group">
                                 <label for="">Nhập tên hoặc mã thức uống</label>
                                 <input type="text" class="form-control" name="search" placeholder="Input field">
                             </div>
-
-
-
                             <button type="submit" class="btn btn-primary">Tìm</button>
                         </form>
                     </div>

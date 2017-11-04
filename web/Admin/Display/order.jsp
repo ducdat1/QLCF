@@ -4,14 +4,38 @@
     Author     : ducdat
 --%>
 
+<%@page import="Model.Ban_Model"%>
+<%@page import="DTO.Ban_DTO"%>
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
-</html>
+<legend>Hóa đơn đặt hàng</legend>
+<table class="table table-hover table-bordered">
+    <thead>
+        <tr>
+            <th class="center">Số</th>
+            <th class="center">Tên khách hàng</th>
+            <th class="center">Tình trạng</th>
+            <th class="center">Địa chỉ nhận hàng</th>
+            <th class="center">Tổng tiền</th>
+            <th class="center">Thanh toán</th>
+            <th class="center">Thời gian đặt hàng</th>
+        </tr>
+    </thead>
+    <tbody>
+    <%
+                            ArrayList<Ban_DTO> list_order = new Ban_Model().get_empty();
+                            for (Ban_DTO items : list_order) {
+    %>       
+            <tr>
+                <th class="center"><a href="/QLCF/Admin/QLBan/detail.jsp?id=<%=items.getId_ban()%>"><%=items.getId_ban()%></a></th>
+                <th class="center"><%=items.getId_customer()%></th>
+                <th class="center"><%=items.getTrangthai()%></th>
+                <th class="center col-address"><%=items.getDc_nhan()%></th>
+                <th class="center"><%=items.getTongtien()%></th>
+                <th class="center"><%=items.getPayment()%></th>
+                <th class="center col-time"><%=items.getCreatedate()%></th>               
+            </tr>
+    <%}%>
+    </tbody>
+</table>

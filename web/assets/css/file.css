@@ -159,3 +159,11 @@ table td img{
     color: #353f49;
 }
 /*--//login--*/
+/*--order--*/
+.col-address{
+    max-width: 380px;
+}
+.col-time{
+    max-width: 150px;
+}
+/*--//order--*/

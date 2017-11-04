@@ -72,7 +72,7 @@ public class NhanVien_servlet extends HttpServlet {
         if(request.getParameter("logout")!=null)
             {
                 session.invalidate();
-                response.sendRedirect("/QLCF/index.jsp");   
+                response.sendRedirect("/QLCF/Admin/index.jsp");   
                 return;
             }
         if(request.getParameter("bangluong")!=null)

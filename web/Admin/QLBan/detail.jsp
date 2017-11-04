@@ -4,8 +4,8 @@
     Author     : ducdat
 --%>
 
-<%@page import="Model.Ban_Model"%>
-<%@page import="DTO.Ban_DTO"%>
+<%@page import="Model.ChiTietBan_Model"%>
+<%@page import="DTO.ChiTietBan_DTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -19,6 +19,36 @@
                 <div class="col-sm-10 col-sm-offset-1">
                     <div class="wow fadeInUp animated" data-wow-delay=".7s">
                             <legend>Chi tiết mua hàng</legend>
+                            <table class="table table-hover table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="center">Số</th>
+                                        <th class="center">Tên thức uống</th>
+                                        <th class="center">Số lượng</th>
+                                        <th class="center">Phụ thêm</th>
+                                        <th class="center">Số lượng</th>
+                                        <th class="center">Giá bán</th>
+                                        <th class="center">Cập nhật trạng thái</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                <%
+                                    String idthucuong = request.getParameter("id");
+                                    ArrayList<ChiTietBan_DTO> list_order = new ChiTietBan_Model().get_by_id(idthucuong);
+                                    for (ChiTietBan_DTO items : list_order) {
+                                %>       
+                                        <tr>
+                                            <th class="center"><%=items.getId_chitiet_ban()%></th>
+                                            <th class="center"><%=items.getId_thucuong()%></th>
+                                            <th class="center"><%=items.getSoluong_thucuong()%></th>
+                                            <th class="center"><%=items.getId_ban()%></th>
+                                            <th class="center"><%=items.getId_ban()%></th>
+                                            <th class="center"><%=items.getThanhtien()%></th>
+                                            <th class="center">Cập nhật - Đổi thức uống khác</th>               
+                                        </tr>
+                                <%}%>
+                                </tbody>
+                            </table>
                     </div>
                 </div>
             </div> 

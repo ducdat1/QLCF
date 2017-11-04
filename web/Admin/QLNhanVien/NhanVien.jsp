@@ -77,11 +77,11 @@
 
                             </tr>
                         </thead>
+                        <tbody>
                         <%
                             ArrayList<NhanVien_DTO> list_nv = new NhanVien_Model().get_all();
                             for (NhanVien_DTO items : list_nv) {
                         %>
-                        <tbody>
                             <tr>
                                 <td><%=items.getId_nhanvien()%></td>
                                 <td><%=items.getTennv()%></td>
@@ -96,7 +96,7 @@
 
                                     <a href="/QLCF/NhanVien_servlet?idnv=<%=items.getId_nhanvien()%>">Xóa</a></td>
                             </tr>
-                            <% }%>
+                        <% }%>
                         </tbody>
                     </table>
                             <button class="btn btn-success"><a href="/QLCF/NhanVien_servlet?bangluong=true">Xuất bảng lương trên desktop</a></button>

@@ -52,7 +52,7 @@ public class ChiTietBan_Model {
     public ArrayList<ChiTietBan_DTO> get_by_id(String result) {
         ArrayList<ChiTietBan_DTO> list = new ArrayList<ChiTietBan_DTO>();
         try {
-            String sql = "SELECT * FROM db_chitiet_ban WHERE id_chitiet_ban like  '%" + result + "%' or id_ban like '%" + result + "%'";
+            String sql = "SELECT * FROM db_chitiet_ban WHERE id_ban =  '" + result + "'";
             db.connect();
             stm = db.getConn().createStatement();
             ResultSet rs = stm.executeQuery(sql);

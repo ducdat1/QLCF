@@ -20,32 +20,39 @@ public class Ban_Model {
     Database db = new Database();
     Statement stm;
     
-//    public ArrayList<Ban_DTO> get_empty()
-//    {
-//        ArrayList<Ban_DTO> list = new ArrayList<Ban_DTO>();
-//        try
-//        {
-//            String sql = "select * from db_ban where tinhtrang = 0";
-//            db.connect();
-//            stm = db.getConn().createStatement();
-//            ResultSet rs = stm.executeQuery(sql);
-//            if(rs==null)
-//                return null;
-//            else
-//            {
-//                while(rs.next())
-//                {
-//                    int idban = rs.getInt("id_ban");
-//                    int tinhtrang = rs.getInt("tinhtrang");
-//                    int tongtien = rs.getInt("tongtien");
-//                   Ban_DTO ban = new Ban_DTO(idban,tinhtrang,tongtien);
-//                   list.add(ban);
-//                }
-//                return list;
-//            }
-//        }catch(Exception e){ System.out.print(e);}
-//        return null;
-//    }
+    public ArrayList<Ban_DTO> get_empty()
+    {
+        ArrayList<Ban_DTO> list = new ArrayList<>();
+        try
+        {
+            String sql = "select id_ban,id_customer,tinhtrang,tongtien,dc_nhan,payment,"
+                       + "date_format(createdate, \"%h:%m %d-%m-%Y\") as createdate "
+                       + "from db_ban "
+                       + "where tinhtrang = 1 or tinhtrang = 0";
+            db.connect();
+            stm = db.getConn().createStatement();
+            ResultSet rs = stm.executeQuery(sql);
+            if(rs==null)
+                return null;
+            else
+            {
+                while(rs.next())
+                {
+                    int idban = rs.getInt("id_ban");
+                    int id_customer = rs.getInt("id_customer");
+                    int tinhtrang = rs.getInt("tinhtrang");
+                    String dc_nhan = rs.getString("dc_nhan");
+                    int tongtien = rs.getInt("tongtien");
+                    int payment = rs.getInt("payment");
+                    String ngaytao = rs.getString("createdate");
+                   Ban_DTO ban = new Ban_DTO(idban,id_customer,tinhtrang,tongtien,dc_nhan,payment,ngaytao);
+                   list.add(ban);
+                }
+                return list;
+            }
+        }catch(SQLException e){ System.out.print(e);}
+        return null;
+    }
     
 //    public ArrayList<Ban_DTO> get_check()
 //    {
@@ -102,7 +109,7 @@ public class Ban_Model {
                 }
                 return list;
             }
-        }catch(Exception e){ System.out.print(e);}
+        }catch(SQLException e){ System.out.print(e);}
         return null;
     }
 

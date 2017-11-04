@@ -145,21 +145,24 @@ public class ThucUong_servlet extends HttpServlet {
                     System.out.print("failed");
                 }
             }
-            //fix lại 
-            ThucUong_DTO gv = new ThucUong_DTO();      
-             gv.setTen_thucuong(request.getParameter("tentu"));
+            //insert new drink
+            if(request.getParameter("form") == "login")
+            {
+                ThucUong_DTO gv = new ThucUong_DTO();      
+                gv.setTen_thucuong(request.getParameter("tentu"));
                 gv.setGiaban(Integer.parseInt(request.getParameter("giaban")));
-                 gv.setId_thucuong(Integer.parseInt(request.getParameter("idtu")));
-                 ///
-            if(tu_model.insert(gv))
-            {
-                session.setAttribute("Thongbao", "Thêm thành công");
-                response.sendRedirect("/QLCF/Admin/QLThucUong/ThucUong.jsp");   
-                return;
-            }else
-            {
-                session.setAttribute("Thongbao", null);
-                response.sendRedirect("/QLCF/Admin/QLThucUong/ThucUong.jsp");
+                gv.setId_thucuong(Integer.parseInt(request.getParameter("idtu")));
+
+                if(tu_model.insert(gv))
+                {
+                    session.setAttribute("Thongbao", "Thêm thành công");
+                    response.sendRedirect("/QLCF/Admin/QLThucUong/ThucUong.jsp");   
+                    return;
+                }else
+                {
+                    session.setAttribute("Thongbao", null);
+                    response.sendRedirect("/QLCF/Admin/QLThucUong/ThucUong.jsp");
+                }
             }
         }catch(Exception e)
         {
