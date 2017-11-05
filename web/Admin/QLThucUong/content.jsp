@@ -23,7 +23,6 @@
                     <th>Ghi chú</th>
                     <th>Size mặc định</th>
                     <th>Phụ thêm</th>
-                    <th>Phân loại</th>
                     <th>Tùy chọn</th>
 
                 </tr>
@@ -41,7 +40,6 @@
                     <td><%=items.getnote()%></td>
                     <td><%=items.getsize()%></td>
                     <td><%=items.getextra1()%></td>
-                    <td><%=items.getextra2()%></td>
                     <td><a href="/QLCF/Admin/QLThucUong/Sua.jsp?idtu=<%=items.getId_thucuong()%>">Sửa</a>
 
                         <a href="/QLCF/ThucUong_servlet?idtu=<%=items.getId_thucuong()%>">Xóa</a></td>
@@ -61,7 +59,6 @@
                     <th>Ghi chú</th>
                     <th>Size mặc định</th>
                     <th>Phụ thêm</th>
-                    <th>Phân loại</th>
                     <th>Tùy chọn</th>
 
                 </tr>
@@ -79,7 +76,6 @@
                     <td><%=items.getnote()%></td>
                     <td><%=items.getsize()%></td>
                     <td><%=items.getextra1()%></td>
-                    <td><%=items.getextra2()%></td>
                     <td><a href="/QLCF/Admin/QLThucUong/Sua.jsp?idtu=<%=items.getId_thucuong()%>">Sửa</a>
 
                         <a href="/QLCF/ThucUong_servlet?idtu=<%=items.getId_thucuong()%>">Xóa</a></td>
@@ -92,14 +88,10 @@
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th>Tên thức uống</th>
+                    <th>Tên thạch</th>
                     <th>Giá bán</th>
                     <th>Ảnh hiển thị</th>
-                    <th>Mã giảm giá</th>
                     <th>Ghi chú</th>
-                    <th>Size mặc định</th>
-                    <th>Phụ thêm</th>
-                    <th>Phân loại</th>
                     <th>Tùy chọn</th>
 
                 </tr>
@@ -113,11 +105,8 @@
                     <td><%=items.getTen_thucuong()%></td>
                     <td><%=items.getGiaban()%></td>
                     <td><img src="/QLCF/images/thucuong/<%=items.geturl_image()%>" class="img-thumbnail" alt=""/></td>
-                    <td><%=items.getdiscount()%></td>
                     <td><%=items.getnote()%></td>
-                    <td><%=items.getsize()%></td>
-                    <td><%=items.getextra1()%></td>
-                    <td><%=items.getextra2()%></td>
+
                     <td><a href="/QLCF/Admin/QLThucUong/Sua.jsp?idtu=<%=items.getId_thucuong()%>">Sửa</a>
 
                         <a href="/QLCF/ThucUong_servlet?idtu=<%=items.getId_thucuong()%>">Xóa</a></td>
@@ -130,12 +119,11 @@
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th>Tên thức uống</th>
+                    <th>Tên bánh</th>
                     <th>Giá bán</th>
                     <th>Ảnh hiển thị</th>
                     <th>Mã giảm giá</th>
                     <th>Ghi chú</th>
-                    <th>Size mặc định</th>
                     <th>Phụ thêm</th>
                     <th>Phân loại</th>
                     <th>Tùy chọn</th>
@@ -153,9 +141,7 @@
                     <td><img src="/QLCF/images/thucuong/<%=items.geturl_image()%>" class="img-thumbnail" alt=""/></td>
                     <td><%=items.getdiscount()%></td>
                     <td><%=items.getnote()%></td>
-                    <td><%=items.getsize()%></td>
                     <td><%=items.getextra1()%></td>
-                    <td><%=items.getextra2()%></td>
                     <td><a href="/QLCF/Admin/QLThucUong/Sua.jsp?idtu=<%=items.getId_thucuong()%>">Sửa</a>
 
                         <a href="/QLCF/ThucUong_servlet?idtu=<%=items.getId_thucuong()%>">Xóa</a></td>

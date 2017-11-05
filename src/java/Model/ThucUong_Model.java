@@ -274,8 +274,8 @@ public class ThucUong_Model {
     
     public boolean insert(ThucUong_DTO tu)
     {
-        String sql = "insert into db_thucuong(ten_thucuong,giaban)\n" +
-                     "values ('"+tu.getTen_thucuong()+"','"+tu.getGiaban()+"');";
+        String sql = "insert into db_thucuong(ten_thucuong,giaban)" +
+                     "values ('"+tu.getTen_thucuong()+"','"+tu.getGiaban()+"')";
         try {
             db.connect();
             stm = db.getConn().createStatement();

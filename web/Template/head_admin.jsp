@@ -16,4 +16,7 @@
   
   <script src="/QLCF/assets/js/jquery-1.11.1.min.js"></script>
   <script src="/QLCF/assets/js/admin.js"></script>
+    <%if(session.getAttribute("log_flg")== "0"){
+        response.sendRedirect("/QLCF/Admin/index.jsp");
+    }%>
 </head>

@@ -91,26 +91,25 @@ public class ThucUong_servlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //process only if its multipart content
-        //processRequest(request, response);
+
         try{
-            String result = request.getParameter("search");
             HttpSession session = request.getSession();
             ThucUong_Model tu_model = new ThucUong_Model();
             ArrayList<ThucUong_DTO> list = new ArrayList<ThucUong_DTO>();
             
-            if(result!=null)
-            {
-                list = tu_model.get_by_id(result);
-                session.setAttribute("result", list);
-                response.sendRedirect("/QLCF/Admin/QLThucUong/KetQua.jsp");   
-                return;
-            }
+//            String result = request.getParameter("search");           
+//            if(result!=null)
+//            {
+//                list = tu_model.get_by_id(result);
+//                session.setAttribute("result", list);
+//                response.sendRedirect("/QLCF/Admin/QLThucUong/KetQua.jsp");   
+//                return;
+//            }
 //            ThucUong_DTO gv = new ThucUong_DTO();
 
 
-            //thêm vào csdl
-            if(request.getParameter("update") == "confirm")
+              //thêm vào csdl
+            if("confirm".equals(request.getParameter("update")))
             {
                 Part filePart = request.getPart("file");
                 String fileName = (String) getFileName(filePart);
@@ -151,23 +150,22 @@ public class ThucUong_servlet extends HttpServlet {
                 ThucUong_DTO gv = new ThucUong_DTO();      
                 gv.setTen_thucuong(request.getParameter("tentu"));
                 gv.setGiaban(Integer.parseInt(request.getParameter("giaban")));
-                gv.setId_thucuong(Integer.parseInt(request.getParameter("idtu")));
 
                 if(tu_model.insert(gv))
                 {
                     session.setAttribute("Thongbao", "Thêm thành công");
                     response.sendRedirect("/QLCF/Admin/QLThucUong/ThucUong.jsp");   
-                    return;
                 }else
                 {
                     session.setAttribute("Thongbao", null);
-                    response.sendRedirect("/QLCF/Admin/QLThucUong/ThucUong.jsp");
+                    response.sendRedirect("/QLCF/Admin/index.jsp");
                 }
             }
-        }catch(Exception e)
+        }catch(IOException | NumberFormatException e)
         {
-            response.sendRedirect("/QLCF/Admin/QLThucUong/ThucUong.jsp");
+            response.sendRedirect("/QLCF/Admin/index.jsp");
         } 
+
     }
 
     /**
