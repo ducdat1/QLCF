@@ -4,10 +4,9 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/code/QLCF/web/assets/css/file.css</file>
-            <file>file:/C:/code/QLCF/web/Admin/index.jsp</file>
             <file>file:/C:/code/QLCF/src/java/Controller/ThucUong_servlet.java</file>
-            <file>file:/C:/code/QLCF/src/java/DTO/ThucUong_DTO.java</file>
             <file>file:/C:/code/QLCF/src/java/Model/ThucUong_Model.java</file>
+            <file>file:/C:/code/QLCF/web/Admin/QLNhanVien/Sua.jsp</file>
             <file>file:/C:/code/QLCF/web/Admin/QLThucUong/ThucUong.jsp</file>
         </group>
     </open-files>

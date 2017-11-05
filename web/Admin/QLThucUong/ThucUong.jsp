@@ -42,47 +42,33 @@
                     </div>
                     <div class="col-sm-12 display">
                         <ul class="nav nav-tabs" data-wow-delay=".6s">
-                            <li class="coffee"><a href="#">Coffee</a></li>
-                            <li class="tea"><a href="#">Tea</a></li>
-                            <li class="snack"><a href="#">Snack</a></li>
-                            <li class="others"><a href="#">Others</a></li>
+                            <li class="tabsp coffee active"><a href="javascript:;">Coffee</a></li>
+                            <li class="tabsp tea"><a href="javascript:;">Tea</a></li>
+                            <li class="tabsp snack"><a href="javascript:;">Snack</a></li>
+                            <li class="tabsp others"><a href="javascript:;">Others</a></li>
                         </ul>
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th>Tên thức uống</th>
-                                    <th>Giá bán</th>
-                                    <th>Ảnh hiển thị</th>
-                                    <th>Mã giảm giá</th>
-                                    <th>Ghi chú</th>
-                                    <th>Size mặc định</th>
-                                    <th>Phụ thêm</th>
-                                    <th>Phân loại</th>
-                                    <th>Tùy chọn</th>
-
-                                </tr>
-                            </thead>
-                            <%
-                                ArrayList<ThucUong_DTO> list_nv = new ThucUong_Model().get_all(0);
-                                for (ThucUong_DTO items : list_nv) {
-                            %>
-                            <tbody>
-                                <tr>
-                                    <td><%=items.getTen_thucuong()%></td>
-                                    <td><%=items.getGiaban()%></td>
-                                    <td><img src="/QLCF/images/thucuong/<%=items.geturl_image()%>" class="img-thumbnail" alt=""/></td>
-                                    <td><%=items.getdiscount()%></td>
-                                    <td><%=items.getnote()%></td>
-                                    <td><%=items.getsize()%></td>
-                                    <td><%=items.getextra1()%></td>
-                                    <td><%=items.getextra2()%></td>
-                                    <td><a href="/QLCF/Admin/QLThucUong/Sua.jsp?idtu=<%=items.getId_thucuong()%>">Sửa</a>
-
-                                        <a href="/QLCF/ThucUong_servlet?idtu=<%=items.getId_thucuong()%>">Xóa</a></td>
-                                </tr>
-                                <% }%>
-                            </tbody>
-                        </table>
+                        <div class="tabs-content">
+                            <div class="content-sp">
+                                <jsp:include page='content.jsp'>
+                                    <jsp:param name="type" value="1"/>
+                                </jsp:include>
+                            </div>
+                            <div class="content-sp1 inactive">
+                                <jsp:include page='content.jsp'>
+                                    <jsp:param name="type" value="2"/>
+                                </jsp:include>
+                            </div>
+                            <div class="content-sp2 inactive">
+                                <jsp:include page='content.jsp'>
+                                    <jsp:param name="type" value="3"/>
+                                </jsp:include>
+                            </div>
+                            <div class="content-sp3 inactive">
+                                <jsp:include page='content.jsp'>
+                                    <jsp:param name="type" value="4"/>
+                                </jsp:include>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

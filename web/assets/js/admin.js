@@ -1,7 +1,7 @@
 /* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ *  Document   : admin.js
+ *  Created on : Nov 1, 2017
+ *  Author     : DatND4
  */
 
 jQuery(document).ready(function($){
@@ -17,4 +17,29 @@ jQuery(document).ready(function($){
         $(this).parent().find('.addnew').hide(1000);
         $(this).parent().find('.btn-nv').show(1000);
     });
+    
+    //QL thuc uong
+    //show tab san pham - start
+    $('.tabsp').click(function(){
+        console.log("----------------");
+        $(this).parent().find('.active').removeClass('active');
+        $(this).addClass('active');
+    });
+    $('.coffee').click(function(){
+        $(".tabs-content").children().addClass('inactive');
+        $( ".content-sp" ).removeClass('inactive');
+    });
+    $('.snack').click(function(){
+        $(".tabs-content").children().addClass('inactive');
+        $( ".content-sp2" ).removeClass('inactive');
+    });
+    $('.others').click(function(){
+        $(".tabs-content").children().addClass('inactive');
+        $( ".content-sp3" ).removeClass('inactive');
+    });
+    $('.tea').click(function(){
+        $(".tabs-content").children().addClass('inactive');
+        $( ".content-sp1" ).removeClass('inactive');
+    });
+    //show tab san pham - end
 });

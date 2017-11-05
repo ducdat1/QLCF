@@ -146,7 +146,7 @@ public class ThucUong_servlet extends HttpServlet {
                 }
             }
             //insert new drink
-            if(request.getParameter("form") == "login")
+            if("insert".equals(request.getParameter("form")))
             {
                 ThucUong_DTO gv = new ThucUong_DTO();      
                 gv.setTen_thucuong(request.getParameter("tentu"));

@@ -84,13 +84,13 @@ public class ThucUong_Model {
                     int id_thucuong = rs.getInt("id_thucuong");
                     String ten_thucuong = rs.getString("ten_thucuong");
                     int giaban = rs.getInt("giaban");
-                    int rank            = rs.getInt("rank");;
-                    String url_image    = rs.getString("url_image");;
-                    String note         = rs.getString("note");;
-                    int discount        = rs.getInt("discount");;
-                    String size         = rs.getString("size");;
-                    String extra1       = rs.getString("extra1");;
-                    String extra2       = rs.getString("extra2");;
+                    int rank            = rs.getInt("rank");
+                    String url_image    = rs.getString("url_image");
+                    String note         = rs.getString("note");
+                    int discount        = rs.getInt("discount");
+                    String size         = rs.getString("size");
+                    String extra1       = rs.getString("extra1");
+                    String extra2       = rs.getString("extra2");
                     
                     ThucUong_DTO tu = new ThucUong_DTO(id_thucuong,ten_thucuong,giaban,rank,url_image,note,discount,size,extra1,extra2);
                     
@@ -120,13 +120,13 @@ public class ThucUong_Model {
                     int id_thucuong     = rs.getInt("id_thucuong");
                     String ten_thucuong = rs.getString("ten_thucuong");
                     int giaban          = rs.getInt("giaban");
-                    int rank            = rs.getInt("rank");;
-                    String url_image    = rs.getString("url_image");;
-                    String note         = rs.getString("note");;
-                    int discount        = rs.getInt("discount");;
-                    String size         = rs.getString("size");;
-                    String extra1       = rs.getString("extra1");;
-                    String extra2       = rs.getString("extra2");;
+                    int rank            = rs.getInt("rank");
+                    String url_image    = rs.getString("url_image");
+                    String note         = rs.getString("note");
+                    int discount        = rs.getInt("discount");
+                    String size         = rs.getString("size");
+                    String extra1       = rs.getString("extra1");
+                    String extra2       = rs.getString("extra2");
                     if(discount == 1)
                     {
                        int gia_discount = (int)(giaban - (giaban*0.15));
@@ -144,7 +144,7 @@ public class ThucUong_Model {
                 }
                 return list;
             }
-        }catch(Exception e){ System.out.print(e);}
+        }catch(SQLException e){ System.out.print(e);}
         return null;
     }
     
@@ -166,13 +166,13 @@ public class ThucUong_Model {
                     int id_thucuong     = rs.getInt("id_thucuong");
                     String ten_thucuong = rs.getString("ten_thucuong");
                     int giaban          = rs.getInt("giaban");
-                    int rank            = rs.getInt("rank");;
-                    String url_image    = rs.getString("url_image");;
-                    String note         = rs.getString("note");;
-                    int discount        = rs.getInt("discount");;
-                    String size         = rs.getString("size");;
-                    String extra1       = rs.getString("extra1");;
-                    String extra2       = rs.getString("extra2");;
+                    int rank            = rs.getInt("rank");
+                    String url_image    = rs.getString("url_image");
+                    String note         = rs.getString("note");
+                    int discount        = rs.getInt("discount");
+                    String size         = rs.getString("size");
+                    String extra1       = rs.getString("extra1");
+                    String extra2       = rs.getString("extra2");
                     if(discount == 1)
                     {
                        int gia_discount = (int)(giaban - (giaban*0.15));
@@ -190,13 +190,13 @@ public class ThucUong_Model {
                 }
                 return list;
             }
-        }catch(Exception e){ System.out.print(e);}
+        }catch(SQLException e){ System.out.print(e);}
         return null;
     }
     
     public ArrayList<ThucUong_DTO> get_to_cart(String result)
     {
-        ArrayList<ThucUong_DTO> list = new ArrayList<ThucUong_DTO>();
+        ArrayList<ThucUong_DTO> list = new ArrayList<>();
         try
         {
             String sql = "SELECT * FROM db_thucuong WHERE id_thucuong = '"+result+"'";
@@ -212,13 +212,13 @@ public class ThucUong_Model {
                     int id_thucuong     = rs.getInt("id_thucuong");
                     String ten_thucuong = rs.getString("ten_thucuong");
                     int giaban          = rs.getInt("giaban");
-                    int rank            = rs.getInt("rank");;
-                    String url_image    = rs.getString("url_image");;
-                    String note         = rs.getString("note");;
-                    int discount        = rs.getInt("discount");;
-                    String size         = rs.getString("size");;
-                    String extra1       = rs.getString("extra1");;
-                    String extra2       = rs.getString("extra2");;
+                    int rank            = rs.getInt("rank");
+                    String url_image    = rs.getString("url_image");
+                    String note         = rs.getString("note");
+                    int discount        = rs.getInt("discount");
+                    String size         = rs.getString("size");
+                    String extra1       = rs.getString("extra1");
+                    String extra2       = rs.getString("extra2");
                     if(discount == 1)
                     {
                        int gia_discount = (int)(giaban - (giaban*0.15));
@@ -236,7 +236,7 @@ public class ThucUong_Model {
                 }
                 return list;
             }
-        }catch(Exception e){ System.out.print(e);}
+        }catch(SQLException e){ System.out.print(e);}
         return null;
     }
     
@@ -257,18 +257,18 @@ public class ThucUong_Model {
                     int id_thucuong     = rs.getInt("id_thucuong");
                     String ten_thucuong = rs.getString("ten_thucuong");
                     int giaban          = rs.getInt("giaban");
-                    int rank            = rs.getInt("rank");;
-                    String url_image    = rs.getString("url_image");;
-                    String note         = rs.getString("note");;
-                    int discount        = rs.getInt("discount");;
-                    String size         = rs.getString("size");;
-                    String extra1       = rs.getString("extra1");;
-                    String extra2       = rs.getString("extra2");;
+                    int rank            = rs.getInt("rank");
+                    String url_image    = rs.getString("url_image");
+                    String note         = rs.getString("note");
+                    int discount        = rs.getInt("discount");
+                    String size         = rs.getString("size");
+                    String extra1       = rs.getString("extra1");
+                    String extra2       = rs.getString("extra2");
                     ThucUong_DTO tu = new ThucUong_DTO(id_thucuong,ten_thucuong,giaban,rank,url_image,note,discount,size,extra1,extra2);
                     return tu;
                 }
             }
-        }catch(Exception e){ System.out.print(e);}
+        }catch(SQLException e){ System.out.print(e);}
         return null;
     }
     

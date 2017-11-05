@@ -167,3 +167,8 @@ table td img{
     max-width: 150px;
 }
 /*--//order--*/
+/*--thuc uong--*/
+.inactive{
+    display: none;
+}
+/*--//thuc uong--*/
