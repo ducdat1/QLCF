@@ -25,7 +25,6 @@
                     <img src="/QLCF/images/thucuong/<%=tu.geturl_image()%>" class="img-responsive" alt=""/>
                 </div>
                 <div class="col-sm-6">
-
                     <form action="/QLCF/ThucUong_servlet" method="POST" role="form" enctype = "multipart/form-data">
                         <input type="hidden" name="thucuong_id" value="<%=request.getParameter("idtu")%>">
                         <input type="hidden" name="update" value="confirm">

@@ -22,7 +22,11 @@ public class ThucUong_Model {
     Database db = new Database();
     Statement stm;
     
-    
+    /**
+     *
+     * @param id
+     * @return
+     */
     public ArrayList<ThucUong_DTO> get_all(int id)
     {
         ArrayList<ThucUong_DTO> list = new ArrayList<ThucUong_DTO>();
@@ -32,7 +36,7 @@ public class ThucUong_Model {
             if(id == 0){
                sql = "SELECT * FROM db_thucuong";
             }else{
-               sql = "SELECT * FROM db_thucuong where extra2 ="+id+" limit 8";
+               sql = "SELECT * FROM db_thucuong where extra2 ="+id+" order by id_thucuong desc";
             }
             db.connect();
             stm = db.getConn().createStatement();
@@ -274,8 +278,13 @@ public class ThucUong_Model {
     
     public boolean insert(ThucUong_DTO tu)
     {
-        String sql = "insert into db_thucuong(ten_thucuong,giaban)" +
-                     "values ('"+tu.getTen_thucuong()+"','"+tu.getGiaban()+"')";
+        
+        String sql = "INSERT INTO db_thucuong (`ten_thucuong`, `giaban`, `url_image`, `note`, `discount`, `size`, `extra1`, `extra2`, `createdate`) "
+                + "VALUES ('"+tu.getTen_thucuong()+"', '"
+                +tu.getGiaban()+"', '"+tu.geturl_image()+"', '"
+                +tu.getnote()+"', '2', '"+tu.getsize()+"', '"
+                +tu.getextra1()+"', '"+tu.getextra2()+"', sysdate()"
+                + ")";
         try {
             db.connect();
             stm = db.getConn().createStatement();
@@ -304,7 +313,16 @@ public class ThucUong_Model {
     public boolean Update(ThucUong_DTO tu)
     {
         try {
-            String delete ="UPDATE db_thucuong SET ten_thucuong='"+tu.getTen_thucuong()+"',giaban='"+tu.getGiaban()+"' where id_thucuong='"+tu.getId_thucuong()+"'";
+            String delete ="UPDATE db_thucuong SET "
+                    + "ten_thucuong='"+tu.getTen_thucuong()+"',"
+                    + "giaban='"+tu.getGiaban()+"', "
+                    + "url_image='"+tu.geturl_image()+"', "
+                    + "note='"+tu.getnote()+"', "
+                    + "discount='"+tu.getdiscount()+"', "
+                    + "size='"+tu.getsize()+"', "
+                    + "extra1='"+tu.getextra1()+"', "
+                    + "extra2='"+tu.getextra2()+"' "
+                    + "where id_thucuong='"+tu.getId_thucuong()+"'";
                 db.connect();
             PreparedStatement pst = db.getConn().prepareStatement(delete);
             pst.executeUpdate();

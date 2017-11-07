@@ -24,6 +24,7 @@
 			<div class="new-info">
                             <div class="col-md-5" data-wow-delay=".5s">
                                  <%
+                            String applicationPath = request.getServletContext().getRealPath("");
                             ArrayList<ThucUong_DTO> list_nv = new ThucUong_Model().get_new();
                             for (ThucUong_DTO items : list_nv) {
                         %>

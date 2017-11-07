@@ -16,43 +16,51 @@
         <%@include file="/Template/menu_admin.jsp"%>
         <div class="container-fluid">
             <div class="row content">
-                <div class="col-sm-10 main-detail col-sm-offset-1">
-                    <div class="col-sm-6 addproduct">
-                        <form action="/QLCF/ThucUong_servlet" method="POST" role="form">
+                <div class="main-detail">
+                    <div class="addproduct">
+                        <form action="/QLCF/ThucUong_servlet" method="POST" role="form" enctype = "multipart/form-data">
                             <input type="hidden" name="form" value="insert">
                             <legend>Thêm nhân thức uống mới</legend>
-                            <div class="form-group">
-                                <label for="">Tên thức uống</label>
-                                <input type="text" class="form-control" name="tentu" placeholder="Thức uống">
-                                <label for="">Giá bán</label>
-                                <input type="text" class="form-control" name="giaban" placeholder="Giá bán">
-                                <label for="">Ảnh hiển thị</label>
-                                <input type = "file" name = "file" size = "50" />
-                                <label for="">Mã giảm giá</label>   
-                                <select name="discount" class="form-control">
-                                    <option value="1">Sản phẩm mới</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                </select>
-                                <label for="">Ghi chú</label>
-                                <textarea name="note" id="input" class="form-control" rows="2" required="required" placeholder="Ghi chú..."></textarea>
-                                <label for="">Size mặc định</label>
-                                <input type="text" class="form-control" name="size" placeholder="Size mặc định">
-                                <label for="">Phụ thêm</label>
-                                <input type="text" class="form-control" name="bonus1" placeholder="Phụ thêm">
-                                <label for="">Phân loại</label>
-                                 <select name="bonus2" class="form-control">
-                                    <option value="1">Coffee</option>
-                                    <option value="2">Tea</option>
-                                    <option value="4">Snack</option>
-                                    <option value="3">Other</option>
-                                </select>
-                            </div>
+                                <table class="table table-hover" id='tblCustomers'>
+                                    <thead>
+                                        <tr>
+                                            <th>Tên thức uống</th>
+                                            <th>Giá bán</th>
+                                            <th>Ảnh</th>
+                                            <th>Ghi chú</th>
+                                            <th>Size</th>
+                                            <th>Phụ thêm</th>
+                                            <th>Phân loại</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><input type="text" class="form-control" name="tentu" placeholder="Thức uống"></td>
+                                            <td><input type="text" class="form-control" name="giaban" placeholder="Giá bán"></td>
+                                            <td><input type = "file" name = "file" size = "30" /></td>
+                                            <td><textarea name="note" id="input" class="form-control" rows="1" placeholder="Ghi chú..." style='height: 34px;'></textarea></td>
+                                            <td>
+                                                <select name="size" class="form-control">
+                                                    <option value="M">M</option>
+                                                    <option value="S">S</option>
+                                                    <option value="L">L</option>
+                                                    <option value="XS">XS</option>
+                                                </select>
+                                            </td>
+                                            <td><input type="text" class="form-control" name="bonus1" placeholder="Phụ thêm"></td>
+                                            <td>
+                                                <select name="bonus2" class="form-control">
+                                                    <option value="1">Coffee</option>
+                                                    <option value="2">Tea</option>
+                                                    <option value="4">Snack</option>
+                                                    <option value="3">Other</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            <input type="button" class="addrow"/>
                             <button type="submit" class="btn btn-primary">Thêm mới</button>
                         </form>
                     </div>
@@ -66,7 +74,7 @@
                             <button type="submit" class="btn btn-primary">Tìm</button>
                         </form>
                     </div>-->
-<!--                    <div class="col-sm-12 display">
+                    <div class="col-sm-12 display">
                         <ul class="nav nav-tabs" data-wow-delay=".6s">
                             <li class="tabsp coffee active"><a href="javascript:;">Coffee</a></li>
                             <li class="tabsp tea"><a href="javascript:;">Tea</a></li>
@@ -95,7 +103,7 @@
                                 </jsp:include>
                             </div>
                         </div>
-                    </div>-->
+                    </div>
                 </div>
             </div>
         </div>

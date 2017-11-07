@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
+import static java.lang.System.out;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.ServletException;
@@ -95,7 +96,7 @@ public class ThucUong_servlet extends HttpServlet {
         try{
             HttpSession session = request.getSession();
             ThucUong_Model tu_model = new ThucUong_Model();
-            ArrayList<ThucUong_DTO> list = new ArrayList<ThucUong_DTO>();
+//            ArrayList<ThucUong_DTO> list = new ArrayList<ThucUong_DTO>();
             
 //            String result = request.getParameter("search");           
 //            if(result!=null)
@@ -108,9 +109,10 @@ public class ThucUong_servlet extends HttpServlet {
 //            ThucUong_DTO gv = new ThucUong_DTO();
 
 
-              //thêm vào csdl
+              //thêm vào csdl            
             if("confirm".equals(request.getParameter("update")))
             {
+                
                 Part filePart = request.getPart("file");
                 String fileName = (String) getFileName(filePart);
                 ThucUong_DTO gv = new ThucUong_DTO(Integer.parseInt(request.getParameter("thucuong_id")),
@@ -125,14 +127,12 @@ public class ThucUong_servlet extends HttpServlet {
                                                    request.getParameter("bonus1"),
                                                    request.getParameter("bonus2")
                                                    );
-
-                if(request.getParameter("idtu")!=null){
+                if(request.getParameter("thucuong_id")!=null){
                     if(tu_model.Update(gv))
                     {
-                        request.setAttribute("fileName", uploadFile(request));
+                        uploadFile(request);
                         session.setAttribute("Thongbao", "Sửa thành công");
                         response.sendRedirect("/QLCF/Admin/QLThucUong/ThucUong.jsp");
-                        return;
                     }
                     else
                     {
@@ -147,12 +147,19 @@ public class ThucUong_servlet extends HttpServlet {
             //insert new drink
             if("insert".equals(request.getParameter("form")))
             {
+                Part filePart = request.getPart("file");
+                String fileName = (String) getFileName(filePart);
                 ThucUong_DTO gv = new ThucUong_DTO();      
                 gv.setTen_thucuong(request.getParameter("tentu"));
                 gv.setGiaban(Integer.parseInt(request.getParameter("giaban")));
-
+                gv.seturl_image(fileName);
+                gv.setnote(request.getParameter("note"));
+                gv.setsize(request.getParameter("size"));
+                gv.setextra1(request.getParameter("bonus1"));
+                gv.setextra2(request.getParameter("bonus2"));
                 if(tu_model.insert(gv))
                 {
+                    String uploadFile = uploadFile(request);
                     session.setAttribute("Thongbao", "Thêm thành công");
                     response.sendRedirect("/QLCF/Admin/QLThucUong/ThucUong.jsp");   
                 }else

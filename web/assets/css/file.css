@@ -17,7 +17,7 @@ body{
   text-align: center;
 }  
 .addproduct{
-    border-right: 1px solid gray;
+    margin: 0 50px;
 }
 .display{
    margin-top: 15px;
