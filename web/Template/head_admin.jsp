@@ -16,7 +16,14 @@
   
   <script src="/QLCF/assets/js/jquery-1.11.1.min.js"></script>
   <script src="/QLCF/assets/js/admin.js"></script>
-    <%if(session.getAttribute("log_flg")== "0"){
-        response.sendRedirect("/QLCF/Admin/index.jsp");
-    }%>
+    <%
+//        Cookie[] cookies = request.getCookies();
+//        Cookie cookie = null;
+//        for (int i = 0; i < cookies.length; i++){
+//            cookie = cookies[i];
+//            out.print(cookie.getName());
+//        }
+//        if(session.getAttribute("log_flg")== "0"){
+//        response.sendRedirect("/QLCF/Admin/index.jsp");
+    %>
 </head>

@@ -22,7 +22,7 @@ import javax.servlet.annotation.WebServlet;
  * @author ducdat
  */
 public class cart_servlet extends HttpServlet {
-
+    ArrayList list_id = new ArrayList();
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -62,6 +62,7 @@ public class cart_servlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 //        processRequest(request, response);
+        
         try{
             HttpSession session = request.getSession();
             int sum_cart;
@@ -80,13 +81,14 @@ public class cart_servlet extends HttpServlet {
                response.getWriter().print(sum_cart);
             }
             else if( id_thucuong != null )
-            {
-                ArrayList list_id = new ArrayList();
+            {            
                 list_id.add(id_thucuong);
-                
                 ThucUong_Model tc_model = new ThucUong_Model();
-                ArrayList<ThucUong_DTO> list = new ArrayList<ThucUong_DTO>();
-                list = tc_model.get_to_cart((String)list_id.get(0));
+                ArrayList<ThucUong_DTO> list = new ArrayList<>();
+                for(int i = 0; i<list_id.size() ; i++){
+                    ThucUong_DTO tudto = tc_model.get_to_cart((String)list_id.get(i));
+                    list.add(tudto) ;
+                }
                 session.setAttribute("list_cart",list);
                 sum_cart = sum_cart + 1;
                 session.setAttribute("sum_cart",sum_cart);
@@ -94,7 +96,7 @@ public class cart_servlet extends HttpServlet {
                 response.getWriter().print(sum_cart);
             }
             
-        }catch(Exception e){
+        }catch(IOException e){
             System.out.print(e);
         }
     }
@@ -114,6 +116,7 @@ public class cart_servlet extends HttpServlet {
         HttpSession session = request.getSession();
         String cartempty = request.getParameter("cartempty").trim();
         if(cartempty != null){
+            list_id.removeAll(list_id);
             session.invalidate();
             response.setContentType("text/plain");
             response.getWriter().print(0);

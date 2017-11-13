@@ -4,6 +4,9 @@
     Author     : ducdat
 --%>
 
+<%@page import = "java.io.*,java.util.*" %>
+<%@page import="Model.Nguoidung_Model"%>
+<%@page import="DTO.NguoiDung_DTO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -14,18 +17,21 @@
         <!--//header-->
         <!--breadcrums-->
         <jsp:include page='../Template/breadcrums.jsp'>
-            <jsp:param name="from" value="Cart"/>
+            <jsp:param name="from" value="Detail"/>
         </jsp:include>
         <!--//breadcrums-->
         <!--detail-->
+        <% 
+        if(session.getAttribute("UID") != null){
+        %>
         <div class="new" id="personal">
                 <div class="container">
                     <div class="title-info wow fadeInUp animated" data-wow-delay=".5s">
                             <h3 class="title">Information's <span> Customer</span></h3>
                     </div>
                     <ul class="nav nav-tabs" data-wow-delay=".6s">
-                      <li class="active"><a href="#">Personal</a></li>
-                      <li class="tb_history"><a href="#">History</a></li>
+                      <li class="active"><a href="javascript:;">Personal</a></li>
+                      <li class="tb_history"><a href="javascript:;">History</a></li>
                     </ul>
                     <div class="widget-shadow">
                             <div class="user-top wow fadeInUp animated" data-wow-delay=".7s">
@@ -43,16 +49,20 @@
                                         <label for="Plus" class="info_label">Plus</label>
                                         <label for="Point" class="info_label">Point</label>    
                                 </div>
+                                <%
+                                    String idusername = String.valueOf(session.getAttribute("UID"));
+                                    NguoiDung_DTO ngdung = new Nguoidung_Model().get_info(idusername);
+                                %>
                                 <div class="info_right">
-                                        <label for="Firstname" class="info_label">Firstname</label>
-                                        <label for="Lastname" class="info_label">Lastname</label>
-                                        <label for="Account" class="info_label">Account</label>
-                                        <label for="Password" class="info_label">Password</label>
-                                        <label for="Email" class="info_label">Email</label>
-                                        <label for="Telephone" class="info_label">Telephone</label>
-                                        <label for="Address" class="info_label">Address</label>
-                                        <label for="Plus" class="info_label">Plus</label>
-                                        <label for="Point" class="info_label">Point</label>   
+                                        <label for="Firstname" class="info_label"><%=ngdung.getFirstname()%></label>
+                                        <label for="Lastname" class="info_label"><%=ngdung.getLastname()%></label>
+                                        <label for="Account" class="info_label"><%=ngdung.getCus_account()%></label>
+                                        <label for="Password" class="info_label"><%=ngdung.getCus_password()%></label>
+                                        <label for="Email" class="info_label"><%=ngdung.getCus_email()%></label>
+                                        <label for="Telephone" class="info_label"><%=ngdung.getCus_phone()%></label>
+                                        <label for="Address" class="info_label"><%=ngdung.getCus_address()%></label>
+                                        <label for="Plus" class="info_label"><%=ngdung.getPlus()%></label>
+                                        <label for="Point" class="info_label"><%=ngdung.getPoint_sum()%></label>   
                                 </div>
                             </div>
                     </div>
@@ -69,8 +79,8 @@
                         <h3 class="title">Purchase <span> History</span></h3>
                 </div>
                 <ul class="nav nav-tabs" data-wow-delay=".6s">
-                    <li class="tb_personal"><a href="#">Personal</a></li>
-                    <li class="active"  ><a href="#">History</a></li>
+                    <li class="tb_personal"><a href="javascript:;">Personal</a></li>
+                    <li class="active"  ><a href="javascript:;">History</a></li>
                  </ul>
                 <div class="widget-shadow">
                         <div class="user-top wow fadeInUp animated" data-wow-delay=".7s">
@@ -104,6 +114,14 @@
                 <div class="user-info"></div>
             </div>
         </div>
+        <%}else{
+            out.println("hello word!");
+            String site = new String("/QLCF/Auth/login.jsp");
+            response.setStatus(response.SC_MOVED_TEMPORARILY);
+            response.setHeader("Location", site); 
+        }        
+        %>
+        
 	<!--//detail-->
         <!--footer-->
         <%@include file="../Template/footer.jsp" %>

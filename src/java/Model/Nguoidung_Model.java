@@ -86,6 +86,38 @@ public class Nguoidung_Model {
         return nd;
     }
     
+    public NguoiDung_DTO get_info(String idngdung)
+    {
+        try
+        {
+            String sql = "SELECT * FROM db_customer where id_customer='"+idngdung+"'";
+            db.connect();
+            stm = db.getConn().createStatement();
+            ResultSet rs = stm.executeQuery(sql);
+            if(rs==null)
+                return null;
+            else
+            {
+                while(rs.next())
+                {
+                    int id_customer     = rs.getInt("id_customer");
+                    String firstname    = rs.getString("firstname");
+                    String lastname     = rs.getString("lastname");
+                    String cus_email    = rs.getString("cus_email");
+                    String cus_account  = rs.getString("cus_account");
+                    String cus_password = rs.getString("cus_password");
+                    String cus_address  = rs.getString("cus_address");
+                    String cus_phone    = rs.getString("cus_phone");
+                    String plus         = rs.getString("plus");
+                    int point_sum       = rs.getInt("point_sum");
+                    NguoiDung_DTO tu = new NguoiDung_DTO(id_customer,firstname,lastname,cus_email,cus_account,cus_password,cus_address,cus_phone,plus,point_sum);
+                    return tu;
+                }
+            }
+        }catch(SQLException e){ System.out.print(e);}
+        return null;
+    }
+    
     public boolean insert(NguoiDung_DTO tu)
     {
         String sql;

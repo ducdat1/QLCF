@@ -1,4 +1,19 @@
 jQuery(document).ready(function($){
+        //set display ranking
+        var rank = $('.ranking').val();
+//        <span class="on">☆</span>
+//        <span class="on">☆</span>
+//        <span class="on">☆</span>
+//        <span class="on">☆</span>
+//        
+        for(var i = 0; i < rank ; i++)
+        {
+           $('.ranking').parent().append("<span class='on'>☆</span>")
+        }
+        for(var i = 0; i < 5-rank ; i++)
+        {
+           $('.ranking').parent().append("<span>☆</span>")
+        }
 	//if you change this breakpoint in the style.css file (or _layout.scss if you use SASS), don't forget to update this value as well
 	var MqL = 1170;
 	//move nav element position according to window width

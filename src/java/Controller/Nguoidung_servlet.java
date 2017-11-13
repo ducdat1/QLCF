@@ -110,7 +110,8 @@ public class Nguoidung_servlet extends HttpServlet {
                 String password = request.getParameter("password");
                 NguoiDung_DTO result = nd_model.login(username, password);
                 if (result != null) {
-                    session.setAttribute("UID",result.getCus_account());
+                    session.setAttribute("UID",result.getId_customer());
+                    session.setAttribute("USERNAME",result.getCus_account());
                     session.setAttribute("PLUS",result.getPlus());
                     session.setAttribute("POINT",result.getPoint_sum());
                     session.setAttribute("MEM_FLG","1");

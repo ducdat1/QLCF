@@ -27,7 +27,7 @@ public class ThucUong_Model {
      * @param id
      * @return
      */
-    public ArrayList<ThucUong_DTO> get_all(int id)
+    public ArrayList<ThucUong_DTO> get_all(int id,int flg)
     {
         ArrayList<ThucUong_DTO> list = new ArrayList<ThucUong_DTO>();
         try
@@ -36,7 +36,12 @@ public class ThucUong_Model {
             if(id == 0){
                sql = "SELECT * FROM db_thucuong";
             }else{
-               sql = "SELECT * FROM db_thucuong where extra2 ="+id+" order by id_thucuong desc";
+               if(flg == 1){
+                   sql = "SELECT * FROM db_thucuong where extra2 ="+id+" order by id_thucuong desc";
+               }else{
+                   sql = "SELECT * FROM db_thucuong where extra2 ="+id+" order by id_thucuong desc limit 8";
+               }
+               
             }
             db.connect();
             stm = db.getConn().createStatement();
@@ -111,7 +116,7 @@ public class ThucUong_Model {
         ArrayList<ThucUong_DTO> list = new ArrayList<ThucUong_DTO>();
         try
         {
-            String sql = "SELECT * FROM db_thucuong ORDER BY id_thucuong DESC LIMIT 1";
+            String sql = "SELECT * FROM db_thucuong where extra2 ='1' or extra2 ='2' ORDER BY id_thucuong DESC LIMIT 1";
             db.connect();
             stm = db.getConn().createStatement();
             ResultSet rs = stm.executeQuery(sql);
@@ -157,7 +162,7 @@ public class ThucUong_Model {
         ArrayList<ThucUong_DTO> list = new ArrayList<ThucUong_DTO>();
         try
         {
-            String sql = "SELECT * FROM db_thucuong WHERE id_thucuong like  '%"+result+"%' or ten_thucuong like '%"+result+"%'";
+            String sql = "SELECT * FROM db_thucuong WHERE id_thucuong = '"+result+"'";
             db.connect();
             stm = db.getConn().createStatement();
             ResultSet rs = stm.executeQuery(sql);
@@ -198,9 +203,8 @@ public class ThucUong_Model {
         return null;
     }
     
-    public ArrayList<ThucUong_DTO> get_to_cart(String result)
+    public ThucUong_DTO get_to_cart(String result)
     {
-        ArrayList<ThucUong_DTO> list = new ArrayList<>();
         try
         {
             String sql = "SELECT * FROM db_thucuong WHERE id_thucuong = '"+result+"'";
@@ -228,17 +232,17 @@ public class ThucUong_Model {
                        int gia_discount = (int)(giaban - (giaban*0.15));
                        gia_discount = (gia_discount/1000)*1000;
                        ThucUong_DTO tu = new ThucUong_DTO(id_thucuong,ten_thucuong,giaban,rank,url_image,note,discount,size,extra1,extra2,gia_discount);
-                       list.add(tu);
+                       return tu;
                     }
                     else 
                     {
                        int gia_discount = (int)(giaban*0.9);
                        gia_discount = (gia_discount/1000)*1000;
                        ThucUong_DTO tu = new ThucUong_DTO(id_thucuong,ten_thucuong,giaban,rank,url_image,note,discount,size,extra1,extra2,gia_discount);
-                       list.add(tu);
+                       return tu;
                     }
                 }
-                return list;
+                
             }
         }catch(SQLException e){ System.out.print(e);}
         return null;
@@ -312,11 +316,16 @@ public class ThucUong_Model {
     }
     public boolean Update(ThucUong_DTO tu)
     {
+        String url = null;
+        if(tu.geturl_image().length() > 0)
+        {
+            url = "url_image='"+tu.geturl_image()+"', ";
+        }
         try {
             String delete ="UPDATE db_thucuong SET "
                     + "ten_thucuong='"+tu.getTen_thucuong()+"',"
                     + "giaban='"+tu.getGiaban()+"', "
-                    + "url_image='"+tu.geturl_image()+"', "
+                    + url
                     + "note='"+tu.getnote()+"', "
                     + "discount='"+tu.getdiscount()+"', "
                     + "size='"+tu.getsize()+"', "

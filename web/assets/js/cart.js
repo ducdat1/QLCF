@@ -6,10 +6,11 @@
 
 $(document).ready(function() {
     $('.purchase').click(function() {
+        var idtu = $(this).find('.cart_order').val();
         $.ajax({
                 url : '/QLCF/cart_servlet',
                 data : {
-                    idthucuong : $('#cart_order').val()
+                    idthucuong : idtu
                 },
                 success : function(responseText) {
                     $('#Cart_quantity').text(responseText);

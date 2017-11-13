@@ -25,10 +25,11 @@ public class Ban_Model {
         ArrayList<Ban_DTO> list = new ArrayList<>();
         try
         {
-            String sql = "select id_ban,id_customer,tinhtrang,tongtien,dc_nhan,payment,"
-                       + "date_format(createdate, \"%h:%m %d-%m-%Y\") as createdate "
-                       + "from db_ban "
-                       + "where tinhtrang = 1 or tinhtrang = 0";
+            String sql = "select b.id_ban, concat(c.lastname,' ',c.firstname) as fullname,"
+                        + "b.tinhtrang,b.tongtien,b.dc_nhan,b.payment,"
+                        + "date_format(b.createdate, \"%h:%m %d-%m-%Y\") as createdate \n" 
+                        + "from db_ban b join db_customer c on c.id_customer = b.id_customer\n" 
+                        + "where b.tinhtrang = 1 or b.tinhtrang = 0";
             db.connect();
             stm = db.getConn().createStatement();
             ResultSet rs = stm.executeQuery(sql);

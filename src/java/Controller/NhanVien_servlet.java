@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -79,9 +80,7 @@ public class NhanVien_servlet extends HttpServlet {
         {
             try {
                 nv_model.writeFileExcel();
-            } catch (WriteException ex) {
-                Logger.getLogger(NhanVien_servlet.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (SQLException ex) {
+            } catch (WriteException | SQLException ex) {
                 Logger.getLogger(NhanVien_servlet.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
@@ -116,6 +115,9 @@ public class NhanVien_servlet extends HttpServlet {
                 String password = request.getParameter("password");
                 NhanVien_DTO nv = nv_model.login(username, password);
                 if (nv != null) {
+//                    Cookie cookie = new Cookie("timeout","1");
+//                    cookie.setMaxAge(60*1*1); 
+//                    response.addCookie(cookie);
                     session.setAttribute("flg_nv", nv);
                     session.setAttribute("log_flg", "1");
                     response.sendRedirect("/QLCF/Admin/index.jsp");

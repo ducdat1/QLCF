@@ -18,6 +18,15 @@
             <div class="row content">
                 <div class="col-sm-10 col-sm-offset-1">
                     <legend>Chi tiết bán</legend>
+                    <div class="form-group form-inline">
+                        <select name="sale-disp" class="form-control">
+                            <option value="0">Tất cả</option>
+                            <option value="1">Đã thanh toán</option>
+                            <option value="2">Chưa thanh toán</option>
+                        </select>
+                        <input class="btn btn-success" type="button" value="Áp dụng"/>
+                    </div>
+                    
                     <table>
                         <thead>
                             <tr>

@@ -11,7 +11,7 @@
                         <div class="nav navbar-nav wow fadeInLeft animated" data-wow-delay=".5s">
                         <%if(session.getAttribute("MEM_FLG")== "1" || session.getAttribute("register")=="success")
                             {
-                        %><p>Welcome to Zen's Coffee<a href="/QLCF/Auth/detail_user.jsp"><%=session.getAttribute("UID")%></a> Bonus: <%=session.getAttribute("PLUS")%> Point: <%=session.getAttribute("POINT")%> , <a href="/QLCF/Auth/logout.jsp">Logout</a></p><%
+                        %><p>Welcome to Zen's Coffee<a href="/QLCF/Auth/detail_user.jsp"><%=session.getAttribute("USERNAME")%></a> Bonus: <%=session.getAttribute("PLUS")%> Point: <%=session.getAttribute("POINT")%> , <a href="/QLCF/Auth/logout.jsp">Logout</a></p><%
                             }else
                             {
                         %><p>Welcome to Zen's Coffee <a href="/QLCF/Auth/register.jsp">Register </a> Or <a href="/QLCF/Auth/Login.jsp">Sign In </a></p><% }

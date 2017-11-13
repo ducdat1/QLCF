@@ -23,8 +23,7 @@
 			</div>
 			<div class="new-info">
                             <div class="col-md-5" data-wow-delay=".5s">
-                                 <%
-                            String applicationPath = request.getServletContext().getRealPath("");
+                        <%
                             ArrayList<ThucUong_DTO> list_nv = new ThucUong_Model().get_new();
                             for (ThucUong_DTO items : list_nv) {
                         %>
@@ -32,11 +31,7 @@
                                         <h5><a class="name" href="single.html"><%=items.getTen_thucuong()%></a></h5>
                                         <div class="rating">
                                             <a class="rank" href="rank.jsp">
-                                                <span class="on">☆</span>
-                                                <span class="on">☆</span>
-                                                <span class="on">☆</span>
-                                                <span class="on">☆</span>
-                                                <span>☆</span>
+                                                <input type="hidden" class="ranking" value="<%=items.getRank()%>"/>
                                             </a>
                                         </div>	
                                         <div class="size">
@@ -52,7 +47,7 @@
                                 </div>
                                 <div class="new-top">
                                     <a href="javascript:;" class="btn btn-info btn-lg purchase">
-                                        <input type="hidden" id="cart_order" value="<%=items.getId_thucuong()%>"/>
+                                        <input type="hidden" class="cart_order" value="<%=items.getId_thucuong()%>"/>
                                         <span class="glyphicon glyphicon-shopping-cart" ></span> Purchase online
                                     </a>
                                 </div>
@@ -86,7 +81,7 @@
 						<h4 class="sizes">Sizes: <a href="#"> s</a> - <a href="#">M</a> </h4>
 						<ul>
                                                     <li><a class="item_add purchase" href="javascript:;">
-                                                            <input type="hidden" id="cart_order" value="<%=items.getId_thucuong()%>"/>
+                                                            <input type="hidden" class="cart_order" value="<%=items.getId_thucuong()%>"/>
                                                             <span class="glyphicon glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
                                                     </a></li>
                                                     <li><a href="#"><span class="glyphicon glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a></li>

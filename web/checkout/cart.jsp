@@ -3,6 +3,11 @@
     Created on : Oct 24, 2017, 4:48:40 PM
     Author     : DatND4
 --%>
+
+<%@page import="java.util.Date"%>
+<%@page import="java.text.DateFormat"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.Calendar"%>
 <%@page import="Model.*"%>
 <%@page import="DTO.*"%>
 <%@page import="java.util.ArrayList"%>
@@ -17,6 +22,10 @@
             <jsp:param name="from" value="Cart"/>
         </jsp:include>
         <!--//breadcrums-->
+        <%    
+            DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+            Date date = new Date();
+        %>
         <div class="new">
             <div class="container">
                 <div class="title-info wow fadeInUp animated" data-wow-delay=".5s">
@@ -34,8 +43,9 @@
                                     <th class="col center tbno">No.</th>
                                     <th class="col center tbdate">Ngày mua</th>
                                     <th class="col center tbname">Tên sản phẩm</th>
+                                    <th class="col center tbprice">Số lượng</th>
                                     <th class="col center tbprice">Giá sản phẩm</th>
-                                    <th class="col center tbtype">Phương thức thanh toán</th>
+                                    <th class="col center tbtype">Phụ thêm</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -43,28 +53,28 @@
                                 ArrayList<ThucUong_DTO> list_tc = (ArrayList<ThucUong_DTO>)session.getAttribute("list_cart");
                                 for (ThucUong_DTO items : list_tc) {
                             %>
-                            
                                 <tr>
-                                    <td class="col center tbno"></td>
-                                    <td class="col center tbdate">Ngày mua</td>
+                                    <td class="col center tbno">No</td>
+                                    <td class="col center tbdate"><%=dateFormat.format(date)%></td>
                                     <td class="col center tbname"><%=items.getTen_thucuong()%></td>
+                                    <td class="col center tbprice"></td>
                                     <td class="col center tbprice"><%=items.getGiaban()%></td>
-                                    <td class="col center tbtype">
-                                        <select name="payment" id="payment">
-                                            <option value="1">Point bonus</option>
-                                            <option value="2">Point</option>
-                                            <option value="3">Cash</option>
-                                            <option value="4">ATM</option>
-                                            <option value="5">Visa/Master card</option>
-                                        </select>
-                                    </td>
-                                </tr>
+                                    <td class="col center tbtype"></td>
+                                </tr> 
                             <%}%>
                             </tbody>
                         </table>
                     </div>
                 </div>
                 <div class="user-info">
+                    <label>Phương thức thanh toán:</label>
+                    <select name="payment" id="payment">
+                        <option value="1">Point bonus</option>
+                        <option value="2">Point</option>
+                        <option value="3">Cash</option>
+                        <option value="4">ATM</option>
+                        <option value="5">Visa/Master card</option>
+                    </select>
                     <!--<h5> - OR -</h5>-->
                     <div class="social-btn"><a href="confirm.jsp"><i>Purchase</i></a></div>
                     <div class="social-btn sb-two"><a href="#"><i>Remove Cart</i></a></div>

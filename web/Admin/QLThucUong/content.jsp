@@ -28,7 +28,7 @@
                 </tr>
             </thead>
             <%
-                ArrayList<ThucUong_DTO> list_nv = new ThucUong_Model().get_all(1);
+                ArrayList<ThucUong_DTO> list_nv = new ThucUong_Model().get_all(1,1);
                 for (ThucUong_DTO items : list_nv) {
             %>
             <tbody>
@@ -64,7 +64,7 @@
                 </tr>
             </thead>
             <%
-                ArrayList<ThucUong_DTO> list_nv = new ThucUong_Model().get_all(2);
+                ArrayList<ThucUong_DTO> list_nv = new ThucUong_Model().get_all(2,1);
                 for (ThucUong_DTO items : list_nv) {
             %>
             <tbody>
@@ -97,7 +97,7 @@
                 </tr>
             </thead>
             <%
-                ArrayList<ThucUong_DTO> list_nv = new ThucUong_Model().get_all(3);
+                ArrayList<ThucUong_DTO> list_nv = new ThucUong_Model().get_all(3,1);
                 for (ThucUong_DTO items : list_nv) {
             %>
             <tbody>
@@ -131,7 +131,7 @@
                 </tr>
             </thead>
             <%
-                ArrayList<ThucUong_DTO> list_nv = new ThucUong_Model().get_all(4);
+                ArrayList<ThucUong_DTO> list_nv = new ThucUong_Model().get_all(4,1);
                 for (ThucUong_DTO items : list_nv) {
             %>
             <tbody>

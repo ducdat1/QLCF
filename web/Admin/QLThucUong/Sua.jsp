@@ -48,13 +48,20 @@
                                 <option value="8">8</option>
                             </select>
                             <label for="">Ghi chú</label>
-                            <textarea name="note" id="input" class="form-control" rows="2" required="required" placeholder="Ghi chú..."><%=tu.getnote()%></textarea>
+                            <textarea name="note" id="input" class="form-control" rows="2" placeholder="Ghi chú..."><%=tu.getnote()%></textarea>
                             <label for="">Size mặc định</label>
-                            <input type="text" class="form-control" name="size" value="<%=tu.getsize()%>"placeholder="Size mặc định">
+                            <input type="hidden" name="old_size" value="<%=tu.getsize()%>">
+                            <select name="size" class="form-control">
+                                <option value="M">M</option>
+                                <option value="S">S</option>
+                                <option value="L">L</option>
+                                <option value="XS">XS</option>
+                            </select>
                             <label for="">Phụ thêm</label>
-                            <input type="text" class="form-control" name="bonus1" value="<%=tu.getextra1()%>"placeholder="Phụ thêm">
+                            <input type="text" class="form-control" name="bonus1" value="<%=tu.getextra1()%>" placeholder="Phụ thêm">
                             <label for="">Phân loại</label>
-                             <select name="bonus2" class="form-control">
+                            <input type="hidden" name="old_bonus" value="<%=tu.getextra2()%>">
+                            <select name="bonus2" class="form-control">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>

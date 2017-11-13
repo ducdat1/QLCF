@@ -22,7 +22,7 @@
                 </div>
                 <div class="gallery-info">
                     <%
-                    ArrayList<ThucUong_DTO> list_tc = new ThucUong_Model().get_all(1);
+                    ArrayList<ThucUong_DTO> list_tc = new ThucUong_Model().get_all(1,2);
                     for (ThucUong_DTO items : list_tc) {
                     %>
                         <div class="col-md-3 gallery-grid wow flipInY animated" data-wow-delay="1.1s">
@@ -33,7 +33,7 @@
                                         <h4 class="sizes">Sizes: <a href="#"> s</a> - <a href="#">M</a> </h4>
                                         <ul>
                                                 <li><a class="item_add purchase" href="javascript:;">
-                                                            <input type="hidden" id="cart_order" value="<%=items.getId_thucuong()%>"/>
+                                                            <input type="hidden" class="cart_order" value="<%=items.getId_thucuong()%>"/>
                                                             <span class="glyphicon glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
                                                 </a></li>
                                                 <li><a href="#"><span class="glyphicon glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a></li>
@@ -51,7 +51,7 @@
                 </div>
                 <div class="gallery-info">
                     <%
-                    ArrayList<ThucUong_DTO> list_ts = new ThucUong_Model().get_all(2);
+                    ArrayList<ThucUong_DTO> list_ts = new ThucUong_Model().get_all(2,2);
                     for (ThucUong_DTO items : list_ts) {
                     %>
                         <div class="col-md-3 gallery-grid wow flipInY animated" data-wow-delay="1.1s">
@@ -62,7 +62,7 @@
                                         <h4 class="sizes">Sizes: <a href="#"> s</a> - <a href="#">M</a> </h4>
                                         <ul>
                                                 <li><a class="item_add purchase" href="javascript:;">
-                                                            <input type="hidden" id="cart_order" value="<%=items.getId_thucuong()%>"/>
+                                                            <input type="hidden" class="cart_order" value="<%=items.getId_thucuong()%>"/>
                                                             <span class="glyphicon glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
                                                 </a></li>
                                                 <li><a href="#"><span class="glyphicon glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a></li>
@@ -80,7 +80,7 @@
                 </div>
                 <div class="gallery-info">
                     <%
-                    ArrayList<ThucUong_DTO> list_to = new ThucUong_Model().get_all(4);
+                    ArrayList<ThucUong_DTO> list_to = new ThucUong_Model().get_all(4,2);
                     for (ThucUong_DTO items : list_to) {
                     %>
                         <div class="col-md-3 gallery-grid wow flipInY animated" data-wow-delay="1.1s">
@@ -91,7 +91,7 @@
                                         <h4 class="sizes">Sizes: <a href="#"> s</a> - <a href="#">M</a> </h4>
                                         <ul>
                                                 <li><a class="item_add purchase" href="javascript:;">
-                                                            <input type="hidden" id="cart_order" value="<%=items.getId_thucuong()%>"/>
+                                                            <input type="hidden" class="cart_order" value="<%=items.getId_thucuong()%>"/>
                                                             <span class="glyphicon glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
                                                 </a></li>
                                                 <li><a href="#"><span class="glyphicon glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a></li>
