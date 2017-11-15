@@ -21,6 +21,7 @@ public class ThucUong_DTO {
     private String extra1;
     private String extra2;
     private int gia_discount;
+    private int soluong;
     
     public ThucUong_DTO(){}
     public ThucUong_DTO( int id_thucuong_, String ten_thucuong_, int giaban_,
@@ -210,5 +211,19 @@ public class ThucUong_DTO {
      */
     public void setgia_discount(int gia_discount) {
         this.gia_discount = gia_discount;
+    }
+    
+    /**
+     * @return the soluong
+     */
+    public int getSoluong() {
+        return soluong;
+    }
+
+    /**
+     * @param soluong the soluong to set
+     */
+    public void setSoluong(int soluong) {
+        this.soluong = soluong;
     }
 }

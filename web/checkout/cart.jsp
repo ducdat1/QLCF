@@ -54,10 +54,10 @@
                                 for (ThucUong_DTO items : list_tc) {
                             %>
                                 <tr>
-                                    <td class="col center tbno">No</td>
+                                    <td class="col center tbno"><%=items.getId_thucuong()%></td>
                                     <td class="col center tbdate"><%=dateFormat.format(date)%></td>
                                     <td class="col center tbname"><%=items.getTen_thucuong()%></td>
-                                    <td class="col center tbprice"></td>
+                                    <td class="col center tbprice"><%=items.getSoluong()%></td>
                                     <td class="col center tbprice"><%=items.getGiaban()%></td>
                                     <td class="col center tbtype"></td>
                                 </tr> 

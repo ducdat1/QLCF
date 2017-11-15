@@ -10,12 +10,13 @@ import Model.ThucUong_Model;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Set;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.servlet.annotation.WebServlet;
 
 /**
  *
@@ -23,6 +24,7 @@ import javax.servlet.annotation.WebServlet;
  */
 public class cart_servlet extends HttpServlet {
     ArrayList list_id = new ArrayList();
+    HashMap<String, Integer> hashMap = new HashMap<>();
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -62,7 +64,7 @@ public class cart_servlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 //        processRequest(request, response);
-        
+        int value;
         try{
             HttpSession session = request.getSession();
             int sum_cart;
@@ -81,14 +83,24 @@ public class cart_servlet extends HttpServlet {
                response.getWriter().print(sum_cart);
             }
             else if( id_thucuong != null )
-            {            
-                list_id.add(id_thucuong);
+            { 
+//              list_id.add(id_thucuong);
                 ThucUong_Model tc_model = new ThucUong_Model();
-                ArrayList<ThucUong_DTO> list = new ArrayList<>();
-                for(int i = 0; i<list_id.size() ; i++){
-                    ThucUong_DTO tudto = tc_model.get_to_cart((String)list_id.get(i));
-                    list.add(tudto) ;
+                ArrayList<ThucUong_DTO> list = new ArrayList<>();                
+                if(hashMap.get(id_thucuong) == null){
+                    hashMap.put(id_thucuong, 1);
+                }else{
+                    hashMap.put(id_thucuong, hashMap.get(id_thucuong)+1);
                 }
+                Set<String> keySet = hashMap.keySet();
+                for (String key : keySet) {
+//                    if(id_thucuong.equals(key)){
+                        ThucUong_DTO tudto = tc_model.get_to_cart(key);
+                        tudto.setSoluong(hashMap.get(key));
+                        list.add(tudto);
+//                    }
+                }
+                    
                 session.setAttribute("list_cart",list);
                 sum_cart = sum_cart + 1;
                 session.setAttribute("sum_cart",sum_cart);
@@ -116,7 +128,7 @@ public class cart_servlet extends HttpServlet {
         HttpSession session = request.getSession();
         String cartempty = request.getParameter("cartempty").trim();
         if(cartempty != null){
-            list_id.removeAll(list_id);
+            hashMap.remove(this, request);
             session.invalidate();
             response.setContentType("text/plain");
             response.getWriter().print(0);
