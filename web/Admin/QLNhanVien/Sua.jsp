@@ -28,7 +28,7 @@
                             <label for="">Địa chỉ</label>
                             <input type="text" class="form-control" name="diachi" value="<%=nv1.getDiachi()%>" placeholder="Địa chỉ">
                             <label for="">Ngày sinh</label>
-                            <input type="date" class="form-control" name="ngaysinh" placeholder="Tên nhân viên">
+                            <input type="date" class="form-control" name="ngaysinh" value="<%=nv1.getNgaysinh()%>" placeholder="Ngày sinh">
                             <label for="">Giờ làm</label>
                             <input type="number" class="form-control" name="giolam" value="<%=nv1.getGiolam()%>" placeholder="Giờ làm">
                             <label for="">Cấp độ</label>
@@ -42,6 +42,7 @@
                             <input type="text" class="form-control" name="matkhau" value="<%=nv1.getMatkhau()%>" placeholder="Mật khẩu">
                             <input type="hidden" name="idnv" value="<%=nv1.getId_nhanvien()%>"/>
                         </div>
+                        <input type="hidden" name="form" value="update"/>
                         <button type="submit" class="btn btn-primary">Cập nhật thông tin</button>
                     </form>
                 </div>

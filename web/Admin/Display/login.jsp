@@ -13,7 +13,7 @@
             </div>
             <div class="login-body wow fadeInUp animated" data-wow-delay=".7s">
                     <form action="/QLCF/NhanVien_servlet" method="POST">
-                        <input type="hidden" name="login" value="login"/>
+                        <input type="hidden" name="form" value="login"/>
                         <input type="text" class="user" name="username" placeholder="Enter your staff number..." required="">
                         <input type="password" name="password" class="lock" placeholder="Password...">
                         <input type="submit" name="Sign In" value="Sign In">

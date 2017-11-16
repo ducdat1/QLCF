@@ -173,8 +173,9 @@ public class NhanVien_Model {
     
     public boolean insert(NhanVien_DTO nv)
     {
-        String sql = "insert into db_nhanvien(tennv,giolam,ngaysinh,sdt,diachi,luong,capdo,taikhoan,matkhau)\n" +
-"values ('"+nv.getTennv()+"','"+nv.getGiolam()+"','"+nv.getNgaysinh()+"','"+nv.getSdt()+"','"+nv.getDiachi()+"','"+nv.getLuong()+"','"+nv.getCapdo()+"','"+nv.getTaikhoan()+"','"+nv.getMatkhau()+"')";
+        String sql = "insert into "
+                   + "db_nhanvien(tennv,giolam,ngaysinh,sdt,diachi,luong,capdo,taikhoan,matkhau)\n"
+                   + "values ('"+nv.getTennv()+"','"+nv.getGiolam()+"','"+nv.getNgaysinh()+"','"+nv.getSdt()+"','"+nv.getDiachi()+"','"+nv.getLuong()+"','"+nv.getCapdo()+"','"+nv.getTaikhoan()+"','"+nv.getMatkhau()+"')";
         try {
             db.connect();
             stm = db.getConn().createStatement();
@@ -203,10 +204,15 @@ public class NhanVien_Model {
     public boolean Update(NhanVien_DTO nv)
     {
         try {
-            String delete ="UPDATE db_nhanvien SET luong = '"+nv.getLuong()+"',giolam='"+nv.getGiolam()+"',tennv='"+nv.getTennv()+"',sdt='"+nv.getSdt()+"',diachi='"+nv.getDiachi()+"',taikhoan='"+nv.getTaikhoan()+"',matkhau='"+nv.getMatkhau()+"',capdo='"+nv.getCapdo()+"' where id_nv = '"+nv.getId_nhanvien()+"'";
+            String update ="UPDATE db_nhanvien "
+                          + "SET luong = '"+nv.getLuong()+"',"
+                          + "giolam='"+nv.getGiolam()+"',tennv='"+nv.getTennv()+"',"
+                          + "sdt='"+nv.getSdt()+"',diachi='"+nv.getDiachi()+"',taikhoan='"+nv.getTaikhoan()+"',"
+                          + "matkhau='"+nv.getMatkhau()+"',capdo='"+nv.getCapdo()+"' "
+                          + "where id_nv = '"+nv.getId_nhanvien()+"'";
 // "UPDATE db_lop SET Ten_Lop = '"+lop.getTenLop()+"', SiSo='"+lop.getSiSo()+"' where ID_Lop = '"+lop.getLop_ID()+"'";
                 db.connect();
-            PreparedStatement pst = db.getConn().prepareStatement(delete);
+            PreparedStatement pst = db.getConn().prepareStatement(update);
             pst.executeUpdate();
             db.close();
             return true;
@@ -220,7 +226,7 @@ public class NhanVien_Model {
     public void writeFileExcel() throws WriteException, SQLException {
         WritableWorkbook workbook;
         // create workbook
-       String fileName = "C:\\Users\\Kuli_MT\\Desktop\\Bảng Lương.xls";
+       String fileName = "C:\\Users\\ducdat\\Desktop\\BangLuong.xls";
         try {
             workbook = Workbook.createWorkbook(new File(fileName));
  

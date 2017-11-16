@@ -64,7 +64,6 @@ public class cart_servlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 //        processRequest(request, response);
-        int value;
         try{
             HttpSession session = request.getSession();
             int sum_cart;
@@ -128,7 +127,7 @@ public class cart_servlet extends HttpServlet {
         HttpSession session = request.getSession();
         String cartempty = request.getParameter("cartempty").trim();
         if(cartempty != null){
-            hashMap.remove(this, request);
+            hashMap.clear();
             session.invalidate();
             response.setContentType("text/plain");
             response.getWriter().print(0);

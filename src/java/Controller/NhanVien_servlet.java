@@ -102,15 +102,13 @@ public class NhanVien_servlet extends HttpServlet {
             throws ServletException, IOException {
         //processRequest(request, response);
         try{
-//            String result = request.getParameter("search");
-            String login = request.getParameter("login");
+            String result = request.getParameter("search");
+            String form = request.getParameter("form");
             HttpSession session = request.getSession();
             NhanVien_Model nv_model = new NhanVien_Model();
-//            ArrayList<NhanVien_DTO> list = new ArrayList<NhanVien_DTO>();
-            
-            
-            session.setAttribute("log_flg", "0");
-            if ( login != null && "login".equals(login) ){
+            ArrayList<NhanVien_DTO> list = new ArrayList<NhanVien_DTO>();
+            if ( form != null && "login".equals(form) ){
+                session.setAttribute("log_flg", "0");
                 String username = request.getParameter("username");
                 String password = request.getParameter("password");
                 NhanVien_DTO nv = nv_model.login(username, password);
@@ -123,60 +121,23 @@ public class NhanVien_servlet extends HttpServlet {
                     response.sendRedirect("/QLCF/Admin/index.jsp");
                     return;
                 }
-            }
-            
-            
-//            if(result!=null)
-//            {
-//                list = nv_model.get_by_id(result);
-//                session.setAttribute("result", list);
-//                response.sendRedirect("/QLCF/Admin/QLNhanVien/KetQua.jsp");   
-//                return;
-//            }
-//            
-            
-//            NhanVien_DTO gv = new NhanVien_DTO(); 
-//            //thêm vào csdl
-//            gv.setTennv(request.getParameter("tennv"));
-//            gv.setSdt(request.getParameter("sdt"));
-//            gv.setDiachi(request.getParameter("diachi"));
-//            gv.setTaikhoan(request.getParameter("taikhoan"));
-//            gv.setMatkhau(request.getParameter("matkhau"));
-//            gv.setNgaysinh(Date.valueOf(request.getParameter("ngaysinh")));
-//            gv.setCapdo(Integer.parseInt(request.getParameter("capdo")));
-//            if(request.getParameter("matkhau2")!=null)
-//            {
-//                if(request.getParameter("matkhau").equals(request.getParameter("matkhau2")))
-//                {
-//                    session.setAttribute("register", "success");
-//                    nv_model.insert(gv);
-//                    response.sendRedirect("/QLCF/index.jsp");  
-//                    return;
-//                }else
-//                {
-//                    session.setAttribute("register", "faild");
-//                    response.sendRedirect("/QLCF/Auth/register.jsp");
-//                    return;
-//                }
-//
-//            }
-//                
-//            gv.setGiolam(Integer.parseInt(request.getParameter("giolam")));
-//            gv.setLuong(Integer.parseInt(request.getParameter("giolam"))*8000);
-//            if(request.getParameter("idnv")!=null){
-//                gv.setId_nhanvien(Integer.parseInt(request.getParameter("idnv")));
-//                if(nv_model.Update(gv))
-//                {
-//                    session.setAttribute("Thongbao", "Sửa thành công");
-//                    response.sendRedirect("/QLCF/Admin/QLNhanVien/NhanVien.jsp");
-//                    return;
-//                }
-//                else
-//                {
-//                    session.setAttribute("Thongbao", null);
-//                    response.sendRedirect("/QLCF/Admin/QLNhanVien/NhanVien.jsp");
-//                }
-//            }
+            }else if ( form != null && "insert".equals(form) ){
+                NhanVien_DTO gv = new NhanVien_DTO(); 
+                gv.setTennv(request.getParameter("tennv"));
+                gv.setSdt(request.getParameter("sdt"));
+                gv.setDiachi(request.getParameter("diachi"));
+                gv.setTaikhoan(request.getParameter("taikhoan"));
+                gv.setMatkhau(request.getParameter("matkhau"));
+                gv.setNgaysinh(Date.valueOf(request.getParameter("ngaysinh")));
+                gv.setCapdo(Integer.parseInt(request.getParameter("capdo")));
+                gv.setGiolam(Integer.parseInt(request.getParameter("giolam")));
+                gv.setLuong(Integer.parseInt(request.getParameter("luong")));
+                if(nv_model.insert(gv)){ 
+                    response.sendRedirect("/QLCF/Admin/QLNhanVien/NhanVien.jsp");  
+                }else
+                {
+                    response.sendRedirect("/QLCF/Admin/index.jsp");
+                }
 //            if(nv_model.insert(gv))
 //            {
 //                session.setAttribute("Thongbao", "Thêm thành công");
@@ -187,8 +148,39 @@ public class NhanVien_servlet extends HttpServlet {
 //                session.setAttribute("Thongbao", null);
 //                response.sendRedirect("/QLCF/Admin/QLNhanVien/NhanVien.jsp");
 //            }
+            }else if ( form != null && "update".equals(form) ){
+                NhanVien_DTO gv = new NhanVien_DTO(); 
+                gv.setTennv(request.getParameter("tennv"));
+                gv.setSdt(request.getParameter("sdt"));
+                gv.setDiachi(request.getParameter("diachi"));
+                gv.setTaikhoan(request.getParameter("taikhoan"));
+                gv.setMatkhau(request.getParameter("matkhau"));
+                gv.setNgaysinh(Date.valueOf(request.getParameter("ngaysinh")));
+                gv.setCapdo(Integer.parseInt(request.getParameter("capdo")));
+                gv.setGiolam(Integer.parseInt(request.getParameter("giolam")));
+                gv.setLuong(Integer.parseInt(request.getParameter("luong")));
+                gv.setId_nhanvien(Integer.parseInt(request.getParameter("idnv")));
+                if(nv_model.Update(gv))
+                {
+                    session.setAttribute("Thongbao", "Sửa thành công");
+                    response.sendRedirect("/QLCF/Admin/QLNhanVien/NhanVien.jsp");
+                    return;
+                }
+                else
+                {
+                    session.setAttribute("Thongbao", null);
+                    response.sendRedirect("/QLCF/Admin/QLNhanVien/NhanVien.jsp");
+                }
+            }
+            if(result!=null)
+            {
+                list = nv_model.get_by_id(result);
+                session.setAttribute("result", list);
+                response.sendRedirect("/QLCF/Admin/QLNhanVien/KetQua.jsp");   
+                return;
+            }
             response.sendRedirect("/QLCF/Admin/index.jsp");
-        }catch(Exception e)
+        }catch(IOException | NumberFormatException e)
         {
             response.sendRedirect("/QLCF/Admin/index.jsp");
         } 

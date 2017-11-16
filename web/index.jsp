@@ -171,7 +171,6 @@
 			
 		});
 	</script>
-	<script type="text/javascript" src="/QLCF/assets/js/cart.js"></script>
         <script src="/QLCF/assets/js/bootstrap.js"></script>
     </body>
 </html>

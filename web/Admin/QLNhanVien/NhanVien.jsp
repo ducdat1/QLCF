@@ -22,7 +22,7 @@
                                     <label for="">Tên nhân viên</label>
                                     <input type="text" class="form-control" name="tennv" placeholder="Tên nhân viên">
                                     <label for="">Ngày sinh</label>
-                                    <input type="date" class="form-control" name="ngaysinh" placeholder="Tên nhân viên">
+                                    <input type="date" class="form-control" name="ngaysinh" placeholder="Ngày Sinh">
                                     <label for="">Số điện thoại</label>
                                     <input type="text" class="form-control" name="sdt" placeholder="Số điện thoại">
                                     <label for="">Địa chỉ</label>
@@ -41,6 +41,7 @@
                                     <label for="">Mật khẩu</label>
                                     <input type="text" class="form-control" name="matkhau" placeholder="Mật khẩu">
                                 </div>
+                                <input type="hidden" class="form-control" name="form" value="insert">
                                 <button type="submit" class="btn btn-primary">Thêm mới</button>
                             </form>
                         </div>
@@ -99,7 +100,7 @@
                         <% }%>
                         </tbody>
                     </table>
-                            <button class="btn btn-success"><a href="/QLCF/NhanVien_servlet?bangluong=true">Xuất bảng lương trên desktop</a></button>
+                    <a href="/QLCF/NhanVien_servlet?bangluong=true"><button class="btn btn-success">Xuất bảng lương trên desktop</button></a>
                 </div>
             </div>
         </div>

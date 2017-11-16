@@ -46,6 +46,7 @@
                                     <th class="col center tbprice">Số lượng</th>
                                     <th class="col center tbprice">Giá sản phẩm</th>
                                     <th class="col center tbtype">Phụ thêm</th>
+                                    <th class="col center tbprice">Tùy chọn</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -60,6 +61,7 @@
                                     <td class="col center tbprice"><%=items.getSoluong()%></td>
                                     <td class="col center tbprice"><%=items.getGiaban()%></td>
                                     <td class="col center tbtype"></td>
+                                    <td class="col center tbprice"><input class="btn btn-danger" value="Delete"/></td>
                                 </tr> 
                             <%}%>
                             </tbody>
@@ -67,17 +69,19 @@
                     </div>
                 </div>
                 <div class="user-info">
-                    <label>Phương thức thanh toán:</label>
-                    <select name="payment" id="payment">
-                        <option value="1">Point bonus</option>
-                        <option value="2">Point</option>
-                        <option value="3">Cash</option>
-                        <option value="4">ATM</option>
-                        <option value="5">Visa/Master card</option>
-                    </select>
+                    <div class="col-sm-4 form-inline">
+                        <label>Phương thức thanh toán: </label>
+                        <select name="payment" id="payment" class="form-control">
+                            <option value="1">Point bonus</option>
+                            <option value="2">Point</option>
+                            <option value="3">Cash</option>
+                            <option value="4">ATM</option>
+                            <option value="5">Visa/Master card</option>
+                        </select>
+                    </div>
                     <!--<h5> - OR -</h5>-->
-                    <div class="social-btn"><a href="confirm.jsp"><i>Purchase</i></a></div>
-                    <div class="social-btn sb-two"><a href="#"><i>Remove Cart</i></a></div>
+                    <div class="social-btn"><a href="confirm.jsp"><i>Confirm</i></a></div>
+                    <div class="social-btn sb-del"><a href="remove_cart.jsp"><i>Remove Cart</i></a></div>
                     <div class="social-btn sb-two"><a href="/QLCF/product/menu.jsp"><i>Continue Purchase</i></a></div>
                 </div>
                 <%} else {%>

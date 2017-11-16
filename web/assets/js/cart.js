@@ -28,5 +28,9 @@ $(document).ready(function() {
                 $('#Cart_quantity').text(responseText);
             }
         });
-    });    
+    });  
+    $('.back-cart').click(function() {
+        console.log("--------------");
+       window.history.back();
+    });  
 });

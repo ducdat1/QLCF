@@ -1758,6 +1758,10 @@ h4.panel-title a {
     background-color: #45B0E3;
 	margin-left: 2em;
 }
+.social-btn.sb-del {
+    background-color: #d9534f;
+	margin-left: 2em;
+}
 .social-btn:hover {
 	background:#FF590F;
 }
@@ -3230,6 +3234,9 @@ h3.title {
 .social-btn.sb-two {
     margin-left: 1em;
 }
+.social-btn.sb-del {
+    margin-left: 1em;
+}
 .social-btn a {
     padding: .7em 1.2em;
 }
@@ -3304,6 +3311,9 @@ h3.title {
     padding: .6em 1em;
 }
 .social-btn.sb-two {
+    margin-left: 0.5em;
+}
+.social-btn.sb-del {
     margin-left: 0.5em;
 }
 }
@@ -3452,6 +3462,9 @@ ul#example li p {
     display: block;
 }
 .social-btn.sb-two {
+    margin: 0.5em 0 0;
+}
+.social-btn.sb-del {
     margin: 0.5em 0 0;
 }
 .login-page label.checkbox {

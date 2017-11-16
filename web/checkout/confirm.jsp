@@ -4,6 +4,10 @@
     Author     : ducdat
 --%>
 
+<%@page import="java.util.Date"%>
+<%@page import="java.text.DateFormat"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.Calendar"%>
 <%@page import="Model.*"%>
 <%@page import="DTO.*"%>
 <%@page import="java.util.ArrayList"%>
@@ -18,14 +22,19 @@
             <jsp:param name="from" value="Cart Confirm"/>
         </jsp:include>
         <!--//breadcrums-->
+        <%    
+            DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+            Date date = new Date();
+        %>
         <div class="new">
             <div class="container">
                 <div class="title-info wow fadeInUp animated" data-wow-delay=".5s">
-                        <h3 class="title">Cart <span> Information</span></h3>
+                        <h3 class="title">Cart <span> Confirm</span></h3>
                 </div>
+                <%if(session.getAttribute("list_cart") != null){%>
                 <div class="widget-shadow">
                     <div class="user-top wow fadeInUp animated" data-wow-delay=".7s">
-                            <h4>Thông tin sản phẩm có trong giỏ hàng</h4>
+                            <h4>Xác nhận sản phẩm có trong giỏ hàng</h4>
                     </div>
                     <div class="user-body wow fadeInUp animated" data-wow-delay=".7s">
                         <table>
@@ -34,8 +43,10 @@
                                     <th class="col center tbno">No.</th>
                                     <th class="col center tbdate">Ngày mua</th>
                                     <th class="col center tbname">Tên sản phẩm</th>
+                                    <th class="col center tbprice">Số lượng</th>
                                     <th class="col center tbprice">Giá sản phẩm</th>
-                                    <th class="col center tbtype">Phương thức thanh toán</th>
+                                    <th class="col center tbtype">Phụ thêm</th>
+                                    <th class="col center tbprice">Thanh toán</th>
                                 </tr>
                             </head>
                             <body
@@ -45,19 +56,13 @@
                             %>
                             
                                 <tr>
-                                    <td class="col center tbno"></td>
-                                    <td class="col center tbdate">Ngày mua</td>
+                                    <td class="col center tbno"><%=items.getId_thucuong()%></td>
+                                    <td class="col center tbdate"><%=dateFormat.format(date)%></td>
                                     <td class="col center tbname"><%=items.getTen_thucuong()%></td>
+                                    <td class="col center tbprice"><%=items.getSoluong()%></td>
                                     <td class="col center tbprice"><%=items.getGiaban()%></td>
-                                    <td class="col center tbtype">
-                                        <select name="payment" id="payment">
-                                            <option value="1">Point bonus</option>
-                                            <option value="2">Point</option>
-                                            <option value="3">Cash</option>
-                                            <option value="4">ATM</option>
-                                            <option value="5">Visa/Master card</option>
-                                        </select>
-                                    </td>
+                                    <td class="col center tbtype"></td>
+                                    <td class="col center tbprice"></td>
                                 </tr>
                             <%}%>
                             </body>
@@ -66,10 +71,13 @@
                 </div>
                 <div class="user-info">
                     <!--<h5> - OR -</h5>-->
-                    <div class="social-btn"><a href="#"><i>Mua hàng</i></a></div>
-                    <div class="social-btn sb-two"><a href="#"><i>Xoá giỏ hàng</i></a></div>
-                    <div class="social-btn sb-two"><a href="#"><i>Go to product page</i></a></div>
+                    <div class="social-btn"><a href="#"><i>Purchase</i></a></div>
+                    <div class="social-btn sb-two"><a href="javascript:;" class="back-cart"><i>Quay lại trang giỏ hàng</i></a></div>
                 </div>
+                <%} else {
+                    String redirectURL = "/QLCF/Auth/login.jsp";
+                    response.sendRedirect(redirectURL);
+                <%}%>
             </div>
         </div>
         <%@include file="../Template/footer.jsp" %>

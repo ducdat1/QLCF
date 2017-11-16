@@ -115,10 +115,8 @@
             </div>
         </div>
         <%}else{
-            out.println("hello word!");
-            String site = new String("/QLCF/Auth/login.jsp");
-            response.setStatus(response.SC_MOVED_TEMPORARILY);
-            response.setHeader("Location", site); 
+            String redirectURL = "/QLCF/Auth/login.jsp";
+            response.sendRedirect(redirectURL);
         }        
         %>
         

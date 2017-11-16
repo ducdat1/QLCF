@@ -36,7 +36,8 @@
     <!--//animation-effect-->
     <!--start-smooth-scrolling-->
     <script type="text/javascript" src="/QLCF/assets/js/move-top.js"></script>
-    <script type="text/javascript" src="/QLCF/assets/js/easing.js"></script>	
+    <script type="text/javascript" src="/QLCF/assets/js/easing.js"></script>
+    <script type="text/javascript" src="/QLCF/assets/js/cart.js"></script>
     <script type="text/javascript">
                     jQuery(document).ready(function($) {
                             $(".scroll").click(function(event){		
