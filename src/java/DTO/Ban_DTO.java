@@ -18,6 +18,8 @@ public class Ban_DTO {
     private String createdate;
     private String dc_nhan;
     private String name_payment;
+    private String name_customer;
+    
     public Ban_DTO(){}
     public Ban_DTO(int id_ban_,
                    int id_customer_,
@@ -53,6 +55,27 @@ public class Ban_DTO {
         name_payment= getPayment();    
         createdate  = createdate_;
     }
+    
+    public Ban_DTO(int id_ban_,
+                   String name_customer_,
+                   int trangthai_,
+                   float tongtien_,
+                   String dc_nhan_,
+                   int payment_,
+                   String createdate_
+                  )
+    {
+        id_ban      = id_ban_;
+        name_customer = name_customer_;
+        trangthai   = trangthai_;
+        tongtien    = tongtien_ ;   
+        dc_nhan     = dc_nhan_;
+        setPayment(payment_);
+        name_payment= getPayment();    
+        createdate  = createdate_;
+    }
+    
+    
     /**
      * @return the id_ban
      */
@@ -166,5 +189,12 @@ public class Ban_DTO {
      */
     public void setDc_nhan(String dc_nhan) {
         this.dc_nhan = dc_nhan;
+    }
+    
+    /**
+     * @return the name_customer
+     */
+    public String getName_Customer() {
+        return name_customer;
     }
 }

@@ -83,7 +83,6 @@ public class cart_servlet extends HttpServlet {
             }
             else if( id_thucuong != null )
             { 
-//              list_id.add(id_thucuong);
                 ThucUong_Model tc_model = new ThucUong_Model();
                 ArrayList<ThucUong_DTO> list = new ArrayList<>();                
                 if(hashMap.get(id_thucuong) == null){
@@ -93,11 +92,9 @@ public class cart_servlet extends HttpServlet {
                 }
                 Set<String> keySet = hashMap.keySet();
                 for (String key : keySet) {
-//                    if(id_thucuong.equals(key)){
                         ThucUong_DTO tudto = tc_model.get_to_cart(key);
                         tudto.setSoluong(hashMap.get(key));
                         list.add(tudto);
-//                    }
                 }
                     
                 session.setAttribute("list_cart",list);
@@ -128,7 +125,8 @@ public class cart_servlet extends HttpServlet {
         String cartempty = request.getParameter("cartempty").trim();
         if(cartempty != null){
             hashMap.clear();
-            session.invalidate();
+            session.removeAttribute("list_cart");
+            session.removeAttribute("sum_cart");
             response.setContentType("text/plain");
             response.getWriter().print(0);
         }

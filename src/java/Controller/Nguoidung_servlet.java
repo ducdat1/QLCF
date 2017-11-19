@@ -62,29 +62,17 @@ public class Nguoidung_servlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //processRequest(request, response);
+
         HttpSession session = request.getSession();
-//        String delete = request.getParameter("idnv");
-//        NguoiDung_Model nv_model = new NguoiDung_Model();
         if(request.getParameter("logout")!=null)
             {
-                session.invalidate();
-                response.sendRedirect("/QLCF/index.jsp");   
-                return;
+                session.removeAttribute("UID");
+                session.removeAttribute("USERNAME");
+                session.removeAttribute("PLUS");
+                session.removeAttribute("POINT");
+                session.removeAttribute("MEM_FLG");
+                response.sendRedirect("/QLCF/Auth/Login.jsp");   
             }
-//        if(request.getParameter("bangluong")!=null)
-//        {
-//            try {
-//                nv_model.writeFileExcel();
-//            } catch (WriteException ex) {
-//                Logger.getLogger(NhanVien_servlet.class.getName()).log(Level.SEVERE, null, ex);
-//            } catch (SQLException ex) {
-//                Logger.getLogger(NhanVien_servlet.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//        }
-//        nv_model.Delete(delete);
-//        session.setAttribute("Thongbao", "Xóa thành công");
-//        response.sendRedirect("Admin/QLNhanVien/NhanVien.jsp");
     }
 
     /**
@@ -99,7 +87,6 @@ public class Nguoidung_servlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try{
-//            String result = request.getParameter("search");
             HttpSession session = request.getSession();
             Nguoidung_Model nd_model = new Nguoidung_Model();
             ArrayList<NguoiDung_DTO> list = new ArrayList<NguoiDung_DTO>();
@@ -115,26 +102,28 @@ public class Nguoidung_servlet extends HttpServlet {
                     session.setAttribute("PLUS",result.getPlus());
                     session.setAttribute("POINT",result.getPoint_sum());
                     session.setAttribute("MEM_FLG","1");
-                    response.sendRedirect("/QLCF/index.jsp");
-                    return;
+                    String auth_return = (String)session.getAttribute("auth_return");
+                    if(auth_return != null){
+                       response.sendRedirect(auth_return);
+                       return; 
+                    }else{
+                       response.sendRedirect("/QLCF/index.jsp");
+                       return; 
+                    }
+                    
                 }
                 else
                 {
-                    session.invalidate();
+                    session.removeAttribute("UID");
+                    session.removeAttribute("USERNAME");
+                    session.removeAttribute("PLUS");
+                    session.removeAttribute("POINT");
+                    session.removeAttribute("MEM_FLG");
                     response.sendRedirect("/QLCF/Auth/Login.jsp");
                     return;
                 }
             }
-            
-//            if(result!=null)
-//            {
-//                list = nv_model.get_by_id(result);
-//                session.setAttribute("result", list);
-//                response.sendRedirect("/QLCF/Admin/QLNhanVien/KetQua.jsp");   
-//                return;
-//            }
-            
-            
+        
             NguoiDung_DTO gv = new NguoiDung_DTO(); 
             //thêm vào csdl
 //            gv.setTennv(request.getParameter("tennv"));
@@ -187,7 +176,7 @@ public class Nguoidung_servlet extends HttpServlet {
 //                session.setAttribute("Thongbao", null);
 //                response.sendRedirect("/QLCF/Admin/QLNhanVien/NhanVien.jsp");
 //            }
-        }catch(Exception e)
+        }catch(IOException e)
         {
             response.sendRedirect("/QLCF/index.jsp");
         } 

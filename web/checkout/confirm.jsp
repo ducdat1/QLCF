@@ -19,7 +19,7 @@
         <%@include file="../Template/header.jsp" %>
 	<!--breadcrums-->
         <jsp:include page='../Template/breadcrums.jsp'>
-            <jsp:param name="from" value="Cart Confirm"/>
+            <jsp:param name="from" value="Order Confirm"/>
         </jsp:include>
         <!--//breadcrums-->
         <%    
@@ -52,7 +52,9 @@
                             <body
                             <%
                                 ArrayList<ThucUong_DTO> list_tc = (ArrayList<ThucUong_DTO>)session.getAttribute("list_cart");
+                                int tong = 0;
                                 for (ThucUong_DTO items : list_tc) {
+                                    tong = tong +items.getSoluong()*items.getGiaban();
                             %>
                             
                                 <tr>
@@ -67,16 +69,25 @@
                             <%}%>
                             </body>
                         </table>
+                        <div class="total_price"><p>Tổng số tiền phải thanh toán là: <span class="price"><%out.print(tong);%></span> VND </p></div>
                     </div>
                 </div>
                 <div class="user-info">
                     <!--<h5> - OR -</h5>-->
-                    <div class="social-btn"><a href="#"><i>Purchase</i></a></div>
+                    <div class="social-btn"><a href="/QLCF/Muahang_servlet?muahang=true"><i>Purchase</i></a></div>
                     <div class="social-btn sb-two"><a href="javascript:;" class="back-cart"><i>Quay lại trang giỏ hàng</i></a></div>
                 </div>
-                <%} else {
-                    String redirectURL = "/QLCF/Auth/login.jsp";
-                    response.sendRedirect(redirectURL);
+                <%} else {%>
+                <div class="widget-shadow">
+                    <div class="cart-top wow fadeInUp animated" data-wow-delay=".7s">
+                        <h4>Giỏ hàng của bạn đang trống, bạn không có gì để confirm.</h4>
+                    </div>
+                </div>
+                <div class="user-info">
+                    <!--<h5> - OR -</h5>-->
+                    <div class="social-btn"><a href="/QLCF/index.jsp"><i>Go to Homepage</i></a></div>
+                    <div class="social-btn sb-two"><a href="/QLCF/product/menu.jsp"><i>Go to product page</i></a></div>
+                </div>
                 <%}%>
             </div>
         </div>

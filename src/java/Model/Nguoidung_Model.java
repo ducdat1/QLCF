@@ -6,7 +6,6 @@
 package Model;
 
 import DTO.*;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -158,18 +157,32 @@ public class Nguoidung_Model {
 //            return false;
 //        }
 //    }
-//    public boolean Update(NguoiDung_DTO tu)
-//    {
-//        try {
-//            String delete ="UPDATE db_customer SET cus_account='"+tu.getCus_account()+"',giaban='"+tu.getGiaban()+"' where id_thucuong='"+tu.getId_thucuong()+"'";
-//                db.connect();
-//            PreparedStatement pst = db.getConn().prepareStatement(delete);
-//            pst.executeUpdate();
-//            db.close();
-//            return true;
-//        } catch (SQLException e) {
-//            System.out.print(e.toString());
-//            return false;
-//        }
-//    }
+    public boolean Update(NguoiDung_DTO tu)
+    {
+        try {
+            String delete ="";
+                db.connect();
+            PreparedStatement pst = db.getConn().prepareStatement(delete);
+            pst.executeUpdate();
+            db.close();
+            return true;
+        } catch (SQLException e) {
+            System.out.print(e.toString());
+            return false;
+        }
+    }
+    public boolean Update_point(NguoiDung_DTO tu)
+    {
+        try {
+            String delete ="UPDATE db_customer SET plus='"+tu.getPlus()+"', point_sum='"+tu.getPoint_sum()+"' WHERE id_customer='"+tu.getId_customer()+"'";
+                db.connect();
+            PreparedStatement pst = db.getConn().prepareStatement(delete);
+            pst.executeUpdate();
+            db.close();
+            return true;
+        } catch (SQLException e) {
+            System.out.print(e.toString());
+            return false;
+        }
+    }
 }

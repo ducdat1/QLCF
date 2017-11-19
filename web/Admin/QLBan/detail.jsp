@@ -22,7 +22,6 @@
                             <table class="table table-hover table-bordered">
                                 <thead>
                                     <tr>
-                                        <th class="center">Số</th>
                                         <th class="center">Tên thức uống</th>
                                         <th class="center">Số lượng</th>
                                         <th class="center">Phụ thêm</th>
@@ -38,11 +37,10 @@
                                     for (ChiTietBan_DTO items : list_order) {
                                 %>       
                                         <tr>
-                                            <th class="center"><%=items.getId_chitiet_ban()%></th>
-                                            <th class="center"><%=items.getId_thucuong()%></th>
+                                            <th class="center"><%=items.getTen_thucuong()%></th>
                                             <th class="center"><%=items.getSoluong_thucuong()%></th>
-                                            <th class="center"><%=items.getId_ban()%></th>
-                                            <th class="center"><%=items.getId_ban()%></th>
+                                            <th class="center"><%=items.getTen_spkemtheo()%></th>
+                                            <th class="center"><%=items.getSl_spkemtheo()%></th>
                                             <th class="center"><%=items.getThanhtien()%></th>
                                             <th class="center">Cập nhật - Đổi thức uống khác</th>               
                                         </tr>

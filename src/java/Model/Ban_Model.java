@@ -29,7 +29,7 @@ public class Ban_Model {
                         + "b.tinhtrang,b.tongtien,b.dc_nhan,b.payment,"
                         + "date_format(b.createdate, \"%h:%m %d-%m-%Y\") as createdate \n" 
                         + "from db_ban b join db_customer c on c.id_customer = b.id_customer\n" 
-                        + "where b.tinhtrang = 1 or b.tinhtrang = 0";
+                        + "where b.tinhtrang != 4";
             db.connect();
             stm = db.getConn().createStatement();
             ResultSet rs = stm.executeQuery(sql);
@@ -40,13 +40,13 @@ public class Ban_Model {
                 while(rs.next())
                 {
                     int idban = rs.getInt("id_ban");
-                    int id_customer = rs.getInt("id_customer");
+                    String customer = rs.getString("fullname");
                     int tinhtrang = rs.getInt("tinhtrang");
                     String dc_nhan = rs.getString("dc_nhan");
                     int tongtien = rs.getInt("tongtien");
                     int payment = rs.getInt("payment");
                     String ngaytao = rs.getString("createdate");
-                   Ban_DTO ban = new Ban_DTO(idban,id_customer,tinhtrang,tongtien,dc_nhan,payment,ngaytao);
+                   Ban_DTO ban = new Ban_DTO(idban,customer,tinhtrang,tongtien,dc_nhan,payment,ngaytao);
                    list.add(ban);
                 }
                 return list;

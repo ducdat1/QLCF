@@ -20,6 +20,7 @@
             <th class="center">Tổng tiền</th>
             <th class="center">Thanh toán</th>
             <th class="center">Thời gian đặt hàng</th>
+            <th class="center">Tùy chọn</th>
         </tr>
     </thead>
     <tbody>
@@ -29,12 +30,27 @@
     %>       
             <tr>
                 <th class="center"><a href="/QLCF/Admin/QLBan/detail.jsp?id=<%=items.getId_ban()%>"><%=items.getId_ban()%></a></th>
-                <th class="center"><%=items.getId_customer()%></th>
-                <th class="center"><%=items.getTrangthai()%></th>
+                <th class="center"><%=items.getName_Customer()%></th>
+                <% if(items.getTrangthai() == 1){
+                    out.print("<th class='center'>Đã thanh toán</th>");
+                }else if(items.getTrangthai() == 2){
+                    out.print("<th class='center'>Thanh toán sau</th>");
+                }else if(items.getTrangthai() == 3){
+                    out.print("<th class='center'>Chưa giao hàng</th>");
+                }else if(items.getTrangthai() == 4){
+                    out.print("<th class='center'>Đã giao hàng</th>");
+                }%>
                 <th class="center col-address"><%=items.getDc_nhan()%></th>
                 <th class="center"><%=items.getTongtien()%></th>
                 <th class="center"><%=items.getPayment()%></th>
-                <th class="center col-time"><%=items.getCreatedate()%></th>               
+                <th class="center col-time"><%=items.getCreatedate()%></th>
+                <% if(items.getTrangthai() == 1){%>
+                    <th class="center"><a href="/QLCF/Admin/QLBan/detail.jsp?id=<%=items.getId_ban()%>"><button class="btn btn-success">Hoàn tất</button></a></th>
+                <%}else if(items.getTrangthai() == 2){%>
+                    <th class="center"><a href="/QLCF/Admin/QLBan/detail.jsp?id=<%=items.getId_ban()%>"><button class="btn btn-success">Giao hàng</button></a></th>
+                <%}else if(items.getTrangthai() == 3){%>
+                    <th class="center"><a href="/QLCF/Admin/QLBan/detail.jsp?id=<%=items.getId_ban()%>"><button class="btn btn-success">Hoàn tất</button></a></th>
+                <%}%> 
             </tr>
     <%}%>
     </tbody>

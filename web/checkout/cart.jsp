@@ -19,7 +19,7 @@
         <%@include file="../Template/header.jsp" %>
 	<!--breadcrums-->
         <jsp:include page='../Template/breadcrums.jsp'>
-            <jsp:param name="from" value="Cart"/>
+            <jsp:param name="from" value="Order"/>
         </jsp:include>
         <!--//breadcrums-->
         <%    
@@ -29,7 +29,7 @@
         <div class="new">
             <div class="container">
                 <div class="title-info wow fadeInUp animated" data-wow-delay=".5s">
-                        <h3 class="title">Cart <span> Information</span></h3>
+                        <h3 class="title">Order <span> Information</span></h3>
                 </div>
                 <%if(session.getAttribute("list_cart") != null){%>
                 <div class="widget-shadow">
@@ -52,22 +52,26 @@
                             <tbody>
                             <%
                                 ArrayList<ThucUong_DTO> list_tc = (ArrayList<ThucUong_DTO>)session.getAttribute("list_cart");
+                                int tong = 0;
                                 for (ThucUong_DTO items : list_tc) {
+                                    tong = tong +items.getSoluong()*items.getGiaban();
                             %>
                                 <tr>
                                     <td class="col center tbno"><%=items.getId_thucuong()%></td>
                                     <td class="col center tbdate"><%=dateFormat.format(date)%></td>
                                     <td class="col center tbname"><%=items.getTen_thucuong()%></td>
-                                    <td class="col center tbprice"><%=items.getSoluong()%></td>
+                                    <td class="col center qty"><%=items.getSoluong()%></td>
                                     <td class="col center tbprice"><%=items.getGiaban()%></td>
-                                    <td class="col center tbtype"></td>
+                                    <td class="col center tbtype"><a class="plus1" href="javascript:;"><span class="topping glyphicon glyphicon-plus"></span></a></td>
                                     <td class="col center tbprice"><input class="btn btn-danger" value="Delete"/></td>
                                 </tr> 
                             <%}%>
                             </tbody>
                         </table>
+                            <div class="total_price"><p>Tổng số tiền phải thanh toán là: <span class="price"><%out.print(tong);%></span> VND </p></div>
                     </div>
                 </div>
+                            
                 <div class="user-info">
                     <div class="col-sm-4 form-inline">
                         <label>Phương thức thanh toán: </label>
@@ -97,6 +101,11 @@
                 </div>
                 <%}%>
             </div>
+            <div style="display: none;">
+		<div id="inline1" style="width:400px;height:100px;overflow:auto;">
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam quis mi eu elit tempor facilisis id et neque. Nulla sit amet sem sapien. Vestibulum imperdiet porta ante ac ornare. Nulla et lorem eu nibh adipiscing ultricies nec at lacus. Cras laoreet ultricies sem, at blandit mi eleifend aliquam. Nunc enim ipsum, vehicula non pretium varius, cursus ac tortor. Vivamus fringilla congue laoreet. Quisque ultrices sodales orci, quis rhoncus justo auctor in. Phasellus dui eros, bibendum eu feugiat ornare, faucibus eu mi. Nunc aliquet tempus sem, id aliquam diam varius ac. Maecenas nisl nunc, molestie vitae eleifend vel, iaculis sed magna. Aenean tempus lacus vitae orci posuere porttitor eget non felis. Donec lectus elit, aliquam nec eleifend sit amet, vestibulum sed nunc.
+		</div>
+            </div>
         </div>
         <%@include file="../Template/footer.jsp" %>
         <!--//footer-->
@@ -104,21 +113,12 @@
 	<script src="/QLCF/assets/js/main.js"></script>
 	<!--//search jQuery-->
 	<!--smooth-scrolling-of-move-up-->
-	<script type="text/javascript">
+        <script type="text/javascript">
 		$(document).ready(function() {
-		
-			var defaults = {
-				containerID: 'toTop', // fading element id
-				containerHoverID: 'toTopHover', // fading element hover id
-				scrollSpeed: 1200,
-				easingType: 'linear' 
-			};
-			
-			$().UItoTop({ easingType: 'easeOutQuart' });
-			
+                    $().UItoTop({ easingType: 'easeOutQuart' });
+                    
 		});
 	</script>
-	
         <script src="/QLCF/assets/js/bootstrap.js"></script>
     </body>
 </html>

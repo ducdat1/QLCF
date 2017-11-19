@@ -14,7 +14,10 @@ public class ChiTietBan_DTO {
     private int id_chitiet_ban;
     private int id_ban;
     private int id_thucuong;
+    private String ten_thucuong;
     private int soluong_thucuong;
+    private String ten_spkemtheo;
+    private int sl_spkemtheo;
     private float thanhtien;
 
     public ChiTietBan_DTO() {
@@ -104,5 +107,47 @@ public class ChiTietBan_DTO {
     public void setThanhtien(float thanhtien) {
         this.thanhtien = thanhtien;
     }
+    
+    /**
+     * @return the ten_thucuong
+     */
+    public String getTen_thucuong() {
+        return ten_thucuong;
+    }
 
+    /**
+     * @param ten_thucuong the ten_thucuong to set
+     */
+    public void setTen_thucuong(String ten_thucuong) {
+        this.ten_thucuong = ten_thucuong;
+    }
+    
+    /**
+     * @return the ten_spkemtheo
+     */
+    public String getTen_spkemtheo() {
+        return ten_spkemtheo;
+    }
+    
+    /**
+     * @param ten_spkemtheo the ten_spkemtheo to set
+     */
+    public void setTen_spkemtheo(String ten_spkemtheo) {
+        this.ten_spkemtheo = ten_spkemtheo;
+    }
+    
+    /**
+     * @return the sl_spkemtheo
+     */
+    public int getSl_spkemtheo() {
+        return sl_spkemtheo;
+    }
+
+    /**
+     * @param sl_spkemtheo the sl_spkemtheo to set
+     */
+    public void setSl_spkemtheo(int sl_spkemtheo) {
+        this.sl_spkemtheo = sl_spkemtheo;
+    }
+    
 }

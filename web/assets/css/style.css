@@ -1959,19 +1959,35 @@ h4.panel-title a {
     transition: color 0.2s ease-in-out;
     z-index: 999;
 }
-ul.qty{
-	padding:0;
-	margin:0;
-	list-style:none;
-}
-ul.qty li{
-   display: inline-block;
-   margin-right: 10%;
-}
-ul.qty li p {
+.qty{
+    padding:0;
+    margin:0;
+    list-style:none;
     font-size: 1em;
     color: #353F49;
     font-weight: 500;
+}
+.total_price{
+    margin-top: 20px;
+    font-size: 17px;
+    font-weight: 500;
+    font-family: 'Arial Black', sans-serif;
+}
+.price{
+    font-size: 20px;
+    font-weight: 700;
+    font-family: 'Pompiere', cursive;
+}
+.topping{
+    
+}
+.topping:hover{
+    -webkit-transform: scale(1.5);
+    -moz-transform: scale(1.5);
+    -o-transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    transform: scale(1.5);
+    cursor: pointer; 
 }
 /*--//checkout--*/
 /*--about--*/

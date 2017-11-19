@@ -67,6 +67,8 @@ public class NhanVien_servlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("utf-8");
         HttpSession session = request.getSession();
         String delete = request.getParameter("idnv");
         NhanVien_Model nv_model = new NhanVien_Model();
@@ -100,6 +102,8 @@ public class NhanVien_servlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("utf-8");
         //processRequest(request, response);
         try{
             String result = request.getParameter("search");
@@ -148,6 +152,7 @@ public class NhanVien_servlet extends HttpServlet {
 //                session.setAttribute("Thongbao", null);
 //                response.sendRedirect("/QLCF/Admin/QLNhanVien/NhanVien.jsp");
 //            }
+// fix lại giao dien update
             }else if ( form != null && "update".equals(form) ){
                 NhanVien_DTO gv = new NhanVien_DTO(); 
                 gv.setTennv(request.getParameter("tennv"));

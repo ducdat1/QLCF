@@ -15,7 +15,6 @@ import java.util.ArrayList;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
-import static java.lang.System.out;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.ServletException;
@@ -78,7 +77,7 @@ public class ThucUong_servlet extends HttpServlet {
         
         tu_model.Delete(delete);
         session.setAttribute("Thongbao", "Xóa thành công");
-        response.sendRedirect("Admin/QLNhanVien/NhanVien.jsp");
+        response.sendRedirect("Admin/QLThucUong/ThucUong.jsp");
     }
 
     /**
@@ -92,7 +91,8 @@ public class ThucUong_servlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("utf-8");
         try{
             HttpSession session = request.getSession();
             ThucUong_Model tu_model = new ThucUong_Model();
@@ -159,7 +159,7 @@ public class ThucUong_servlet extends HttpServlet {
                 gv.setextra2(request.getParameter("bonus2"));
                 if(tu_model.insert(gv))
                 {
-                    String uploadFile = uploadFile(request);
+                    uploadFile(request);
                     session.setAttribute("Thongbao", "Thêm thành công");
                     response.sendRedirect("/QLCF/Admin/QLThucUong/ThucUong.jsp");   
                 }else
