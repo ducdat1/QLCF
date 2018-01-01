@@ -522,8 +522,8 @@ ul.multi-column-dropdown:nth-child(3) {
 .banner {
     background: #33414e;
     padding: 9em 0;
-	background:url(/QLCF/images/1.jpg)no-repeat 0px 0px;
-	background-size:cover;
+    background:url(/QLCF/images/1.jpg)no-repeat 0px 0px;
+    background-size:cover;
 }
 .banner-right{
 	background:url(/QLCF/images/img3.jpg)no-repeat 0px 0px;
@@ -987,13 +987,12 @@ h3.title span {
     display: inline-block;
     width: 25%;
     margin-left: 1.5em;
+    background-color: #549FE0;
 }
 .user-body .info_left label{
     display: block;
     padding: 5px;
-    margin: 0.5em 0;
-    border: 1px solid #DED9D9
-    
+    margin: 0.5em 0;    
 }
 .user-body .info_right {
     display: inline-block;
@@ -1002,9 +1001,7 @@ h3.title span {
 .user-body .info_right label{
     display: block;
     padding: 5px;
-    margin: 0.5em 0;
-    border: 1px solid #DED9D9
-    
+    margin: 0.5em;    
 }
 .user-top h4 {
     font-size: 1.5em;

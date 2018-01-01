@@ -10,9 +10,9 @@
         <div class="container">
                 <div class="banner-text">			
                         <div class="col-sm-5 banner-left wow fadeInLeft animated" data-wow-delay=".5s">			
-                                <h2>On Entire Fashion range</h2>
-                                <h3>Coming Soon </h3>
-                                <h4>Our New Designs</h4>
+                                <h2>Sale OFF</h2>
+                                <h3>From 1/1 to 3/1</h3>
+                                <h4>Gold hour</h4>
                                 <div class="count main-row">
                                         <ul id="example">
                                                 <li><span class="hours">00</span><p class="hours_text">Hours</p></li>
@@ -23,8 +23,8 @@
                                                 <script type="text/javascript" src="/QLCF/assets/js/jquery.countdown.min.js"></script>
                                                 <script type="text/javascript">
                                                         $('#example').countdown({
-                                                                date: '12/24/2020 15:59:59',
-                                                                offset: -8,
+                                                                date: '1/3/2018 15:59:59',
+                                                                offset: -2,
                                                                 day: 'Day',
                                                                 days: 'Days'
                                                         }, function () {
@@ -53,7 +53,7 @@
                                                 </ul>
                                         </div>
                                 </section>
-                                <!--FlexSlider-->
+                                FlexSlider
                                 <script defer src="/QLCF/assets/js/jquery.flexslider.js"></script>
                                 <script type="text/javascript">
                                         $(window).load(function(){
@@ -65,7 +65,7 @@
                                           });
                                         });
                                 </script>
-                                <!--End-slider-script-->
+                                End-slider-script
                         </div>
                         <div class="clearfix"> </div>
                 </div>

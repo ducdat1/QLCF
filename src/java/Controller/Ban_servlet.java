@@ -97,32 +97,33 @@ public class Ban_servlet extends HttpServlet {
         //thêm vào csdl
                 Ban_DTO ban = new Ban_DTO();
                 ban.setTrangthai(0);
-                   ban.setTongtien(0);
+                ban.setTongtien(0);
                 if(request.getParameter("idban")!=null){
                 ban.setId_ban(Integer.parseInt(request.getParameter("idban")));
-               if(ban_model.Update(ban))
-               {
-                   ban.setTrangthai(Integer.parseInt(request.getParameter("trangthai")));
-                   ban.setTongtien(Float.parseFloat(request.getParameter("tongtien")));
-                   session.setAttribute("Thongbao", "Sửa thành công");
-                   response.sendRedirect("/QLCF/Admin/QLBan/Ban.jsp");
-                   return;
-               }
-               else
-               {
-                   session.setAttribute("Thongbao", null);
-                   response.sendRedirect("/QLCF/Admin/QLBan/Ban.jsp");
-               }}
-               if(ban_model.insert(ban))
-               {
-                   session.setAttribute("Thongbao", "Thêm thành công");
-                   response.sendRedirect("/QLCF/Admin/QLBan/Ban.jsp");   
-                   return;
-               }else
-               {
-                   session.setAttribute("Thongbao", null);
-                   response.sendRedirect("/QLCF/Admin/QLBan/Ban.jsp");
-               }
+                if(ban_model.Update(ban))
+                {
+                    ban.setTrangthai(Integer.parseInt(request.getParameter("trangthai")));
+                    ban.setTongtien(Float.parseFloat(request.getParameter("tongtien")));
+                    session.setAttribute("Thongbao", "Sửa thành công");
+                    response.sendRedirect("/QLCF/Admin/QLBan/Ban.jsp");
+                    return;
+                }
+                else
+                {
+                    session.setAttribute("Thongbao", null);
+                    response.sendRedirect("/QLCF/Admin/QLBan/Ban.jsp");
+                }}
+                int idlast = ban_model.insert(ban) ;
+                if(idlast != 0)
+                {
+                    session.setAttribute("Thongbao", "Thêm thành công");
+                    response.sendRedirect("/QLCF/Admin/QLBan/Ban.jsp");   
+                    return;
+                }else
+                {
+                    session.setAttribute("Thongbao", null);
+                    response.sendRedirect("/QLCF/Admin/QLBan/Ban.jsp");
+                }
         }catch(Exception e)
         {
             System.out.print(e);

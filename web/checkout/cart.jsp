@@ -31,6 +31,11 @@
                 <div class="title-info wow fadeInUp animated" data-wow-delay=".5s">
                         <h3 class="title">Order <span> Information</span></h3>
                 </div>
+                <% 
+                    String msg = request.getParameter("Msg");
+                    if("PL001".equals(msg) ){%>
+                        <h2>Point không đủ. Vui lòng nạp thêm point <a href="#">tại đây</a></h2>
+                <%  }%>
                 <%if(session.getAttribute("list_cart") != null){%>
                 <div class="widget-shadow">
                     <div class="user-top wow fadeInUp animated" data-wow-delay=".7s">

@@ -64,7 +64,7 @@
                                     <td class="col center tbprice"><%=items.getSoluong()%></td>
                                     <td class="col center tbprice"><%=items.getGiaban()%></td>
                                     <td class="col center tbtype"></td>
-                                    <td class="col center tbprice"></td>
+                                    <td class="col center tbprice">Point</td>
                                 </tr>
                             <%}%>
                             </body>

@@ -54,15 +54,15 @@
                                     NguoiDung_DTO ngdung = new Nguoidung_Model().get_info(idusername);
                                 %>
                                 <div class="info_right">
-                                        <label for="Firstname" class="info_label"><%=ngdung.getFirstname()%></label>
-                                        <label for="Lastname" class="info_label"><%=ngdung.getLastname()%></label>
-                                        <label for="Account" class="info_label"><%=ngdung.getCus_account()%></label>
-                                        <label for="Password" class="info_label"><%=ngdung.getCus_password()%></label>
-                                        <label for="Email" class="info_label"><%=ngdung.getCus_email()%></label>
-                                        <label for="Telephone" class="info_label"><%=ngdung.getCus_phone()%></label>
-                                        <label for="Address" class="info_label"><%=ngdung.getCus_address()%></label>
-                                        <label for="Plus" class="info_label"><%=ngdung.getPlus()%></label>
-                                        <label for="Point" class="info_label"><%=ngdung.getPoint_sum()%></label>   
+                                        <input type="text" class="info_label" value="<%=ngdung.getFirstname()%>" />
+                                        <input type="text" class="info_label" value="<%=ngdung.getLastname()%>"/>
+                                        <input type="text" class="info_label" value="<%=ngdung.getCus_account()%>"/>
+                                        <input type="text" class="info_label" value="<%=ngdung.getCus_password()%>"/>
+                                        <input type="text" class="info_label" value="<%=ngdung.getCus_email()%>"/>
+                                        <input type="text" class="info_label" value="<%=ngdung.getCus_phone()%>"/>
+                                        <input type="text" class="info_label" value="<%=ngdung.getCus_address()%>"/>
+                                        <input type="text" class="info_label" value="<%=ngdung.getPlus()%>"/>
+                                        <input type="text" class="info_label" value="<%=ngdung.getPoint_sum()%>"/>
                                 </div>
                             </div>
                     </div>

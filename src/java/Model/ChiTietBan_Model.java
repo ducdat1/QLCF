@@ -114,7 +114,8 @@ public class ChiTietBan_Model {
     }
 
     public boolean insert(ChiTietBan_DTO ctb) {
-        String sql = "insert into db_chitiet_ban(id_ban,id_thucuong,soluong_thucuong,thanhtien) value(" + ctb.getId_ban() + ",'" + ctb.getId_thucuong() + "','" + ctb.getSoluong_thucuong() + "','" + ctb.getThanhtien() + "');";
+        String sql = "insert into db_chitiet_ban(id_ban,id_thucuong,soluong_thucuong,thanhtien) "
+                + "value(" + ctb.getId_ban() + ",'" + ctb.getId_thucuong() + "','" + ctb.getSoluong_thucuong() + "','" + ctb.getThanhtien() + "');";
         try {
             db.connect();
             stm = db.getConn().createStatement();

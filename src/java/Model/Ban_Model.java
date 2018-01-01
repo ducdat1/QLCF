@@ -169,19 +169,28 @@ public class Ban_Model {
 //        return ban;
 //    }
     
-    public boolean insert(Ban_DTO ban)
+    public int insert(Ban_DTO ban)
     {
-        String sql = "insert into db_ban(tinhtrang,tongtien) values ('"+ban.getTrangthai()+"','"+ban.getTongtien()+"');";
-        try {
+        String sqlchk = "";
+        int last_id = 0;
+        String sql = "INSERT INTO `qlcf`.`db_ban` (`id_customer`, `tinhtrang`, `tongtien`, `payment`, `createdate`) "
+                + "VALUES ('"+ban.getId_customer()+"', '2', '"+ban.getTongtien()+"', '2', sysdate());";
+//                + "VALUES ('1', '2', '11111', '2', sysdate());";     
+        String lastid = "select LAST_INSERT_ID() as last_id";
+                try {
             db.connect();
             stm = db.getConn().createStatement();
             stm.executeUpdate(sql);
+            ResultSet rs=stm.executeQuery("select * from `qlcf`.`db_ban`");
+            if(rs.last()){
+               last_id=rs.getInt("id_ban");
+            }
             db.close();
-            return true;
+            return last_id;
         } catch (SQLException e) {
             System.out.println("Error " + e.toString());
         }
-        return false;
+        return last_id;
     }
     
     public boolean Delete(String mban) {
