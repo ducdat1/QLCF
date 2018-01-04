@@ -74,7 +74,7 @@
                             for (ThucUong_DTO items : list_tc) {
                             %>
 				<div class="col-md-3 gallery-grid wow flipInY animated" data-wow-delay="1.1s">
-					<a href="products.html"><img src="images/thucuong/<%=items.geturl_image()%>" class="img-responsive" alt=""/></a>
+					<a href="product/detail.jsp?id=<%=items.getId_thucuong()%>"><img src="images/thucuong/<%=items.geturl_image()%>" class="img-responsive" alt=""/></a>
 					<div class="gallery-text simpleCart_shelfItem">
 						<h5><a class="name" href="single.html"><%=items.getTen_thucuong()%></a></h5>
 						<p><span class="item_price"><%=items.getGiaban()%></span></p>

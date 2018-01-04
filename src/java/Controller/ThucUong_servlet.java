@@ -110,7 +110,7 @@ public class ThucUong_servlet extends HttpServlet {
 
 
               //thêm vào csdl            
-            if("confirm".equals(request.getParameter("update")))
+            if("update".equals(request.getParameter("form")))
             {
                 
                 Part filePart = request.getPart("file");
@@ -136,7 +136,7 @@ public class ThucUong_servlet extends HttpServlet {
                     }
                     else
                     {
-                        session.setAttribute("Thongbao", null);
+                        session.setAttribute("Thongbao", "Có lỗi xảy ra xin vui lòng làm lại.");
                         response.sendRedirect("/QLCF/Admin/QLThucUong/ThucUong.jsp");
                     }               
                 }

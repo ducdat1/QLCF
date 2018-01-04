@@ -24,38 +24,38 @@
                             <option value="1">Đã thanh toán</option>
                             <option value="2">Chưa thanh toán</option>
                         </select>
-                        <input class="btn btn-success" type="button" value="Áp dụng"/>
                     </div>
-                    
-                    <table>
-                        <thead>
-                            <tr>
-                                <th class="col center">Số hóa đơn</th>
-                                <th class="col center">Tên khách hàng</th>
-                                <th class="col center">Tình trạng</th>
-                                <th class="col center">Tổng tiền</th>
-                                <th class="col center">Hình thức thanh toán</th>
-                                <th class="col center">Ngày thanh toán</th>
-                                <th class="col center">Tùy chọn</th>
-                            </tr>
-                        </thead>
-                        <%
-                            ArrayList<Ban_DTO> list_ban = new Ban_Model().get_all();
-                            for (Ban_DTO items : list_ban) {
-                        %>
-                        <tbody>
-                            <tr>
-                                <td class="col1 center"><%=items.getId_ban()%></td>
-                                <td class="col1 center"><%=items.getId_customer()%></td>
-                                <td class="col1 center"><%=items.getTrangthai()%></td>
-                                <td class="col1 center"><%=items.getTongtien()%></td>
-                                <td class="col1 center"><%=items.getPayment()%></td>
-                                <td class="col1 center"><%=items.getCreatedate()%></td>
-                                <td class="col1 center"><a href="/QLCF/Admin/QLBan/detail.jsp?id=<%=items.getId_ban()%>">Xem chi tiết</a></td>
-                            </tr>
-                        <% }%>
-                        </tbody>
-                    </table>
+                    <div data-focus="">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th class="col center">Số hóa đơn</th>
+                                    <th class="col center">Tên khách hàng</th>
+                                    <th class="col center">Tình trạng</th>
+                                    <th class="col center">Tổng tiền</th>
+                                    <th class="col center">Hình thức thanh toán</th>
+                                    <th class="col center">Ngày thanh toán</th>
+                                    <th class="col center">Tùy chọn</th>
+                                </tr>
+                            </thead>
+                            <%
+                                ArrayList<Ban_DTO> list_ban = new Ban_Model().get_all();
+                                for (Ban_DTO items : list_ban) {
+                            %>
+                            <tbody>
+                                <tr>
+                                    <td class="col1 center"><%=items.getId_ban()%></td>
+                                    <td class="col1 center"><%=items.getId_customer()%></td>
+                                    <td class="col1 center"><%=items.getTrangthai()%></td>
+                                    <td class="col1 center"><%=items.getTongtien()%></td>
+                                    <td class="col1 center"><%=items.getPayment()%></td>
+                                    <td class="col1 center"><%=items.getCreatedate()%></td>
+                                    <td class="col1 center"><a href="/QLCF/Admin/QLBan/detail.jsp?id=<%=items.getId_ban()%>">Xem chi tiết</a></td>
+                                </tr>
+                            <% }%>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         <%@include file="/Template/footer_admin.jsp" %>

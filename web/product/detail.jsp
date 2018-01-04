@@ -40,10 +40,10 @@
                             out.println(items.getextra2());
                         
                     %>
-                    <div class=" col-md-5 detail-img">    
+                    <div class=" col-md-7 detail-img">    
                         <a href="detail.jsp?id=<%=items.getId_thucuong()%>"><img src="../images/thucuong/<%=items.geturl_image()%>" class="img-responsive wow flipInY animated" alt=""data-wow-delay="1.1s" /></a>
                     </div>
-                    <div class=" col-md-7 detail-text">
+                    <div class=" col-md-5 detail-text">
                             <h5><a class="name" href="single.html"><%=items.getTen_thucuong()%></a></h5>
                             <% if("1".equals(items.getdiscount())){%>
                             <div class="ofr">
@@ -54,11 +54,28 @@
                             <%}else{%>
                                 <p><span class="item_price"><%=items.getGiaban()%></span> đồng.</p>
                             <%}%>
+                            <div class="input-number">
+                                <h4 class="sizes">Số lượng:</h4>
+                                <div class="input-group bootstrap-touchspin">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default bootstrap-touchspin-down" type="button">-</button>
+                                    </span>
+                                    <span class="input-group-addon bootstrap-touchspin-prefix" style="display: none;">
+                                    </span>
+                                    <input id="qty" name="qty" value="1" min="1" max="100" class="form-control" style="display: block;" type="tel">
+                                    <span class="input-group-addon bootstrap-touchspin-postfix" style="display: none;"> 
+                                    </span>
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default bootstrap-touchspin-up" type="button">+</button>
+                                    </span>
+                                </div>   
+                            </div>
+                           
                             <h4 class="sizes">Sizes: <a href="#"> S</a> - <a href="#">M</a> </h4>
                             <ul>
-                                    <li><a href="#"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span></a></li>
-                                    <li><a class="item_add" href="#" id="purchase"><input type="hidden" id="cart_order" value="<%=items.getId_thucuong()%>"/><span class="glyphicon glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a></li>
-                                    <li><a href="#"><span class="glyphicon glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a></li>
+                                <li><a href="#"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span></a></li>
+                                <li><a href="#"><span class="glyphicon glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a></li>
+                                <li><a class="item_add" href="#" id="purchase"><input type="hidden" id="cart_order" value="<%=items.getId_thucuong()%>"/><span class="glyphicon glyphicon glyphicon-shopping-cart" aria-hidden="true">Thêm vào giỏ hàng</span></a></li>
                             </ul>
                     </div>
                         

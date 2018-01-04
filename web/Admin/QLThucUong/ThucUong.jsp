@@ -51,16 +51,15 @@
                                             <td><input type="text" class="form-control" name="bonus1" placeholder="Phụ thêm"></td>
                                             <td>
                                                 <select name="bonus2" class="form-control">
-                                                    <option value="1">Coffee</option>
-                                                    <option value="2">Tea</option>
-                                                    <option value="4">Snack</option>
-                                                    <option value="3">Other</option>
+                                                    <option value="1">Cà phê</option>
+                                                    <option value="2">Trà</option>
+                                                    <option value="4">Phần thêm</option>
+                                                    <option value="3">Bánh & ăn nhẹ</option>
                                                 </select>
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
-                            <input type="button" class="addrow"/>
                             <button type="submit" class="btn btn-primary">Thêm mới</button>
                         </form>
                     </div>

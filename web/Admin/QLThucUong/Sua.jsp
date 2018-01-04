@@ -27,7 +27,7 @@
                 <div class="col-sm-6">
                     <form action="/QLCF/ThucUong_servlet" method="POST" role="form" enctype = "multipart/form-data">
                         <input type="hidden" name="thucuong_id" value="<%=request.getParameter("idtu")%>">
-                        <input type="hidden" name="update" value="confirm">
+                        <input type="hidden" name="form" value="update">
                         <legend>Sửa thức uống</legend>
                         <div class="form-group">
                             <label for="">Tên thức uống</label>
@@ -62,10 +62,10 @@
                             <label for="">Phân loại</label>
                             <input type="hidden" name="old_bonus" value="<%=tu.getextra2()%>">
                             <select name="bonus2" class="form-control">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
+                                <option value="1">Cà phê</option>
+                                <option value="2">Trà</option>
+                                <option value="3">Phần thêm</option>
+                                <option value="4">Bánh & ăn nhẹ</option>
                             </select>
                         </div>
                         <button type="submit" class="btn btn-primary">Lưu</button>

@@ -2130,6 +2130,14 @@ li.list-group-item1 {
 .input-group {
 	margin-bottom: 20px;
 }
+.input-number{
+    width: 95px;
+    height: 30px;
+}
+#qty{
+    padding: 6px 0px;
+    text-align: center;
+}
 .in-gp-tl{
 	padding:0;
 }

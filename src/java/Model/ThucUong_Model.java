@@ -316,13 +316,13 @@ public class ThucUong_Model {
     }
     public boolean Update(ThucUong_DTO tu)
     {
-        String url = null;
+        String url = "";
         if(tu.geturl_image().length() > 0)
         {
             url = "url_image='"+tu.geturl_image()+"', ";
         }
         try {
-            String delete ="UPDATE db_thucuong SET "
+            String sql ="UPDATE db_thucuong SET "
                     + "ten_thucuong='"+tu.getTen_thucuong()+"',"
                     + "giaban='"+tu.getGiaban()+"', "
                     + url
@@ -332,9 +332,9 @@ public class ThucUong_Model {
                     + "extra1='"+tu.getextra1()+"', "
                     + "extra2='"+tu.getextra2()+"' "
                     + "where id_thucuong='"+tu.getId_thucuong()+"'";
-                db.connect();
-            PreparedStatement pst = db.getConn().prepareStatement(delete);
-            pst.executeUpdate();
+            db.connect();
+            stm = db.getConn().createStatement();
+            stm.executeUpdate(sql);
             db.close();
             return true;
         } catch (SQLException e) {
