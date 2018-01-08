@@ -122,13 +122,34 @@ public class cart_servlet extends HttpServlet {
             throws ServletException, IOException {
 //        processRequest(request, response);
         HttpSession session = request.getSession();
-        String cartempty = request.getParameter("cartempty").trim();
-        if(cartempty != null){
-            hashMap.clear();
-            session.removeAttribute("list_cart");
-            session.removeAttribute("sum_cart");
+//        String cartempty = request.getParameter("cartempty").trim();
+//        if(cartempty != null){
+//            hashMap.clear();
+//            session.removeAttribute("list_cart");
+//            session.removeAttribute("sum_cart");
+//            response.setContentType("text/plain");
+//            response.getWriter().print(0);
+//        }
+        String quantity = request.getParameter("quantity").trim();
+        if(quantity != null){
+            int sum_cart;
+            sum_cart = 0;
+            String id_thucuong = request.getParameter("idthucuong").trim();
+            int qty = Integer.parseInt(quantity);
+            ThucUong_Model tc_model = new ThucUong_Model();
+            ArrayList<ThucUong_DTO> list = new ArrayList<>();                
+            hashMap.put(id_thucuong, qty);
+            Set<String> keySet = hashMap.keySet();
+            for (String key : keySet) {
+                    ThucUong_DTO tudto = tc_model.get_to_cart(key);
+                    tudto.setSoluong(hashMap.get(key));
+                    sum_cart = sum_cart+hashMap.get(key);
+                    list.add(tudto);
+            }
+            session.setAttribute("list_cart",list);
+            session.setAttribute("sum_cart",sum_cart);
             response.setContentType("text/plain");
-            response.getWriter().print(0);
+            response.getWriter().print(sum_cart);
         }
     }
 

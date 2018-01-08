@@ -43,7 +43,7 @@
                         </div>
                         <div class="nav navbar-nav navbar-right header-two-right">
                                 <div class="header-right my-account">
-                                        <a href="/QLCF/infor/contact.jsp"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> CONTACT US</a>						
+                                        <a href="/QLCF/Infor/contact.jsp"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> CONTACT US</a>						
                                 </div>
                                 <div class="header-right cart">
                                         <h4><a href="/QLCF/checkout/cart.jsp">
@@ -88,7 +88,7 @@
                                                         <ul class="dropdown-menu multi-column multi-column1">
                                                                 <div class="row">
                                                                         <div class="col-sm-4 menu-grids menulist1">
-                                                                                <h4>Bath & Care</h4>
+                                                                                <h4>Hot drink</h4>
                                                                                 <ul class="multi-column-dropdown ">
                                                                                         <li><a class="list" href="products.html">Diapering</a></li>
                                                                                         <li><a class="list" href="products.html">Baby Wipes</a></li>
@@ -107,7 +107,7 @@
                                                                                 </ul>
                                                                         </div>																		
                                                                         <div class="col-sm-2 menu-grids">
-                                                                                <h4>Baby Clothes</h4>
+                                                                                <h4>Cold drink</h4>
                                                                                 <ul class="multi-column-dropdown">
                                                                                         <li><a class="list" href="products.html">Onesies & Rompers</a></li>
                                                                                         <li><a class="list" href="products.html">Frocks</a></li>
@@ -148,7 +148,7 @@
                                                         <ul class="dropdown-menu multi-column multi-column2">
                                                                 <div class="row">
                                                                         <div class="col-sm-3 menu-grids">
-                                                                                <h4>New Arrivals</h4>
+                                                                                <h4>Tea</h4>
                                                                                 <ul class="multi-column-dropdown">
                                                                                         <li><a class="list" href="products.html">Topwear</a></li>
                                                                                         <li><a class="list" href="products.html">Bottomwear</a></li>
@@ -159,7 +159,7 @@
                                                                                 </ul>
                                                                         </div>																		
                                                                         <div class="col-sm-3 menu-grids">
-                                                                                <h4>Boys</h4>
+                                                                                <h4>Milk Tea</h4>
                                                                                 <ul class="multi-column-dropdown">
                                                                                         <li><a class="list" href="products.html">Jeans</a></li>
                                                                                         <li><a class="list" href="products.html">Shirts</a></li>
@@ -170,7 +170,7 @@
                                                                                 </ul>
                                                                         </div>
                                                                         <div class="col-sm-3 menu-grids">
-                                                                                <h4>Girls</h4>
+                                                                                <h4>Combo</h4>
                                                                                 <ul class="multi-column-dropdown">
                                                                                         <li><a class="list" href="products.html">Tops</a></li>
                                                                                         <li><a class="list" href="products.html">Leggings</a></li>
@@ -191,7 +191,7 @@
                                                         </ul>
                                                 </li>
                                                 <li class="dropdown grid">
-                                                        <a href="#" class="dropdown-toggle list1" data-toggle="dropdown">Snacks <b class="caret"></b></a>
+                                                        <a href="#" class="dropdown-toggle list1" data-toggle="dropdown">Cake&snacks<b class="caret"></b></a>
                                                         <ul class="dropdown-menu multi-column menu-two multi-column3">
                                                                 <div class="row">
                                                                         <div class="col-sm-4 menu-grids">
@@ -216,60 +216,7 @@
                                                         </ul>
                                                 </li>				
                                                 <li class="dropdown grid">
-                                                        <a href="#" class="dropdown-toggle list1" data-toggle="dropdown">Others <b class="caret"></b></a>
-                                                        <ul class="dropdown-menu multi-column multi-column4">
-                                                                <div class="row">
-                                                                        <div class="col-sm-4 menu-grids menulist1">
-                                                                                <h4>BABY</h4>
-                                                                                <ul class="multi-column-dropdown ">
-                                                                                        <li><a class="list" href="products.html">Rockers</a></li>
-                                                                                        <li><a class="list" href="products.html">Rattles</a></li>
-                                                                                        <li><a class="list" href="products.html">Stroller Toys</a></li>
-                                                                                        <li><a class="list" href="products.html">Musical Toys </a></li>
-                                                                                        <li><a class="list" href="products.html">Doll Houses</a></li>
-                                                                                        <li><a class="list" href="products.html">Play Sets</a></li>
-                                                                                </ul>
-                                                                                <ul class="multi-column-dropdown">
-                                                                                        <li><a class="list" href="products.html">Toys Dolls</a></li>
-                                                                                        <li><a class="list" href="products.html">Pacifiers</a></li>
-                                                                                        <li><a class="list" href="products.html">Building Sets</a></li>
-                                                                                        <li><a class="list" href="products.html">Bath Toys</a></li>
-                                                                                        <li><a class="list" href="products.html">Soft Toys</a></li>
-                                                                                        <li><h6><a class="list" href="products.html">Special Off</a></h6></li>
-                                                                                </ul>
-                                                                        </div>																		
-                                                                        <div class="col-sm-2 menu-grids">
-                                                                                <h4>Pretend Play</h4>
-                                                                                <ul class="multi-column-dropdown">
-                                                                                        <li><h6><a class="list" href="products.html">Video Games</a></h6></li>
-                                                                                        <li><a class="list" href="products.html">Kitchen Sets</a></li>
-                                                                                        <li><a class="list" href="products.html">Sand Toys</a></li>
-                                                                                        <li><a class="list" href="products.html">Tool Sets</a></li>
-                                                                                        <li><a class="list" href="products.html">Bath Toys</a></li>
-                                                                                        <li><a class="list" href="products.html">Medical Set</a></li>
-                                                                                </ul>
-                                                                        </div>
-                                                                        <div class="col-sm-2 menu-grids">
-                                                                                <h4>Outdoor</h4>
-                                                                                <ul class="multi-column-dropdown">
-                                                                                        <li><a class="list" href="products.html">Swimming</a></li>
-                                                                                        <li><a class="list" href="products.html">Rideons </a></li>
-                                                                                        <li><a class="list" href="products.html">Scooters</a></li>
-                                                                                        <li><a class="list" href="products.html">Remote Control</a></li>
-                                                                                        <li><a class="list" href="products.html">Animals</a></li>
-                                                                                        <li><a class="list" href="products.html">Make up</a></li>
-                                                                                </ul>
-                                                                        </div>
-                                                                        <div class="col-sm-4 menu-grids">
-                                                                                <a href="products.html">
-                                                                                        <div class="new-add">
-                                                                                                <h5>30% OFF <br> Today Only</h5>
-                                                                                        </div>
-                                                                                </a>	
-                                                                        </div>
-                                                                        <div class="clearfix"> </div>
-                                                                </div>
-                                                        </ul>
+                                                        <a href="/QLCF/Auth/buy_point.jsp">Buy point</a>
                                                 </li>
                                                 <li><a href="/QLCF/product/menu.jsp">All menu</a></li>
                                         </ul> 

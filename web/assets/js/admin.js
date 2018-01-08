@@ -6,7 +6,6 @@
 
 jQuery(document).ready(function($){
     //start
-    console.log("----------------");
     var val = $('input[name=old_bonus').val();
     var val1 = $('input[name=old_size').val();
     if(val != null){

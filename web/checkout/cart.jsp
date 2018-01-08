@@ -57,15 +57,20 @@
                             <tbody>
                             <%
                                 ArrayList<ThucUong_DTO> list_tc = (ArrayList<ThucUong_DTO>)session.getAttribute("list_cart");
-                                int tong = 0;
+                                int tong = 0; int i = 0;
                                 for (ThucUong_DTO items : list_tc) {
                                     tong = tong +items.getSoluong()*items.getGiaban();
+                                    i += 1;
                             %>
                                 <tr>
-                                    <td class="col center tbno"><%=items.getId_thucuong()%></td>
+                                    <td class="col center tbno"><%=i%></td>
                                     <td class="col center tbdate"><%=dateFormat.format(date)%></td>
                                     <td class="col center tbname"><%=items.getTen_thucuong()%></td>
-                                    <td class="col center qty"><%=items.getSoluong()%></td>
+                                    <td class="col center qty">
+                                        <input type="hidden" class="tcno" value="<%=items.getId_thucuong()%>" />
+                                        <p class="qty_cart"><%=items.getSoluong()%></p>
+                                        <input type="tel" id="qty" class="form-control qty_cart" min="1" maxlength="2" value="<%=items.getSoluong()%>" />
+                                    </td>
                                     <td class="col center tbprice"><%=items.getGiaban()%></td>
                                     <td class="col center tbtype"><a class="plus1" href="javascript:;"><span class="topping glyphicon glyphicon-plus"></span></a></td>
                                     <td class="col center tbprice"><input class="btn btn-danger" value="Delete"/></td>
@@ -73,7 +78,14 @@
                             <%}%>
                             </tbody>
                         </table>
-                            <div class="total_price"><p>Tổng số tiền phải thanh toán là: <span class="price"><%out.print(tong);%></span> VND </p></div>
+                        <div class="note_cart">
+                            <p>* Nhấn vào ô số lượng để chỉnh số lượng muốn order. </p>
+                            <p>* Bạn chỉ có thể order số lượng tối đa là 10 cho 1 loại thức uống. Trên 20000 điểm thành viên mức tối đa là 20 </p>
+                            <p>* Dưới 20000 điểm thành viên, bạn chỉ có thể order tối đa là tối 20 cho tất cả thức uống có trong giỏ hàng</p>
+                            <p>* Trên 20000 điểm thành viên, bạn chỉ có thể order tối đa là tối 50 cho tất cả thức uống có trong giỏ hàng</p>
+                            <p>* Tổng giá trị đơn hàng trên 800000 đồng thì bạn sẽ cần phải thanh toán trước 50%</p>
+                        </div>
+                        <div class="total_price"><p>Tổng số tiền phải thanh toán là: <span class="price"><%out.print(tong);%></span> VND </p></div>
                     </div>
                 </div>
                             
@@ -120,7 +132,39 @@
 	<!--smooth-scrolling-of-move-up-->
         <script type="text/javascript">
 		$(document).ready(function() {
+                    var defaults = {
+                            containerID: 'toTop', // fading element id
+                            containerHoverID: 'toTopHover', // fading element hover id
+                            scrollSpeed: 1200,
+                            easingType: 'linear' 
+                    };
                     $().UItoTop({ easingType: 'easeOutQuart' });
+                    $("table tr td > p.qty_cart").show();
+                    $("table tr td > input.qty_cart").hide();
+                    $("table tr td.qty > input.qty_cart").blur(function(){
+                        var qty = $(this).val();
+                        $(this).parent().find("p.qty_cart").text(qty)
+                        var idtu = $(this).parent().find('.tcno').val();
+                        $.ajax({
+                                type: "post",
+                                url : '/QLCF/cart_servlet',
+                                data : {
+                                    idthucuong:idtu,
+                                    quantity : qty
+                                },
+                                success : function(responseText) {
+                                    $('#Cart_quantity').text(responseText);
+                                }
+                        });
+//                        var tong = 0;
+//                        $("span.price").text("33333##");
+                        $("table tr td.qty > p.qty_cart").show();
+                        $(this).hide();                      
+                    });
+                    $("table tr td.qty").click(function(){
+                        $(this).find("p").hide();
+                        $(this).find("input").show();
+                    });
                     
 		});
 	</script>

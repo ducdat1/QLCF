@@ -27,8 +27,8 @@
 				<h3 class="title">How To <span> Find Us</span></h3>
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit curabitur </p>
 			</div>
-			<iframe class="wow zoomIn animated animated" data-wow-delay=".5s" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57537.641430789925!2d-74.03215321337959!3d40.719122105634035!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew+York%2C+NY%2C+USA!5e0!3m2!1sen!2sin!4v1456152197129" allowfullscreen=""></iframe>
-		</div>	
+			<iframe class="wow zoomIn animated animated" data-wow-delay=".5s" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d250774.11444147112!2d106.62303730088298!3d10.861301657342507!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317527587e9ad5bf%3A0xafa66f9c8be3c91!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBDw7RuZyBuZ2jhu4cgVGjDtG5nIHRpbiDEkEhRRy1IQ00!5e0!3m2!1svi!2sin!4v1515432683606" allowfullscreen=""></iframe>
+                </div>	
 	</div>
 	<div class="address"><!--address-->
 		<div class="container">

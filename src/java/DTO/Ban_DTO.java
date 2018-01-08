@@ -192,6 +192,12 @@ public class Ban_DTO {
     }
     
     /**
+     * @param name_customer the dc_nhan to set
+     */
+    public void setName_Customer(String name_customer) {
+        this.name_customer = name_customer;
+    }
+    /**
      * @return the name_customer
      */
     public String getName_Customer() {

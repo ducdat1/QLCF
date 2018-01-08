@@ -32,13 +32,13 @@
                 <th class="center"><a href="/QLCF/Admin/QLBan/detail.jsp?id=<%=items.getId_ban()%>"><%=items.getId_ban()%></a></th>
                 <th class="center"><%=items.getName_Customer()%></th>
                 <% if(items.getTrangthai() == 1){
-                    out.print("<th class='center'>Đã thanh toán</th>");
+                    out.print("<th class='center'>Đã Thanh toán</th>");
                 }else if(items.getTrangthai() == 2){
-                    out.print("<th class='center'>Thanh toán sau</th>");
+                    out.print("<th class='center'>Chưa thanh toán</th>");
                 }else if(items.getTrangthai() == 3){
-                    out.print("<th class='center'>Chưa giao hàng</th>");
+                    out.print("<th class='center'>Đang giao hàng</th>");
                 }else if(items.getTrangthai() == 4){
-                    out.print("<th class='center'>Đã giao hàng</th>");
+                    out.print("<th class='center'>Hoàn tất</th>");
                 }%>
                 <th class="center col-address"><%=items.getDc_nhan()%></th>
                 <th class="center"><%=items.getTongtien()%></th>

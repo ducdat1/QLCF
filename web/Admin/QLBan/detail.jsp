@@ -27,6 +27,7 @@
                                         <th class="center">Phụ thêm</th>
                                         <th class="center">Số lượng</th>
                                         <th class="center">Giá bán</th>
+                                        <th class="center">Tiền phụ thêm</th>
                                         <th class="center">Cập nhật trạng thái</th>
                                     </tr>
                                 </thead>
@@ -41,6 +42,7 @@
                                             <th class="center"><%=items.getSoluong_thucuong()%></th>
                                             <th class="center"><%=items.getTen_spkemtheo()%></th>
                                             <th class="center"><%=items.getSl_spkemtheo()%></th>
+                                            <th class="center"><%=items.getThanhtien()%></th>
                                             <th class="center"><%=items.getThanhtien()%></th>
                                             <th class="center">Cập nhật - Đổi thức uống khác</th>               
                                         </tr>

@@ -23,7 +23,7 @@
                                                 <script type="text/javascript" src="/QLCF/assets/js/jquery.countdown.min.js"></script>
                                                 <script type="text/javascript">
                                                         $('#example').countdown({
-                                                                date: '1/3/2018 15:59:59',
+                                                                date: '1/12/2018 15:59:59',
                                                                 offset: -2,
                                                                 day: 'Day',
                                                                 days: 'Days'

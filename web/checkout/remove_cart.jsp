@@ -4,6 +4,6 @@
     Author     : ducdat
 --%>
 
-<%  String redirectURL = "/QLCF/cart_servlet?cartempty=cart";
+<%  String redirectURL = "/QLCF/Empty_servlet?cartempty=cdelete";
     response.sendRedirect(redirectURL);
 %>

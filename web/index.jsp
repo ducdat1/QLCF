@@ -19,7 +19,7 @@
 		<div class="container">
 			<div class="title-info wow fadeInUp animated" data-wow-delay=".5s">
 				<h3 class="title">New <span>Drink</span></h3>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit curabitur </p>
+				<p>Mỗi ngày một tách cà phê đem đến năng lượng làm việc tốt hơn.</p>
 			</div>
 			<div class="new-info">
                             <div class="col-md-5" data-wow-delay=".5s">

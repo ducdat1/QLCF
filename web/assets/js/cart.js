@@ -16,11 +16,11 @@ $(document).ready(function() {
                     $('#Cart_quantity').text(responseText);
                 }
         });
+        alert("Thức uống của bạn đã có trong giỏ hàng.\nVào giỏ hàng để chỉnh số lượng mong muốn.");
     });
     $('.Cart_empty').click(function() {
         $.ajax({
-            type : "POST",
-            url : '/QLCF/cart_servlet',
+            url : '/QLCF/Empty_servlet',
             data : {
                 cartempty : "delete"
             },

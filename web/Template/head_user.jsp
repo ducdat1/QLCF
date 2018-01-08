@@ -29,6 +29,7 @@
     <!--web-fonts-->
     <!--animation-effect-->
     <link href="/QLCF/assets/css/animate.min.css" rel="stylesheet"> 
+    <link href="/QLCF/assets/css/jquery.bootstrap-touchspin.css" rel="stylesheet"> 
     <script src="/QLCF/assets/js/wow.min.js"></script>
             <script>
              new WOW().init();
@@ -38,6 +39,7 @@
     <script type="text/javascript" src="/QLCF/assets/js/move-top.js"></script>
     <script type="text/javascript" src="/QLCF/assets/js/easing.js"></script>
     <script type="text/javascript" src="/QLCF/assets/js/cart.js"></script>
+    <script type="text/javascript" src="/QLCF/assets/js/jquery.bootstrap-touchspin.js"></script>
     <script type="text/javascript">
                     jQuery(document).ready(function($) {
                             $(".scroll").click(function(event){		

@@ -82,14 +82,35 @@ public class Ban_Model {
 //        return null;
 //    }
     
-    
-    public ArrayList<Ban_DTO> get_all()
+    /**
+     *
+     * @param a
+     * @param date
+     * @return 
+     */
+    public ArrayList<Ban_DTO> get_all(int a, String date)
     {
         ArrayList<Ban_DTO> list = new ArrayList<Ban_DTO>();
         try
         {
-            String sql = "select id_ban,id_customer,tinhtrang,tongtien,payment,"
-                       + "date_format(createdate, \"%d-%m-%Y\") as createdate from db_ban";
+            String select = "";
+            if(a == 0){
+                select = "b.tinhtrang != 5 ";
+            }else if(a == 1){
+                select = "b.tinhtrang = 1 ";
+            }else if(a == 2){
+                select = "b.tinhtrang = 2 ";
+            }else if(a == 3){
+                select = "b.tinhtrang = 3 ";
+            }else if(a == 4){
+                select = "b.tinhtrang = 4 ";
+            }
+            String sql = "select b.id_customer, b.id_ban, concat(c.lastname,' ',c.firstname) as fullname,"
+                        + "b.tinhtrang,b.tongtien,b.dc_nhan,b.payment,"
+                        + "date_format(b.createdate, \"%h:%m %d-%m-%Y\") as createdate \n" 
+                        + "from db_ban b join db_customer c on c.id_customer = b.id_customer\n"
+                        + "where "+ select +""
+                        + "order by b.id_ban desc";
             db.connect();
             stm = db.getConn().createStatement();
             ResultSet rs = stm.executeQuery(sql);
@@ -101,11 +122,13 @@ public class Ban_Model {
                 {
                     int idban = rs.getInt("id_ban");
                     int idcustomer = rs.getInt("id_customer");
+                    String name_cus = rs.getString("fullname");
+                    String dc_nhan = rs.getString("dc_nhan"); 
                     int tinhtrang = rs.getInt("tinhtrang");
                     int tongtien = rs.getInt("tongtien");
                     int payment = rs.getInt("payment");
                     String ngaymua = rs.getString("createdate");
-                   Ban_DTO ban = new Ban_DTO(idban,idcustomer,tinhtrang,tongtien,payment,ngaymua);
+                   Ban_DTO ban = new Ban_DTO(idban, name_cus, tinhtrang, tongtien, dc_nhan, payment, ngaymua);
                    list.add(ban);
                 }
                 return list;

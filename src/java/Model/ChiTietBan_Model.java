@@ -52,9 +52,9 @@ public class ChiTietBan_Model {
         ArrayList<ChiTietBan_DTO> list = new ArrayList<>();
         try {
             String sql = "SELECT c.id_chitiet_ban, t.ten_thucuong, c.soluong_thucuong, c.thanhtien, "
-                              + "t2.ten_thucuong as sp_kemtheo, c.sl_spkemtheo, t.extra2 " 
+                       + "t2.ten_thucuong as sp_kemtheo, c.sl_spkemtheo, t2.giaban as tienthem, b.tinhtrang, t.extra2 " 
                        + "FROM db_chitiet_ban c join db_thucuong t on c.id_thucuong = t.id_thucuong "
-                            + "join db_thucuong t2 on t2.id_thucuong = c.sp_kemtheo "
+                       + "left join db_thucuong t2 on t2.id_thucuong = c.sp_kemtheo join db_ban b on b.id_ban = c.id_ban "
                        + "WHERE c.id_ban =  '" + result + "'";
             db.connect();
             stm = db.getConn().createStatement();
@@ -68,8 +68,13 @@ public class ChiTietBan_Model {
                     ctb.setTen_thucuong(rs.getString("ten_thucuong"));
                     ctb.setSoluong_thucuong(rs.getInt("soluong_thucuong"));
                     if(rs.getInt("extra2") == 2){
-                        ctb.setTen_spkemtheo(rs.getString("sp_kemtheo"));
-                        ctb.setSl_spkemtheo(rs.getInt("sl_spkemtheo"));
+                        if(rs.getString("sp_kemtheo") != null && rs.getInt("sl_spkemtheo") > 0){
+                            ctb.setTen_spkemtheo(rs.getString("sp_kemtheo"));
+                            ctb.setSl_spkemtheo(rs.getInt("sl_spkemtheo"));
+                        }else{
+                            ctb.setTen_spkemtheo("Không chọn");
+                            ctb.setSl_spkemtheo(0);
+                        }
                     }else{
                         ctb.setTen_spkemtheo("Không bán kèm");
                         ctb.setSl_spkemtheo(0);

@@ -82,11 +82,11 @@ public class Ban_servlet extends HttpServlet {
             throws ServletException, IOException {
         //processRequest(request, response);
         try{
-            String result = request.getParameter("search");
+//            String result = request.getParameter("search");
             HttpSession session = request.getSession();
             session.setAttribute("ThongBao", "ThanhCong");
             Ban_Model ban_model = new Ban_Model();
-            ArrayList<Ban_DTO> list = new ArrayList<Ban_DTO>();
+//            ArrayList<Ban_DTO> list = new ArrayList<Ban_DTO>();
 //            if(result!=null)
 //            {
 //                list = ban_model.get_by_id(result);
@@ -118,13 +118,12 @@ public class Ban_servlet extends HttpServlet {
                 {
                     session.setAttribute("Thongbao", "Thêm thành công");
                     response.sendRedirect("/QLCF/Admin/QLBan/Ban.jsp");   
-                    return;
                 }else
                 {
                     session.setAttribute("Thongbao", null);
                     response.sendRedirect("/QLCF/Admin/QLBan/Ban.jsp");
                 }
-        }catch(Exception e)
+        }catch(IOException | NumberFormatException e)
         {
             System.out.print(e);
         }
