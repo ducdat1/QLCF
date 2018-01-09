@@ -14,7 +14,7 @@
 	<div class="breadcrumbs">
 		<div class="container">
 			<ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
-				<li><a href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
+				<li><a href="/QLCF/index.jsp"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
 				<li class="active">Register</li>
 			</ol>
 		</div>
@@ -27,41 +27,23 @@
 		</div>
 		<div class="widget-shadow">
 			<div class="login-top wow fadeInUp animated" data-wow-delay=".7s">
-				<h4>Already have an Account ?<a href="signin.html">  Sign In »</a> </h4>
+				<h4>Already have an Account ?<a href="/QLCF/Auth/Login.jsp">  Sign In »</a> </h4>
 			</div>
 			<div class="login-body">
-				<form class="wow fadeInUp animated" data-wow-delay=".7s" action="/QLCF/NhanVien_servlet" method="POST" role="form">
-					<input type="text" placeholder="First Name" required="">
-					<input type="text" placeholder="Last Name" required="">
-					<input type="text" class="email" placeholder="Email Address" required="">
+				<form class="wow fadeInUp animated" data-wow-delay=".7s" action="/QLCF/Nguoidung_servlet" method="GET" role="form">
+					<input type="text" name="firstname" placeholder="First Name" required="">
+					<input type="text" name="lastname" placeholder="Last Name" required="">
+					<input type="text" name="email" placeholder="Email Address" required="">
+                                        <input type="text" name="account" placeholder="Your account" required="">
 					<input type="password" name="password" class="lock" placeholder="Password">
-					<input type="submit" name="Register" value="Register">
-                                        <!--<div class="form-group">-->
-
-<!--                            <label for="">Tên nhân viên</label>
-                            <input type="text" class="form-control" name="tennv" placeholder="Tên nhân viên">
-                            <label for="">Ngày sinh</label>
-                            <input type="date" class="form-control" name="ngaysinh" placeholder="Tên nhân viên">
-                            <label for="">Số điện thoại</label>
-                            <input type="text" class="form-control" name="sdt" placeholder="Số điện thoại">
-                            <label for="">Địa chỉ</label>
-                            <input type="text" class="form-control" name="diachi" placeholder="Địa chỉ">
-                            <label for="">Tên tài khoản</label>
-                            <input type="text" class="form-control" name="taikhoan" placeholder="Tên tài khoản">
-                            <label for="">Mật khẩu</label>
-                            <input type="password" class="form-control" name="matkhau" placeholder="Mật khẩu">
-                            <label for="">Xác nhận mật khẩu</label>
-                            <input type="password" class="form-control" name="matkhau2" placeholder="Xác nhận mật khẩu">
-                            <input type="hidden" class="form-control" name="capdo" value="2">
-                        </div>
-
-
-
-                        <button type="submit" class="btn btn-primary">Đăng ký</button>
-                        <button type="button" class="btn btn-default"><a href="/QLCF/index.jsp">Đăng nhập</a></button>
-                    -->
+					<input type="submit" name="Register" value="Register">   
 				</form>
 			</div>
+		</div>
+                <div class="login-page-bottom">
+			<h5> - OR -</h5>
+			<div class="social-btn"><a href="/QLCF/index.jsp"><i>Homepage</i></a></div>
+			<div class="social-btn sb-two"><a href="/QLCF/Auth/Login.jsp"><i>Sign In</i></a></div>
 		</div>
 	</div>
 	<!--//login-->           

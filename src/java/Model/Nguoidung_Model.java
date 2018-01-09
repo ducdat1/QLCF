@@ -63,7 +63,7 @@ public class Nguoidung_Model {
         try
         {
             String sql = "SELECT id_customer,cus_email,cus_account,cus_address,cus_phone,plus,point_sum"
-                       + " FROM db_customer WHERE cus_account= '"+username+"' and cus_password = '"+password+"'";
+                       + " FROM db_customer WHERE cus_account= '"+username+"' and cus_password = MD5('"+password+"')";
             db.connect();
             stm = db.getConn().createStatement();
             ResultSet rs = stm.executeQuery(sql);
@@ -120,18 +120,10 @@ public class Nguoidung_Model {
     public boolean insert(NguoiDung_DTO tu)
     {
         String sql;
-        if( tu.getCus_account().length() > 0)
-        {
-            sql = "insert into db_customer(firstname,lastname,cus_account,cus_password)"
-                   + "values ('"+tu.getFirstname()+"','"+tu.getLastname()+"','"
-                   +tu.getCus_account()+"','"+tu.getCus_password()+"');";
-        }
-        else
-        {
-            sql = "insert into db_customer(firstname,lastname,cus_email,cus_password)"
-                   + "values ('"+tu.getFirstname()+"','"+tu.getLastname()+"','"
-                   +tu.getCus_email()+"','"+tu.getCus_password()+"');";
-        }
+        sql = "insert into db_customer(firstname,lastname,cus_email,cus_account,cus_password)"
+               + "values ('"+tu.getFirstname()+"','"+tu.getLastname()+"','"
+               +tu.getCus_email()+"','"+tu.getCus_account()+"',MD5('"+tu.getCus_password()+"'));";
+  
         try {
             db.connect();
             stm = db.getConn().createStatement();
@@ -174,9 +166,9 @@ public class Nguoidung_Model {
     public boolean Update_point(NguoiDung_DTO tu)
     {
         try {
-            String delete ="UPDATE db_customer SET plus='"+tu.getPlus()+"', point_sum='"+tu.getPoint_sum()+"' WHERE id_customer='"+tu.getId_customer()+"'";
+            String sql ="UPDATE db_customer SET plus='"+tu.getPlus()+"', point_sum='"+tu.getPoint_sum()+"' WHERE id_customer='"+tu.getId_customer()+"'";
                 db.connect();
-            PreparedStatement pst = db.getConn().prepareStatement(delete);
+            PreparedStatement pst = db.getConn().prepareStatement(sql);
             pst.executeUpdate();
             db.close();
             return true;

@@ -27,16 +27,16 @@
 			<div class="login-body wow fadeInUp animated" data-wow-delay=".7s">
 				<form action="/QLCF/Nguoidung_servlet" method="POST">
                                     <input type="hidden" name="login" value="login"/>
-                                    <input type="text" class="user" name="username" placeholder="Enter your email or username" required="">
+                                    <input type="text" class="user" name="username" placeholder="Enter your username" required="">
                                     <input type="password" name="password" class="lock" placeholder="Password">
                                     <input type="submit" name="Sign In" value="Sign In">
-                                    <div class="forgot-grid">
+<!--                                    <div class="forgot-grid">
                                             <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Remember me</label>
                                             <div class="forgot">
                                                     <a href="#">Forgot Password?</a>
                                             </div>
                                             <div class="clearfix"> </div>
-                                    </div>
+                                    </div>-->
                                         
 				</form>
 			</div>
