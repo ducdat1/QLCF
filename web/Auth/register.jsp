@@ -4,6 +4,7 @@
     Author     : ducdat
 --%>
 
+<%@page import="DTO.NguoiDung_DTO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>  
 <html>
@@ -25,16 +26,28 @@
 		<div class="title-info wow fadeInUp animated" data-wow-delay=".5s">
 			<h3 class="title">Register</h3>
 		</div>
+                <div class="error">
+                    <% 
+                    String msg = (String)session.getAttribute("FLG");
+                    if("exist001".equals(msg) ){%>
+                        <h3>Đã có người sử dụng account này</h3>
+                    <%}else if("fail001".equals(msg) ){%>
+                        <h3>Có lỗi xảy ra trong quá trình tạo tài khoản. Vui lòng thử lại sau</h3>
+                    <%}%>
+                </div>
 		<div class="widget-shadow">
 			<div class="login-top wow fadeInUp animated" data-wow-delay=".7s">
 				<h4>Already have an Account ?<a href="/QLCF/Auth/Login.jsp">  Sign In »</a> </h4>
 			</div>
+                        <% 
+//                            NguoiDung_DTO ans = (NguoiDung_DTO)session.getAttribute("ANS");
+                        %>
 			<div class="login-body">
 				<form class="wow fadeInUp animated" data-wow-delay=".7s" action="/QLCF/Nguoidung_servlet" method="GET" role="form">
-					<input type="text" name="firstname" placeholder="First Name" required="">
-					<input type="text" name="lastname" placeholder="Last Name" required="">
-					<input type="text" name="email" placeholder="Email Address" required="">
-                                        <input type="text" name="account" placeholder="Your account" required="">
+					<input type="text" name="firstname" placeholder="First Name" required="" value="" maxlength="30">
+					<input type="text" name="lastname" placeholder="Last Name" required="" value="" maxlength="30">
+					<input type="text" name="email" placeholder="Email Address" required="" value="">
+                                        <input type="text" name="account" placeholder="Your account" required="" maxlength="16">
 					<input type="password" name="password" class="lock" placeholder="Password">
 					<input type="submit" name="Register" value="Register">   
 				</form>

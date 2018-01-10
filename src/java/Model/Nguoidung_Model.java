@@ -117,8 +117,27 @@ public class Nguoidung_Model {
         return null;
     }
     
-    public boolean insert(NguoiDung_DTO tu)
+    public String insert(NguoiDung_DTO tu)
     {
+        String sql1;
+        sql1 = "select * from db_customer "
+               + "where cus_account = '"+tu.getCus_account()+"'";
+        String chk = null;
+        try {
+            db.connect();
+            stm = db.getConn().createStatement();
+            ResultSet rs = stm.executeQuery(sql1);
+            while(rs.next())
+                {
+                    chk=rs.getString("id_customer");
+                }
+            db.close();
+        } catch (SQLException e) {
+            System.out.println("Error " + e.toString());
+        }
+        if(chk != null){
+            return "exist001";
+        }
         String sql;
         sql = "insert into db_customer(firstname,lastname,cus_email,cus_account,cus_password)"
                + "values ('"+tu.getFirstname()+"','"+tu.getLastname()+"','"
@@ -129,11 +148,11 @@ public class Nguoidung_Model {
             stm = db.getConn().createStatement();
             stm.executeUpdate(sql);
             db.close();
-            return true;
+            return "true";
         } catch (SQLException e) {
             System.out.println("Error " + e.toString());
         }
-        return false;
+        return "false";
     }
     
 //    public boolean Delete(String matu) {

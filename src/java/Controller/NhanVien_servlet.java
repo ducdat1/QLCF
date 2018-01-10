@@ -136,22 +136,17 @@ public class NhanVien_servlet extends HttpServlet {
                 gv.setCapdo(Integer.parseInt(request.getParameter("capdo")));
                 gv.setGiolam(Integer.parseInt(request.getParameter("giolam")));
                 gv.setLuong(Integer.parseInt(request.getParameter("luong")));
-                if(nv_model.insert(gv)){ 
-                    response.sendRedirect("/QLCF/Admin/QLNhanVien/NhanVien.jsp");  
+                Boolean chk = nv_model.insert(gv);
+                Thread.sleep(5000);
+                if(chk == true){              
+                    session.setAttribute("Thongbao", "Thêm thành công");
+                    response.sendRedirect("/QLCF/Admin/QLNhanVien/NhanVien.jsp");   
+                    return;
                 }else
                 {
-                    response.sendRedirect("/QLCF/Admin/index.jsp");
+                    session.setAttribute("Thongbao", null);
+                    response.sendRedirect("/QLCF/Admin/QLNhanVien/NhanVien.jsp");
                 }
-//            if(nv_model.insert(gv))
-//            {
-//                session.setAttribute("Thongbao", "Thêm thành công");
-//                response.sendRedirect("/QLCF/Admin/QLNhanVien/NhanVien.jsp");   
-//                return;
-//            }else
-//            {
-//                session.setAttribute("Thongbao", null);
-//                response.sendRedirect("/QLCF/Admin/QLNhanVien/NhanVien.jsp");
-//            }
 // fix lại giao dien update
             }else if ( form != null && "update".equals(form) ){
                 NhanVien_DTO gv = new NhanVien_DTO(); 
@@ -188,6 +183,8 @@ public class NhanVien_servlet extends HttpServlet {
         }catch(IOException | NumberFormatException e)
         {
             response.sendRedirect("/QLCF/Admin/index.jsp");
+        } catch (InterruptedException ex) {
+            Logger.getLogger(NhanVien_servlet.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }
 

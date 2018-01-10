@@ -29,7 +29,6 @@
     <!--web-fonts-->
     <!--animation-effect-->
     <link href="/QLCF/assets/css/animate.min.css" rel="stylesheet"> 
-    <link href="/QLCF/assets/css/jquery.bootstrap-touchspin.css" rel="stylesheet"> 
     <script src="/QLCF/assets/js/wow.min.js"></script>
             <script>
              new WOW().init();

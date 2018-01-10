@@ -33,8 +33,8 @@
                                     <input type="number" class="form-control" name="giolam" placeholder="Giờ làm">
                                     <label for="">Cấp độ</label>
                                     <select name="capdo" class="form-control">
-                                        <option value="1">Admin</option>
-                                        <option value="2">User</option>
+                                        <option value="1">Quản lý</option>
+                                        <option value="2">Nhân Viên</option>
                                     </select>
                                     <label for="">Tên tài khoản</label>
                                     <input type="text" class="form-control" name="taikhoan" placeholder="Tên tài khoản">
@@ -90,7 +90,14 @@
                                 <td><%=items.getDiachi()%></td>
                                 <td><%=items.getNgaysinh()%></td>
                                 <td><%=items.getLuong()%></td>
-                                <td><%=items.getCapdo()%></td>
+                                <td><%if(items.getCapdo() == 5){
+                                        out.print("Chủ cửa hàng");
+                                    }else if(items.getCapdo() == 2){
+                                        out.print("Quản lý");
+                                    }else{
+                                        out.print("Nhân viên");
+                                    }%>
+                                </td>
                                 <td><%=items.getTaikhoan()%></td>
                                 <td><%=items.getMatkhau()%></td>
                                 <td><a href="/QLCF/Admin/QLNhanVien/Sua.jsp?idnv=<%=items.getId_nhanvien()%>">Sửa</a>

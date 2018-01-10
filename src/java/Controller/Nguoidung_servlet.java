@@ -88,13 +88,17 @@ public class Nguoidung_servlet extends HttpServlet {
                 nd_DTO.setCus_email(email);
                 nd_DTO.setCus_account(account);
                 nd_DTO.setCus_password(password);
-                Boolean chk_ins = nd_model.insert(nd_DTO);
-                if(chk_ins == true){
+                String chk_ins = nd_model.insert(nd_DTO);
+                if(chk_ins == "true"){
                     session.setAttribute("FLG","success001");
                     response.sendRedirect("/QLCF/index.jsp");
-                }else if(chk_ins == false){
+                }else if(chk_ins == "false"){
                     session.setAttribute("ANS",nd_DTO);
                     session.setAttribute("FLG","fail001"); 
+                    response.sendRedirect("/QLCF/Auth/register.jsp");
+                }else if(chk_ins == "exist001"){
+                    session.setAttribute("ANS",nd_DTO);
+                    session.setAttribute("FLG","exist001"); 
                     response.sendRedirect("/QLCF/Auth/register.jsp");
                 }
             }
