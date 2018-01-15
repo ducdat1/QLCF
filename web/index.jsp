@@ -95,7 +95,7 @@
 	</div>
 	<!--//gallery-->
 	<!--trend-->
-	<div class="trend wow zoomIn animated" data-wow-delay=".5s">
+<!--	<div class="trend wow zoomIn animated" data-wow-delay=".5s">
 		<div class="container">
 			<div class="trend-info">
 				<section class="slider grid">
@@ -150,7 +150,7 @@
 				</section>
 			</div>
 		</div>
-	</div>
+	</div>-->
 	<!--//trend-->
 	<%@include file="Template/footer.jsp" %>
 	<!--search jQuery-->

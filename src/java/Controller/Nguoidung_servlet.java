@@ -140,10 +140,10 @@ public class Nguoidung_servlet extends HttpServlet {
                     ngdung.setPoint_sum(T_Point);
                     // add info to DB
                     if(nd_model.Update_point(ngdung)){
-                        session.setAttribute("FLG","success001");
+                        session.setAttribute("FLG","success003");
                         response.sendRedirect("/QLCF/Auth/buy_point.jsp");
                     }else{
-                        session.setAttribute("FLG","fail001"); 
+                        session.setAttribute("FLG","fail003"); 
                         response.sendRedirect("/QLCF/Auth/buy_point.jsp");
                     }
                 }
@@ -161,6 +161,8 @@ public class Nguoidung_servlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("utf-8");
         try{
             HttpSession session = request.getSession();
             Nguoidung_Model nd_model = new Nguoidung_Model();
@@ -197,8 +199,26 @@ public class Nguoidung_servlet extends HttpServlet {
                     return;
                 }
             }
-        
-            NguoiDung_DTO gv = new NguoiDung_DTO(); 
+            
+            
+            String form = request.getParameter("form");       
+            if (form != null && "update".equals(form)) {
+                NguoiDung_DTO gv = new NguoiDung_DTO();
+                gv.setFirstname(request.getParameter("firstname"));
+                gv.setLastname(request.getParameter("lastname"));
+                gv.setCus_email(request.getParameter("email"));
+                gv.setCus_phone(request.getParameter("tel"));
+                gv.setCus_address(request.getParameter("addr"));
+                gv.setId_customer((int)session.getAttribute("UID"));
+                boolean chk = nd_model.Update(gv);
+                if(chk){
+                    session.setAttribute("FLG","success002");
+                    response.sendRedirect("/QLCF/Auth/detail_user.jsp");
+                }else{
+                    session.setAttribute("FLG","fail002");
+                    response.sendRedirect("/QLCF/Auth/detail_user.jsp"); 
+                }
+            }
             //thêm vào csdl
 //            gv.setTennv(request.getParameter("tennv"));
 //            gv.setSdt(request.getParameter("sdt"));

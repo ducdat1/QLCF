@@ -985,26 +985,49 @@ h3.title span {
 .user-body{
     padding: 1em;
 }
-.user-body .info_left {
-    display: inline-block;
+.user-body table{
+    margin-left: 5%;
+    width: 90%;
+    border-collapse: collapse;
+}
+th.info_left {
     width: 25%;
     margin-left: 1.5em;
-    background-color: #549FE0;
+    border: 1px solid #DED9D9;
 }
-.user-body .info_left label{
-    display: block;
+th.info_left label{
     padding: 5px;
     margin: 0.5em 0;    
 }
-.user-body .info_right {
-    display: inline-block;
+td.info_right {
     width: 70%;
-}
-.user-body .info_right label{
-    display: block;
+    border: 1px solid #DED9D9;
     padding: 5px;
-    margin: 0.5em;    
+    margin: 0.5em; 
 }
+
+td.info_right input{
+    width: 50%;
+    max-width: 90%;
+}
+
+.user-body table tr:first-child th,
+.user-body table tr:first-child td {
+  border-top: 0;
+}
+.user-body table tr:last-child th,
+.user-body table tr:last-child td {
+  border-bottom: 0;
+}
+.user-body table tr td:first-child,
+.user-body table tr th:first-child {
+  border-left: 0;
+}
+.user-body table tr td:last-child,
+.user-body table tr th:last-child {
+  border-right: 0;
+}
+
 .user-top h4 {
     font-size: 1.5em;
     color: #555;

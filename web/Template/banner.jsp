@@ -34,7 +34,7 @@
                                 </div>
 
                         </div>
-                        <div class="col-sm-7 banner-right wow fadeInRight animated" data-wow-delay=".5s">			
+<!--                        <div class="col-sm-7 banner-right wow fadeInRight animated" data-wow-delay=".5s">			
                                 <section class="slider grid">
                                         <div class="flexslider">
                                                 <ul class="slides">
@@ -53,7 +53,7 @@
                                                 </ul>
                                         </div>
                                 </section>
-                                FlexSlider
+                             
                                 <script defer src="/QLCF/assets/js/jquery.flexslider.js"></script>
                                 <script type="text/javascript">
                                         $(window).load(function(){
@@ -66,7 +66,7 @@
                                         });
                                 </script>
                                 End-slider-script
-                        </div>
+                        </div>-->
                         <div class="clearfix"> </div>
                 </div>
         </div>

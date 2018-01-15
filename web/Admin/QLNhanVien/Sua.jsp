@@ -17,7 +17,7 @@
                     
                     %>
                     <form action="/QLCF/NhanVien_servlet" method="POST" role="form">
-                        <legend>Thêm nhân viên mới</legend>
+                        <legend>Sửa thông tin nhân viên</legend>
 
                         <div class="form-group">
 

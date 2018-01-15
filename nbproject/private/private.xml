@@ -3,11 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/code/QLCF/web/Admin/Display/order.jsp</file>
+            <file>file:/C:/code/QLCF/web/Auth/detail_user.jsp</file>
+            <file>file:/C:/code/QLCF/src/java/Model/Nguoidung_Model.java</file>
+            <file>file:/C:/code/QLCF/src/java/Controller/Nguoidung_servlet.java</file>
+            <file>file:/C:/code/QLCF/web/assets/css/style.css</file>
             <file>file:/C:/code/QLCF/src/java/DTO/ChiTietBan_DTO.java</file>
-            <file>file:/C:/code/QLCF/src/java/Model/ChiTietBan_Model.java</file>
-            <file>file:/C:/code/QLCF/src/java/Controller/ChiTietBan_servlet.java</file>
-            <file>file:/C:/code/QLCF/web/Admin/QLBan/detail.jsp</file>
+            <file>file:/C:/code/QLCF/web/Auth/register.jsp</file>
+            <file>file:/C:/code/QLCF/src/java/DTO/Ban_DTO.java</file>
         </group>
     </open-files>
 </project-private>
