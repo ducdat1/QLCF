@@ -244,7 +244,28 @@ public class Ban_Model {
         }
     }
     
-        public boolean tinhtien(String tongtien, String maban)
+    public boolean change_status(String status, String id, int idnv)
+    {
+        int chg_status = 2;
+        if("1".equals(status) || "3".equals(status)){
+            chg_status = 4;
+        }else{
+            chg_status = 3;
+        }
+        try {
+            String delete ="UPDATE db_ban SET tinhtrang='"+chg_status+"', id_nhanvien='"+idnv+"' where id_ban = '"+id+"'";
+            db.connect();
+            PreparedStatement pst = db.getConn().prepareStatement(delete);
+            pst.executeUpdate();
+            db.close();
+            return true;
+        } catch (SQLException e) {
+            System.out.print(e.toString());
+            return false;
+        }
+    }
+    
+    public boolean tinhtien(String tongtien, String maban)
     {
         try {
             String delete ="UPDATE db_ban SET tinhtrang='1',tongtien='"+tongtien+"' where id_ban = '"+maban+"'";

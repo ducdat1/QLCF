@@ -44,13 +44,15 @@
                 <th class="center"><%=items.getTongtien()%></th>
                 <th class="center"><%=items.getPayment()%></th>
                 <th class="center col-time"><%=items.getCreatedate()%></th>
-                <% if(items.getTrangthai() == 1){%>
-                    <th class="center"><a href="/QLCF/Admin/QLBan/detail.jsp?id=<%=items.getId_ban()%>"><button class="btn btn-success">Hoàn tất</button></a></th>
-                <%}else if(items.getTrangthai() == 2){%>
-                    <th class="center"><a href="/QLCF/Admin/QLBan/detail.jsp?id=<%=items.getId_ban()%>"><button class="btn btn-success">Giao hàng</button></a></th>
-                <%}else if(items.getTrangthai() == 3){%>
-                    <th class="center"><a href="/QLCF/Admin/QLBan/detail.jsp?id=<%=items.getId_ban()%>"><button class="btn btn-success">Hoàn tất</button></a></th>
-                <%}%> 
+                <th class="center">
+                    <a href="/QLCF/Admin/QLBan/detail.jsp?id=<%=items.getId_ban()%>&s=<%=items.getTrangthai()%>">
+                    <% if(items.getTrangthai() == 1 || items.getTrangthai() == 3){%>
+                        <button class="btn btn-success">Hoàn tất</button>
+                    <%}else if(items.getTrangthai() == 2){%>
+                        <button class="btn btn-success">Giao hàng</button>
+                    <%}%>                       
+                    </a>
+                </th>                
             </tr>
     <%}%>
     </tbody>

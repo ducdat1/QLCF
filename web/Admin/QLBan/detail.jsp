@@ -19,6 +19,13 @@
                 <div class="col-sm-10 col-sm-offset-1">
                     <div class="wow fadeInUp animated" data-wow-delay=".7s">
                             <legend>Chi tiết mua hàng</legend>
+                            <%
+                            String msg = (String)session.getAttribute("FLG");
+                            if("success004".equals(msg) ){%>
+                                <h3>Cập nhật thành công</h3>
+                            <%}else if("fail004".equals(msg) ){%>
+                                <h3>Chuyển trạng thái đơn hàng thất bại.</h3>
+                            <%}%>
                             <table class="table table-hover table-bordered">
                                 <thead>
                                     <tr>
@@ -34,6 +41,7 @@
                                 <tbody>
                                 <%
                                     String idthucuong = request.getParameter("id");
+                                    int status = Integer.parseInt(request.getParameter("s"));
                                     ArrayList<ChiTietBan_DTO> list_order = new ChiTietBan_Model().get_by_id(idthucuong);
                                     for (ChiTietBan_DTO items : list_order) {
                                 %>       
@@ -44,7 +52,13 @@
                                             <th class="center"><%=items.getSl_spkemtheo()%></th>
                                             <th class="center"><%=items.getThanhtien()%></th>
                                             <th class="center"><%=items.getThanhtien()%></th>
-                                            <th class="center">Cập nhật - Đổi thức uống khác</th>               
+                                            <th class="center">
+                                                <% if(status == 1 || status == 3){%>
+                                                    <a href="javascript:;" class="change"><i>Hoàn tất</i></a>
+                                                <%}else if(status == 2){%>
+                                                    <a href="javascript:;" class="change"><i>Giao hàng</i></a>
+                                                <%}%>
+                                            </th>               
                                         </tr>
                                 <%}%>
                                 </tbody>
@@ -53,6 +67,23 @@
                 </div>
             </div> 
         </div> 
+        <script>
+            $(document).ready(function() {
+                $(".change").click(function(){
+                    $.ajax({
+                            type: "post",
+                            url : '/QLCF/ChiTietBan_servlet',
+                            data : {
+                                id : <%=idthucuong%>,
+                                status : <%=status%>
+                            },
+                            success : function() {
+                                location.reload(); 
+                            }
+                    });
+                });
+            });
+        </script>
         <%@include file="/Template/footer_admin.jsp" %>
     </body>
 </html>

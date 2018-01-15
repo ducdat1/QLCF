@@ -59,7 +59,9 @@
                                 <tr>
                                     <td class="col1 center"><%=items.getId_ban()%></td>
                                     <td class="col1 center"><%=items.getName_Customer()%></td>
-                                    <td class="col1 center"><%=items.getTrangthai()%></td>
+                                    <td class="col1 center">
+                                        <%=items.getTrangthai()%>
+                                    </td>
                                     <td class="col1 center"><%=items.getTongtien()%></td>
                                     <td class="col1 center"><%=items.getPayment()%></td>
                                     <td class="col1 center"><%=items.getCreatedate()%></td>

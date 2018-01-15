@@ -5,13 +5,10 @@
  */
 package Controller;
 
-import DTO.ChiTietBan_DTO;
+import DTO.NhanVien_DTO;
 import Model.Ban_Model;
-import Model.ChiTietBan_Model;
-import Model.ThucUong_Model;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -63,24 +60,7 @@ public class ChiTietBan_servlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
-        
-         HttpSession session = request.getSession();
-         ChiTietBan_Model ctb_model = new ChiTietBan_Model();
-         if(request.getParameter("idctb")!=null)
-         {
-        String delete = request.getParameter("idctb");
-        
-        ctb_model.Delete(delete);
-        session.setAttribute("Thongbao", "Xóa thành công");
-        response.sendRedirect("/QLCF/User/ChiTietBan.jsp?idban="+request.getParameter("idban"));
-        return;
-         }
-        if(request.getParameter("delete_all")!=null&&request.getParameter("idban")!=null)
-        {
-            ctb_model.delete_details(request.getParameter("idban"));
-            response.sendRedirect("/QLCF/User/Cafe.jsp");
-            return;
-        }
+
     }
 
     /**
@@ -95,55 +75,21 @@ public class ChiTietBan_servlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
+        String id = request.getParameter("id");
+        String status = request.getParameter("status");
+        HttpSession session = request.getSession();
         try{
-            HttpSession session = request.getSession();
-            ChiTietBan_Model ctb_model = new ChiTietBan_Model();
+            NhanVien_DTO nv = (NhanVien_DTO)session.getAttribute("flg_nv");
             Ban_Model ban_model = new Ban_Model();
-            ArrayList<ChiTietBan_DTO> list = new ArrayList<ChiTietBan_DTO>();
-            
-           
-           
-            
-            
-             ChiTietBan_DTO ctb = new ChiTietBan_DTO();
-            
-            
-            
-        //thêm vào csdl
-              
-                
-                ctb.setId_ban(Integer.parseInt(request.getParameter("idban")));
-                ctb.setId_thucuong(Integer.parseInt(request.getParameter("idtu")));
-                ctb.setSoluong_thucuong(Integer.parseInt(request.getParameter("soluong")));
-                ctb.setThanhtien(ctb.getSoluong_thucuong()*Float.parseFloat(request.getParameter("giaban")));
-                if(request.getParameter("idctb")!=null){
-                    ctb.setId_chitiet_ban(Integer.parseInt(request.getParameter("idctb")));
-               if(ctb_model.Update(ctb))
-               {                   
-                   ban_model.tinhtien(ctb_model.tongtien(request.getParameter("idban")), request.getParameter("idban"));
-                   session.setAttribute("Thongbao", "Sửa thành công");
-                   response.sendRedirect("/QLCF/User/ChiTietBan.jsp?idban="+request.getParameter("idban"));
-                   return;
-               }
-                else
-               {
-                   session.setAttribute("Thongbao", null);
-                   response.sendRedirect("/QLCF/User/ChiTietBan.jsp?idban="+request.getParameter("idban"));
-               }}
-               if(ctb_model.insert(ctb))
-               {
-                    ban_model.tinhtien(ctb_model.tongtien(request.getParameter("idban")), request.getParameter("idban"));
-                   session.setAttribute("Thongbao", "Thêm thành công");
-                   response.sendRedirect("/QLCF/User/ChiTietBan.jsp?idban="+request.getParameter("idban"));   
-                   return;
-               }else
-               {
-                   session.setAttribute("Thongbao", null);
-                   response.sendRedirect("/QLCF/User/ChiTietBan.jsp?idban="+request.getParameter("idban"));
-               }
+            boolean chk = ban_model.change_status(status, id, nv.getId_nhanvien());
+            if(chk){
+                session.setAttribute("FLG","success004");
+            }else{
+                session.setAttribute("FLG","fail004");
+            }
         }catch(Exception e)
         {
-            response.sendRedirect("/QLCF/User/ChiTietBan.jsp?idban="+request.getParameter("idban"));
+            response.sendRedirect("/QLCF/Admin/QLBan/detail.jsp?id="+id+"&s="+status);
         } 
     }
 
