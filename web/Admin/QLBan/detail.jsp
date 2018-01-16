@@ -60,7 +60,10 @@
                                                     <a href="javascript:;" class="change"><i>Hoàn tất</i></a>
                                                 <%}else if(status == 2){%>
                                                     <a href="javascript:;" class="change"><i>Giao hàng</i></a>
+                                                <%}else if(status == 4){%>
+                                                    <span><i>Đã hoàn tất</i></span>
                                                 <%}%>
+                                                
                                             </th>               
                                         </tr>
                                 <%}%>

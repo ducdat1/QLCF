@@ -59,9 +59,24 @@
                             <tbody>
                             <%
                                 ArrayList<ThucUong_DTO> list_tc = (ArrayList<ThucUong_DTO>)session.getAttribute("list_cart");
-                                int tong = 0; int i = 0;
+                                double tong = 0; int i = 0; double n = 1; 
+                                double thanhtoan = 0;int plus=0;
+                                if(session.getAttribute("UID") != null){
+                                    plus = Integer.parseInt((String)session.getAttribute("PLUS"));
+                                }
                                 for (ThucUong_DTO items : list_tc) {
-                                    tong = tong +items.getSoluong()*items.getGiaban();
+                                    if(items.getdiscount()== 1 && "New".equals(items.getextra1())){
+                                        n = 0.85;
+                                    }else{
+                                        n = 1;
+                                    }
+                                    tong = tong +(items.getSoluong()*items.getGiaban()*n);                                   
+                                    thanhtoan = tong;
+                                    if(plus > 50000){
+                                        thanhtoan = thanhtoan*0.9;
+                                    }else if(plus > 100000){
+                                        thanhtoan = thanhtoan*0.85;
+                                    }
                                     i += 1;
                             %>
                                 <tr>
@@ -87,7 +102,7 @@
                             <p>* Trên 20000 điểm thành viên, bạn chỉ có thể order tối đa là tối 50 cho tất cả thức uống có trong giỏ hàng</p>
                             <p>* Tổng giá trị đơn hàng trên 800000 đồng thì bạn sẽ cần phải thanh toán trước 50%</p>
                         </div>
-                        <div class="total_price"><p>Tổng số tiền phải thanh toán là: <span class="price"><%out.print(tong);%></span> VND </p></div>
+                        <div class="total_price"><p>Tổng số tiền phải thanh toán là: <span class="price"><%out.print(thanhtoan);%></span> VND </p></div>
                     </div>
                 </div>
                             

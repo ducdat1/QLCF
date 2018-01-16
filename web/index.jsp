@@ -66,7 +66,7 @@
 		<div class="container">
 			<div class="title-info wow fadeInUp animated" data-wow-delay=".5s">
 				<h3 class="title">Popular<span> Products</span></h3>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit curabitur </p>
+				<p>Uống cà phê và tận hưởng cuộc sống theo cách của bạn!</p>
 			</div>
 			<div class="gallery-info">
                             <%
@@ -94,64 +94,7 @@
 		</div>
 	</div>
 	<!--//gallery-->
-	<!--trend-->
-<!--	<div class="trend wow zoomIn animated" data-wow-delay=".5s">
-		<div class="container">
-			<div class="trend-info">
-				<section class="slider grid">
-					<div class="flexslider trend-slider">
-						<ul class="slides">
-							<li>
-								<div class="col-md-5 trend-left">
-									<img src="images/t1.png" alt=""/>
-								</div>
-								<div class="col-md-7 trend-right">
-									<h4>TOP 10 TRENDS <span>FOR YOU</span></h4>
-									<h5>Flat 20% OFF</h5>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tempus, justo ac volutpat vestibulum, dolor massa pharetra nunc, nec facilisis lectus nulla a tortor. Duis ultrices nunc a nisi malesuada suscipit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam eu bibendum felis. Sed viverra dapibus tincidunt.</p>
-								</div>
-								<div class="clearfix"></div>
-							</li>
-							<li>
-								<div class="col-md-5 trend-left">
-									<img src="images/t2.png" alt=""/>
-								</div>
-								<div class="col-md-7 trend-right">
-									<h4>TOP 10 TRENDS <span>FOR YOU</span></h4>
-									<h5>Flat 20% OFF</h5>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tempus, justo ac volutpat vestibulum, dolor massa pharetra nunc, nec facilisis lectus nulla a tortor. Duis ultrices nunc a nisi malesuada suscipit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam eu bibendum felis. Sed viverra dapibus tincidunt.</p>
-								</div>
-								<div class="clearfix"></div>
-							</li>
-							<li>
-								<div class="col-md-5 trend-left">
-									<img src="images/t3.png" alt=""/>
-								</div>
-								<div class="col-md-7 trend-right">
-									<h4>TOP 10 TRENDS <span>FOR YOU</span></h4>
-									<h5>Flat 20% OFF</h5>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tempus, justo ac volutpat vestibulum, dolor massa pharetra nunc, nec facilisis lectus nulla a tortor. Duis ultrices nunc a nisi malesuada suscipit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam eu bibendum felis. Sed viverra dapibus tincidunt.</p>
-								</div>
-								<div class="clearfix"></div>
-							</li>
-							<li>
-								<div class="col-md-5 trend-left">
-									<img src="images/t4.png" alt=""/>
-								</div>
-								<div class="col-md-7 trend-right">
-									<h4>TOP 10 TRENDS <span>FOR YOU</span></h4>
-									<h5>Flat 20% OFF</h5>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tempus, justo ac volutpat vestibulum, dolor massa pharetra nunc, nec facilisis lectus nulla a tortor. Duis ultrices nunc a nisi malesuada suscipit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam eu bibendum felis. Sed viverra dapibus tincidunt.</p>
-								</div>
-								<div class="clearfix"></div>
-							</li>
-						</ul>
-					</div>
-				</section>
-			</div>
-		</div>
-	</div>-->
-	<!--//trend-->
+	
 	<%@include file="Template/footer.jsp" %>
 	<!--search jQuery-->
 	<script src="/QLCF/assets/js/main.js"></script>

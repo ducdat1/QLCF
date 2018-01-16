@@ -13,7 +13,7 @@ public class Ban_DTO {
     private int id_ban;
     private int id_customer;
     private int trangthai;
-    private float tongtien;
+    private double tongtien;
     private int payment;
     private String createdate;
     private String dc_nhan;
@@ -107,14 +107,14 @@ public class Ban_DTO {
     /**
      * @return the tongtien
      */
-    public float getTongtien() {
+    public double getTongtien() {
         return tongtien;
     }
 
     /**
      * @param tongtien the tongtien to set
      */
-    public void setTongtien(float tongtien) {
+    public void setTongtien(double tongtien) {
         this.tongtien = tongtien;
    
     }

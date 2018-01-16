@@ -211,6 +211,44 @@ public class Nguoidung_Model {
             return false;
         }
     }
+    
+    public String Update_pass(String newpass, String oldpass, int id)
+    {
+        try {
+            String sql1;
+            sql1 = "select * from db_customer "
+                   + "where id_customer = '"+id+"' "
+                   + "and cus_password = MD5('"+oldpass+"')";
+            String chk = null;
+            try {
+                db.connect();
+                stm = db.getConn().createStatement();
+                ResultSet rs = stm.executeQuery(sql1);
+                while(rs.next())
+                    {
+                        chk=rs.getString("id_customer");
+                    }
+                db.close();
+            } catch (SQLException e) {
+                System.out.println("Error " + e.toString());
+            }
+            if(chk == null){
+                return "notexist001";
+            }
+            String sql ="UPDATE db_customer "
+                    + "SET cus_password=MD5('"+newpass+"') "
+                    + "WHERE id_customer='"+id+"'";
+                db.connect();
+            PreparedStatement pst = db.getConn().prepareStatement(sql);
+            pst.executeUpdate();
+            db.close();
+            return "true";
+        } catch (SQLException e) {
+            System.out.print(e.toString());
+            return "false";
+        }
+    }
+    
     public boolean Update_point(NguoiDung_DTO tu)
     {
         try {

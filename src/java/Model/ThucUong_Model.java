@@ -286,7 +286,7 @@ public class ThucUong_Model {
         String sql = "INSERT INTO db_thucuong (`ten_thucuong`, `giaban`, `url_image`, `note`, `discount`, `size`, `extra1`, `extra2`, `createdate`) "
                 + "VALUES ('"+tu.getTen_thucuong()+"', '"
                 +tu.getGiaban()+"', '"+tu.geturl_image()+"', '"
-                +tu.getnote()+"', '2', '"+tu.getsize()+"', '"
+                +tu.getnote()+"', '1', '"+tu.getsize()+"', '"
                 +tu.getextra1()+"', '"+tu.getextra2()+"', sysdate()"
                 + ")";
         try {

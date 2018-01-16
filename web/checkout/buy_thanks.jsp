@@ -22,16 +22,17 @@
             <jsp:param name="from" value="Order Confirm"/>
         </jsp:include>
         <!--//breadcrums-->
-        <div>
+        <div class="user-top">
+            <h1>THANK YOU FOR ORDER</h1>
+            &nbsp;
             <h2>Cảm ơn đã mua hàng tại cửa hàng của chúng tôi.</h2>
             <h2>Xin để lại địa chỉ nếu địa chỉ nơi nhận khác với địa chỉ đăng ký.</h2>
             <h2>Nếu bạn không có thay đổi thì đơn hàng sẽ được giao đến địa chỉ nơi ở được đăng ký trong phần thông tin người dùng.</h2>
-            <h2>Xem thông tin người dùng <a href="#">tại đây</a></h2>
-            <form>
-                
-            </form>
-            <span>Lưu ý: trường hợp người dùng đặt hàng nhưng không nhận hàng thì sẽ bị hạ điểm VIP tương ứng với 15000 điểm</span>
-            <span>Lưu ý: Với các hóa đơn trên 150.000 VND cần phải có điểm VIP lớn hơn 50000 điểm để được đặt hàng thanh toán khi nhận hàng</span>
+            &nbsp;
+            <h2>Xem thông tin người dùng <a href="/QLCF/Auth/detail_user.jsp">tại đây</a></h2>
+            &nbsp;&nbsp;
+            <h3>Lưu ý: trường hợp người dùng đặt hàng nhưng không nhận hàng thì sẽ bị hạ điểm VIP tương ứng với 15000 điểm</h3>
+            <h3>Lưu ý: Với các hóa đơn trên 150.000 VND cần phải có điểm VIP lớn hơn 50000 điểm để được đặt hàng thanh toán khi nhận hàng</h3>
         </div>
         <div class="user-info">
             <div class="social-btn"><a href="/QLCF/index.jsp"><i>Go to Homepage</i></a></div>

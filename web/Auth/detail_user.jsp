@@ -36,6 +36,8 @@
                         <h3>Cập nhật thành công</h3>
                     <%}else if("fail002".equals(msg) ){%>
                         <h3>Có lỗi xảy ra trong quá trình cập nhật. Thử lại sau</h3>
+                    <%}else if("chgsuccess001".equals(msg) ){%>
+                        <h3>Cập nhật password thành công</h3>
                     <%}%>
                     <ul class="nav nav-tabs" data-wow-delay=".6s">
                       <li class="active"><a href="javascript:;">Personal</a></li>
@@ -92,7 +94,8 @@
                     <div class="user-info">
                             <!--<h5> - OR -</h5>-->
                             <div class="social-btn"><a href="javascript:;" id="update"><i>Update</i></a></div>
-                            <div class="social-btn sb-two"><a href="#"><i>Back to main page</i></a></div>
+                            <div class="social-btn sb-two"><a href="change_pass.jsp" id="update"><i>Change password</i></a></div>
+                            <div class="social-btn sb-two"><a href="/QLCF/index.php"><i>Back to main page</i></a></div>
                     </div>
                 </div>
         </div>

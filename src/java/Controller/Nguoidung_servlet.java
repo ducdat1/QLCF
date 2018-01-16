@@ -141,6 +141,7 @@ public class Nguoidung_servlet extends HttpServlet {
                     // add info to DB
                     if(nd_model.Update_point(ngdung)){
                         session.setAttribute("FLG","success003");
+                        session.setAttribute("POINT",T_Point);
                         response.sendRedirect("/QLCF/Auth/buy_point.jsp");
                     }else{
                         session.setAttribute("FLG","fail003"); 
@@ -219,57 +220,38 @@ public class Nguoidung_servlet extends HttpServlet {
                     response.sendRedirect("/QLCF/Auth/detail_user.jsp"); 
                 }
             }
-            //thêm vào csdl
-//            gv.setTennv(request.getParameter("tennv"));
-//            gv.setSdt(request.getParameter("sdt"));
-//            gv.setDiachi(request.getParameter("diachi"));
-//            gv.setTaikhoan(request.getParameter("taikhoan"));
-//            gv.setMatkhau(request.getParameter("matkhau"));
-//            gv.setNgaysinh(Date.valueOf(request.getParameter("ngaysinh")));
-//            gv.setCapdo(Integer.parseInt(request.getParameter("capdo")));
-//            if(request.getParameter("matkhau2")!=null)
-//            {
-//                if(request.getParameter("matkhau").equals(request.getParameter("matkhau2")))
-//                {
-//                    session.setAttribute("register", "success");
-//                    nv_model.insert(gv);
-//                    response.sendRedirect("/QLCF/index.jsp");  
-//                    return;
-//                }else
-//                {
-//                    session.setAttribute("register", "faild");
-//                    response.sendRedirect("/QLCF/Auth/register.jsp");
-//                    return;
-//                }
-//
-//            }
-//                
-//            gv.setGiolam(Integer.parseInt(request.getParameter("giolam")));
-//            gv.setLuong(Integer.parseInt(request.getParameter("giolam"))*8000);
-//            if(request.getParameter("idnv")!=null){
-//                gv.setId_nhanvien(Integer.parseInt(request.getParameter("idnv")));
-//                if(nv_model.Update(gv))
-//                {
-//                    session.setAttribute("Thongbao", "Sửa thành công");
-//                    response.sendRedirect("/QLCF/Admin/QLNhanVien/NhanVien.jsp");
-//                    return;
-//                }
-//                else
-//                {
-//                    session.setAttribute("Thongbao", null);
-//                    response.sendRedirect("/QLCF/Admin/QLNhanVien/NhanVien.jsp");
-//                }
-//            }
-//            if(nv_model.insert(gv))
-//            {
-//                session.setAttribute("Thongbao", "Thêm thành công");
-//                response.sendRedirect("/QLCF/Admin/QLNhanVien/NhanVien.jsp");   
-//                return;
-//            }else
-//            {
-//                session.setAttribute("Thongbao", null);
-//                response.sendRedirect("/QLCF/Admin/QLNhanVien/NhanVien.jsp");
-//            }
+            String change = request.getParameter("change");
+            if (change != null && "Change".equals(change)) {
+                String newpass = request.getParameter("Newpass");
+                String oldpass = request.getParameter("Oldpass");
+                String confpass = request.getParameter("Confpass");
+                int iduser = (int)session.getAttribute("UID");
+                if(oldpass == null ? confpass != null : !oldpass.equals(confpass)){
+                  session.setAttribute("FLG","chgfail001");
+                  response.sendRedirect("/QLCF/Auth/change_pass.jsp");  
+                }else{
+                  String chk = nd_model.Update_pass(newpass,oldpass,iduser);
+                  if(null != chk)switch (chk) {
+                        case "true":
+                            session.setAttribute("FLG","chgsuccess001");
+                            response.sendRedirect("/QLCF/Auth/detail_user.jsp");
+                            break;
+                        case "false":
+                            session.setAttribute("FLG","chgfail002");
+                            response.sendRedirect("/QLCF/Auth/change_pass.jsp");
+                            break;
+                        case "notexist001":
+                            session.setAttribute("FLG","chgfail003");
+                            response.sendRedirect("/QLCF/Auth/change_pass.jsp");
+                            break;
+                        default:
+                            session.setAttribute("FLG","chgfail004");
+                            response.sendRedirect("/QLCF/Auth/change_pass.jsp");
+                            break;
+                    }
+                  
+                }   
+            }
         }catch(IOException e)
         {
             response.sendRedirect("/QLCF/index.jsp");

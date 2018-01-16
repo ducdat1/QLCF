@@ -39,13 +39,10 @@
                             <label for="">Mã giảm giá</label>   
                             <select name="discount" class="form-control">
                                 <option value="1">Sản phẩm mới</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
+                                <option value="2">Ưu đãi ngày trong tuần</option>
+                                <option value="3">Ưu đãi ngày lễ</option>
+                                <option value="4">Ưu đãi coupon</option>
+                                <option value="5">Ưu đãi thuộc sự kiện khác</option>
                             </select>
                             <label for="">Ghi chú</label>
                             <textarea name="note" id="input" class="form-control" rows="2" placeholder="Ghi chú..."><%=tu.getnote()%></textarea>
@@ -69,7 +66,7 @@
                             </select>
                         </div>
                         <button type="submit" class="btn btn-primary">Lưu</button>
-                        <button type="reset" class="btn btn-primary">Cancel</button>
+                        <a href="/QLCF/Admin/QLThucUong/ThucUong.jsp"><button type="button" class="btn btn-primary">Cancel</button></a>
                     </form>
                 </div>
             </div>

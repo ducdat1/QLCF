@@ -117,9 +117,6 @@ public class NhanVien_servlet extends HttpServlet {
                 String password = request.getParameter("password");
                 NhanVien_DTO nv = nv_model.login(username, password);
                 if (nv != null) {
-//                    Cookie cookie = new Cookie("timeout","1");
-//                    cookie.setMaxAge(60*1*1); 
-//                    response.addCookie(cookie);
                     session.setAttribute("flg_nv", nv);
                     session.setAttribute("log_flg", "1");
                     response.sendRedirect("/QLCF/Admin/index.jsp");

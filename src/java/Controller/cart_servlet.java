@@ -122,14 +122,14 @@ public class cart_servlet extends HttpServlet {
             throws ServletException, IOException {
 //        processRequest(request, response);
         HttpSession session = request.getSession();
-//        String cartempty = request.getParameter("cartempty").trim();
-//        if(cartempty != null){
-//            hashMap.clear();
-//            session.removeAttribute("list_cart");
-//            session.removeAttribute("sum_cart");
-//            response.setContentType("text/plain");
-//            response.getWriter().print(0);
-//        }
+        String cartempty = request.getParameter("cartempty").trim();
+        if(cartempty != null){
+            hashMap.clear();
+            session.removeAttribute("list_cart");
+            session.removeAttribute("sum_cart");
+            response.setContentType("text/plain");
+            response.getWriter().print(0);
+        }
         String quantity = request.getParameter("quantity").trim();
         if(quantity != null){
             int sum_cart;

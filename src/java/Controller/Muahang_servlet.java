@@ -81,12 +81,16 @@ public class Muahang_servlet extends HttpServlet {
             if ("true".equals(muahang) && (session.getAttribute("list_cart") != null)){
                
                 ArrayList<ThucUong_DTO> list_tc = (ArrayList<ThucUong_DTO>)session.getAttribute("list_cart");
-                int tong = 0;
+                double tong = 0; double n = 1; 
                 for (ThucUong_DTO items : list_tc) {
-                    tong = tong + (items.getSoluong()*items.getGiaban());
+                    if(items.getdiscount()== 1 && "New".equals(items.getextra1())){
+                        n = 0.85;
+                    }else{
+                        n = 1;
+                    }
+                    tong = tong +(items.getSoluong()*items.getGiaban()*n);
                 }
-                response.getWriter().print("Out here");
-                int T_Point = U_Point - tong;
+                int T_Point = (int)(U_Point - tong);
                 response.getWriter().print(T_Point);
                 response.getWriter().print(T_Point < 0);
                 if(T_Point < 0){
@@ -95,7 +99,14 @@ public class Muahang_servlet extends HttpServlet {
                     Ban_Model banmd = new Ban_Model();
                     Ban_DTO bandto = new Ban_DTO();
                     bandto.setId_customer(uid);
-                    bandto.setTongtien(tong);
+                    int plus = Integer.parseInt(U_Plus);
+                    double tt = tong;
+                    if(plus > 50000){
+                        tt = tt*0.9;
+                    }else if(plus > 100000){
+                        tt = tt*0.85;
+                    }
+                    bandto.setTongtien((int)tt);
                     chk = banmd.insert(bandto);
                     if(chk != 0){
                         for (ThucUong_DTO items : list_tc) {
@@ -108,7 +119,7 @@ public class Muahang_servlet extends HttpServlet {
                             ctb_md.insert(ctban);
                         }
                         U_Point = T_Point;
-                        int bonus = tong/100;
+                        int bonus = (int)(tong/100);
                         U_Plus = String.valueOf((Integer.parseInt(U_Plus)) + bonus);
                         ngdung.setPlus(U_Plus);
                         ngdung.setPoint_sum(U_Point);

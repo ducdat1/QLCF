@@ -20,7 +20,7 @@ $(document).ready(function() {
     });
     $('.Cart_empty').click(function() {
         $.ajax({
-            url : '/QLCF/Empty_servlet',
+            url : '/QLCF/cart_servlet',
             data : {
                 cartempty : "delete"
             },

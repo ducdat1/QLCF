@@ -35,7 +35,7 @@ public class NhanVien_Model {
     public NhanVien_DTO login(String username, String password)
     {
         //ArrayList<NhanVien_DTO> list = new ArrayList<NhanVien_DTO>();
-        NhanVien_DTO nv = new NhanVien_DTO();
+        NhanVien_DTO nv = null;
         try
         {
             String sql = "SELECT id_nv, tennv, giolam, capdo FROM db_nhanvien WHERE taikhoan = '"+username+"' and matkhau = '"+password+"'";
@@ -46,9 +46,6 @@ public class NhanVien_Model {
             {
                 return null;
             }
-//            else if(rs.getFetchSize() > 1){
-//                return null;
-//            }
             else{
                 while(rs.next())
                     {
@@ -56,13 +53,14 @@ public class NhanVien_Model {
                         String tennv = rs.getString("tennv");
                         int giolam = rs.getInt("giolam");
                         int capdo = rs.getInt("capdo");
+                        nv = new NhanVien_DTO();
                         nv.setId_nhanvien(manv);
                         nv.setTennv(tennv);
                         nv.setGiolam(giolam);
                         nv.setCapdo(capdo);
                     }   
             }
-        }catch(Exception e){ System.out.print(e);}
+        }catch(SQLException e){ System.out.print(e);}
         return nv;
     }
     
