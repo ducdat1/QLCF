@@ -41,7 +41,10 @@
                                 <tbody>
                                 <%
                                     String idthucuong = request.getParameter("id");
-                                    int status = Integer.parseInt(request.getParameter("s"));
+                                    int status = 4;
+                                    if(request.getParameter("s") != null){
+                                        status = Integer.parseInt(request.getParameter("s"));
+                                    }
                                     ArrayList<ChiTietBan_DTO> list_order = new ChiTietBan_Model().get_by_id(idthucuong);
                                     for (ChiTietBan_DTO items : list_order) {
                                 %>       
